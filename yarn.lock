@@ -898,7 +898,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-plugin-utils@npm:^7.0.0, @babel/helper-plugin-utils@npm:^7.10.4, @babel/helper-plugin-utils@npm:^7.12.13, @babel/helper-plugin-utils@npm:^7.14.5, @babel/helper-plugin-utils@npm:^7.16.7, @babel/helper-plugin-utils@npm:^7.18.6, @babel/helper-plugin-utils@npm:^7.18.9, @babel/helper-plugin-utils@npm:^7.19.0, @babel/helper-plugin-utils@npm:^7.20.2, @babel/helper-plugin-utils@npm:^7.22.5, @babel/helper-plugin-utils@npm:^7.24.0, @babel/helper-plugin-utils@npm:^7.8.0, @babel/helper-plugin-utils@npm:^7.8.3":
+"@babel/helper-plugin-utils@npm:^7.0.0, @babel/helper-plugin-utils@npm:^7.10.4, @babel/helper-plugin-utils@npm:^7.12.13, @babel/helper-plugin-utils@npm:^7.14.5, @babel/helper-plugin-utils@npm:^7.16.7, @babel/helper-plugin-utils@npm:^7.18.6, @babel/helper-plugin-utils@npm:^7.18.9, @babel/helper-plugin-utils@npm:^7.19.0, @babel/helper-plugin-utils@npm:^7.20.2, @babel/helper-plugin-utils@npm:^7.22.5, @babel/helper-plugin-utils@npm:^7.8.0, @babel/helper-plugin-utils@npm:^7.8.3":
+  version: 7.22.5
+  resolution: "@babel/helper-plugin-utils@npm:7.22.5"
+  checksum: 10/ab220db218089a2aadd0582f5833fd17fa300245999f5f8784b10f5a75267c4e808592284a29438a0da365e702f05acb369f99e1c915c02f9f9210ec60eab8ea
+  languageName: node
+  linkType: hard
+
+"@babel/helper-plugin-utils@npm:^7.24.0":
   version: 7.24.0
   resolution: "@babel/helper-plugin-utils@npm:7.24.0"
   checksum: 10/dc8c7af321baf7653d93315beffee1790eb2c464b4f529273a24c8743a3f3095bf3f2d11828cb2c52d56282ef43a4bdc67a79c9ab8dd845e35d01871f3f28a0e
@@ -5732,6 +5739,8 @@ __metadata:
     "@storybook/addon-mdx-gfm": "npm:^8.0.10"
     "@storybook/addon-storysource": "npm:^8.0.10"
     "@storybook/blocks": "npm:^8.0.10"
+    "@storybook/components": "npm:^8.0.10"
+    "@storybook/icons": "npm:^1.2.9"
     "@storybook/manager-api": "npm:^8.0.10"
     "@storybook/react": "npm:^8.0.10"
     "@storybook/react-vite": "npm:^8.0.10"
@@ -6998,7 +7007,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/icons@npm:^1.2.5":
+"@storybook/icons@npm:^1.2.5, @storybook/icons@npm:^1.2.9":
   version: 1.2.9
   resolution: "@storybook/icons@npm:1.2.9"
   peerDependencies:
@@ -8011,7 +8020,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.7, @types/babel__core@npm:^7.18.0, @types/babel__core@npm:^7.20.2":
+"@types/babel__core@npm:^7.0.0, @types/babel__core@npm:^7.1.7, @types/babel__core@npm:^7.20.2":
+  version: 7.20.2
+  resolution: "@types/babel__core@npm:7.20.2"
+  dependencies:
+    "@babel/parser": "npm:^7.20.7"
+    "@babel/types": "npm:^7.20.7"
+    "@types/babel__generator": "npm:*"
+    "@types/babel__template": "npm:*"
+    "@types/babel__traverse": "npm:*"
+  checksum: 10/78aede009117ff6c95ef36db19e27ad15ecdcb5cfc9ad57d43caa5d2f44127105691a3e6e8d1806fd305484db8a74fdec5640e88da452c511f6351353f7ac0c8
+  languageName: node
+  linkType: hard
+
+"@types/babel__core@npm:^7.18.0":
   version: 7.20.5
   resolution: "@types/babel__core@npm:7.20.5"
   dependencies:
