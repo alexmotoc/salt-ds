@@ -286,5 +286,6 @@ export function useListControl<Item>(props: ListControlProps<Item>) {
     getOptionsMatching,
     getOptionFromSearch,
     valueToString,
+    disabled,
   };
 }
