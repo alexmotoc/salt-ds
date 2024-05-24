@@ -4,3 +4,4 @@ export * from "./GroupedOptions";
 export * from "./DisabledOption";
 export * from "./Borderless";
 export * from "./Scrolling";
+export * from "./ComplexOptions";

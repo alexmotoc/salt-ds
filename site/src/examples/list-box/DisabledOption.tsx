@@ -4,7 +4,7 @@ import { shortColorData } from "./exampleData";
 
 export const DisabledOption = (): ReactElement => {
   return (
-    <ListBox>
+    <ListBox style={{ width: "30%" }}>
       {shortColorData.slice(0, 5).map((color, index) => (
         <Option disabled={index === 2} value={color} key={color} />
       ))}

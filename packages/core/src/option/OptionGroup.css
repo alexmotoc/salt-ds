@@ -12,15 +12,23 @@
   box-sizing: border-box;
 }
 
+.saltOptionGroup {
+  border-top: var(--salt-size-border) var(--salt-separable-borderStyle) var(--salt-separable-tertiary-borderColor);
+}
+
+.saltOptionGroup:first-of-type {
+  border-top: 0;
+}
+
 /* Not implemented */
 
-.saltOptionGroup-label {
-  position: sticky;
-  top: -1px;
-}
+/*.saltOptionGroup-label {*/
+/*  position: sticky;*/
+/*  top: -1px;*/
+/*}*/
 
-.saltOptionGroup-stuck {
-  background: var(--salt-container-primary-background);
-  box-shadow: var(--salt-overlayable-shadow);
-  z-index: 2;
-}
+/*.saltOptionGroup-stuck {*/
+/*  background: var(--salt-container-primary-background);*/
+/*  box-shadow: var(--salt-overlayable-shadow);*/
+/*  z-index: 2;*/
+/*}*/

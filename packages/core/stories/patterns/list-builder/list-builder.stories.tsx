@@ -1,3 +1,4 @@
+import { ChangeEvent, CSSProperties, useState } from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import {
   StackLayout,
@@ -9,8 +10,8 @@ import {
   Option,
   Input,
   StatusIndicator,
+  Tooltip,
 } from "@salt-ds/core";
-import { ChangeEvent, CSSProperties, useState } from "react";
 import {
   ChevronDownIcon,
   ChevronLeftIcon,
@@ -36,7 +37,7 @@ interface ListProps {
   title?: string;
   options?: string[];
   onSelection?: (options: string[]) => void;
-  onReorder?: (options: string[]) => void;
+  onReorder?: (direction: "up" | "down") => void;
   onFilter?: (filter: string) => void;
   filter: string;
   selected?: string[];
@@ -63,9 +64,11 @@ function SortIcon({ sort, ...rest }: SortIconProps) {
   }
 }
 
-function sortData(data: string[], sort: SortType) {
+function sortData(data: string[], sort: SortType): string[] {
+  console.log(data, sort);
   if (!sort) return data;
-  return data.sort((a, b) =>
+  // @ts-ignore
+  return data.toSorted((a, b) =>
     sort === "asc" ? a.localeCompare(b) : b.localeCompare(a)
   );
 }
@@ -102,41 +105,14 @@ function List({
   multiselect,
 }: ListProps) {
   const [sort, setSort] = useState<SortType>(null);
-
-  const filteredOptions = sortData(options, sort);
+  const sortedOptions = sortData(options, sort);
 
   const handleMoveUp = () => {
-    let arr = [...options];
-
-    options.forEach((item, index) => {
-      if (selected.includes(item)) {
-        const prevIndex = Math.max(0, index - 1);
-        let temp = arr[prevIndex];
-        if (!selected.includes(temp)) {
-          arr[prevIndex] = item;
-          arr[index] = temp;
-        }
-      }
-    });
-
-    onReorder?.(arr);
+    onReorder?.("up");
   };
 
   const handleMoveDown = () => {
-    let arr = [...options];
-
-    for (let index = options.length - 1; index >= 0; index--) {
-      const item = options[index];
-      if (selected.includes(item)) {
-        const nextIndex = Math.min(arr.length - 1, index + 1);
-        let temp = arr[nextIndex];
-        if (!selected.includes(temp)) {
-          arr[nextIndex] = item;
-          arr[index] = temp;
-        }
-      }
-    }
-    onReorder?.(arr);
+    onReorder?.("down");
   };
 
   return (
@@ -158,43 +134,49 @@ function List({
           endItem={
             <StackLayout direction="row" gap={1}>
               {sortable && (
-                <Button
-                  variant="secondary"
-                  onClick={() =>
-                    setSort((old) => {
-                      switch (old) {
-                        case "asc":
-                          return "desc";
-                        case "desc":
-                          return null;
-                        default:
-                          return "asc";
-                      }
-                    })
-                  }
-                  aria-label="Sort alphabetically"
-                >
-                  <SortIcon sort={sort} aria-hidden />
-                </Button>
+                <Tooltip content="Sort alphabetically">
+                  <Button
+                    variant="secondary"
+                    onClick={() =>
+                      setSort((old) => {
+                        switch (old) {
+                          case "asc":
+                            return "desc";
+                          case "desc":
+                            return null;
+                          default:
+                            return "asc";
+                        }
+                      })
+                    }
+                    aria-label="Sort alphabetically"
+                  >
+                    <SortIcon sort={sort} aria-hidden />
+                  </Button>
+                </Tooltip>
               )}
               {reorderable && (
                 <>
-                  <Button
-                    disabled={selected.length === 0}
-                    variant="secondary"
-                    onClick={handleMoveUp}
-                    aria-label="Move items up"
-                  >
-                    <ChevronUpIcon aria-hidden />
-                  </Button>
-                  <Button
-                    disabled={selected.length === 0}
-                    variant="secondary"
-                    onClick={handleMoveDown}
-                    aria-label="Move items down"
-                  >
-                    <ChevronDownIcon aria-hidden />
-                  </Button>
+                  <Tooltip content="Move items up">
+                    <Button
+                      disabled={selected.length === 0}
+                      variant="secondary"
+                      onClick={handleMoveUp}
+                      aria-label="Move items up"
+                    >
+                      <ChevronUpIcon aria-hidden />
+                    </Button>
+                  </Tooltip>
+                  <Tooltip content="Move items down">
+                    <Button
+                      disabled={selected.length === 0}
+                      variant="secondary"
+                      onClick={handleMoveDown}
+                      aria-label="Move items down"
+                    >
+                      <ChevronDownIcon aria-hidden />
+                    </Button>
+                  </Tooltip>
                 </>
               )}
             </StackLayout>
@@ -203,7 +185,7 @@ function List({
         <Input
           style={{
             visibility:
-              filteredOptions.length == total && filteredOptions.length == 0
+              sortedOptions.length == total && sortedOptions.length == 0
                 ? "hidden"
                 : undefined,
           }}
@@ -226,7 +208,7 @@ function List({
           }
         />
       </StackLayout>
-      {filteredOptions.length > 0 ? (
+      {sortedOptions.length > 0 ? (
         <ListBox
           borderless
           multiselect={multiselect}
@@ -235,7 +217,7 @@ function List({
           }}
           selected={selected}
         >
-          {filteredOptions.map((option) => (
+          {sortedOptions.map((option) => (
             <Option key={option} value={option} />
           ))}
         </ListBox>
@@ -274,6 +256,35 @@ const ListBuilder: StoryFn<ListBuilderProps> = ({ multiselect }) => {
       : true
   );
 
+  const handlePickedReorder = (direction: "up" | "down") => {
+    let arr = [...picked];
+    if (direction === "up") {
+      picked.forEach((item, index) => {
+        if (optionsToRemove.includes(item)) {
+          const prevIndex = Math.max(0, index - 1);
+          let temp = arr[prevIndex];
+          if (!optionsToRemove.includes(temp)) {
+            arr[prevIndex] = item;
+            arr[index] = temp;
+          }
+        }
+      });
+    } else {
+      for (let index = picked.length - 1; index >= 0; index--) {
+        const item = picked[index];
+        if (optionsToRemove.includes(item)) {
+          const nextIndex = Math.min(arr.length - 1, index + 1);
+          let temp = arr[nextIndex];
+          if (!optionsToRemove.includes(temp)) {
+            arr[nextIndex] = item;
+            arr[index] = temp;
+          }
+        }
+      }
+    }
+    setPicked(arr);
+  };
+
   return (
     <StackLayout direction="row" gap={1} style={{ height: 266 }}>
       <List
@@ -296,7 +307,7 @@ const ListBuilder: StoryFn<ListBuilderProps> = ({ multiselect }) => {
         <Button
           aria-label="Add all to list"
           onClick={() => {
-            setPicked(filteredAvailableOptions);
+            setPicked((old) => old.concat(filteredAvailableOptions));
             setOptionsToAdd([]);
             setOptionsToRemove([]);
           }}
@@ -345,7 +356,7 @@ const ListBuilder: StoryFn<ListBuilderProps> = ({ multiselect }) => {
         total={picked.length}
         filter={removeFilter}
         onFilter={(filter) => setRemoveFilter(filter)}
-        onReorder={(options) => setPicked(options)}
+        onReorder={handlePickedReorder}
         selected={optionsToRemove}
         reorderable
         multiselect={multiselect}

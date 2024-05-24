@@ -4,7 +4,7 @@ import { shortColorData } from "./exampleData";
 
 export const Multiselect = (): ReactElement => {
   return (
-    <ListBox multiselect>
+    <ListBox multiselect style={{ width: "30%" }}>
       {shortColorData.slice(0, 5).map((color) => (
         <Option value={color} key={color} />
       ))}

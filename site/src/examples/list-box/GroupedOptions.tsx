@@ -17,7 +17,7 @@ const colorGroups = groupByFirstLetter(shortColorData.slice(0, 8));
 
 export const GroupedOptions = (): ReactElement => {
   return (
-    <ListBox>
+    <ListBox style={{ width: "30%" }}>
       {Object.entries(colorGroups).map(([firstLetter, options]) => (
         <OptionGroup label={firstLetter} key={firstLetter}>
           {options.slice(0, 2).map((color) => (

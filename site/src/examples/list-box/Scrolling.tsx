@@ -8,6 +8,7 @@ export const Scrolling = (): ReactElement => {
       style={{
         maxHeight:
           "calc((var(--salt-size-base) + var(--salt-spacing-100)) * 8)",
+        width: "30%",
       }}
     >
       {largestCities.map((city) => (
