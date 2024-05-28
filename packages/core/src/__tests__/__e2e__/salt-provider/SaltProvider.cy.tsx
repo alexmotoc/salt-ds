@@ -19,8 +19,14 @@ const TestComponent = ({
   className?: string;
 }) => {
   const density = useDensity();
-  const { theme, mode, UNSTABLE_corner, UNSTABLE_accent, themeNext } =
-    useTheme();
+  const {
+    theme,
+    mode,
+    UNSTABLE_corner,
+    UNSTABLE_accent,
+    themeNext,
+    UNSTABLE_headingFont,
+  } = useTheme();
   const { announce } = useAriaAnnouncer();
   const announcerPresent = typeof announce === "function";
 
@@ -34,7 +40,8 @@ const TestComponent = ({
       data-announcer={announcerPresent}
       data-corner={UNSTABLE_corner}
       data-accent={UNSTABLE_accent}
-      data-themeNext={themeNext}
+      data-theme-next={themeNext}
+      data-heading-font={UNSTABLE_headingFont}
     />
   );
 };
@@ -82,7 +89,7 @@ describe("Given a SaltProvider", () => {
   });
 
   describe("with props set", () => {
-    it("should apply correct default value for Density and add an AriaAnnouncer", () => {
+    it("should apply correct default value for density and add an AriaAnnouncer", () => {
       mount(
         <SaltProvider mode="dark">
           <TestComponent />
@@ -95,7 +102,7 @@ describe("Given a SaltProvider", () => {
         .and("have.attr", "data-announcer", "true");
     });
 
-    it("should apply correct default value for Theme and add an AriaAnnouncer", () => {
+    it("should apply correct default value for mode and add an AriaAnnouncer", () => {
       mount(
         <SaltProvider density="high">
           <TestComponent />
@@ -110,7 +117,7 @@ describe("Given a SaltProvider", () => {
 
     it("should apply values specified in props", () => {
       mount(
-        <SaltProvider density="high" mode="dark">
+        <SaltProvider density="high" mode="dark" theme="custom-theme">
           <TestComponent />
         </SaltProvider>
       );
@@ -118,6 +125,32 @@ describe("Given a SaltProvider", () => {
         .should("exist")
         .and("have.attr", "data-density", "high")
         .and("have.attr", "data-mode", "dark")
+        .and("have.attr", "data-theme", "custom-theme")
+        .and("have.attr", "data-announcer", "true");
+    });
+
+    it("should allow pass in multiple theme names", () => {
+      mount(
+        <SaltProvider
+          density="high"
+          mode="dark"
+          theme="custom-theme-1 custom-theme-2"
+        >
+          <TestComponent />
+        </SaltProvider>
+      );
+
+      cy.get("html")
+        .should("exist")
+        .and("have.attr", "data-mode", "dark")
+        .and("have.class", "custom-theme-1 custom-theme-2")
+        .and("have.class", "salt-density-high");
+
+      cy.get("#test-1")
+        .should("exist")
+        .and("have.attr", "data-density", "high")
+        .and("have.attr", "data-mode", "dark")
+        .and("have.attr", "data-theme", "custom-theme-1 custom-theme-2")
         .and("have.attr", "data-announcer", "true");
     });
   });
@@ -180,7 +213,12 @@ describe("Given a SaltProvider", () => {
   describe("when root is passed to applyClassesTo", () => {
     it("should apply the given theme and density class names to the html element", () => {
       mount(
-        <SaltProvider density="high" mode="dark" applyClassesTo={"root"}>
+        <SaltProvider
+          density="high"
+          mode="dark"
+          theme="custom-theme"
+          applyClassesTo={"root"}
+        >
           <TestComponent />
         </SaltProvider>
       );
@@ -190,6 +228,7 @@ describe("Given a SaltProvider", () => {
       cy.get("html")
         .should("exist")
         .and("have.attr", "data-mode", "dark")
+        .and("have.class", "custom-theme")
         .and("have.class", "salt-density-high");
     });
   });
@@ -197,7 +236,12 @@ describe("Given a SaltProvider", () => {
   describe("when scope is passed to applyClassesTo", () => {
     it("should create div element with correct classes applied even if it is the root level provider", () => {
       mount(
-        <SaltProvider density="high" mode="dark" applyClassesTo={"scope"}>
+        <SaltProvider
+          density="high"
+          mode="dark"
+          theme="custom-theme"
+          applyClassesTo="scope"
+        >
           <TestComponent />
         </SaltProvider>
       );
@@ -205,6 +249,7 @@ describe("Given a SaltProvider", () => {
       cy.get("div.salt-provider")
         .should("have.length", 1)
         .and("have.attr", "data-mode", "dark")
+        .and("have.class", "custom-theme")
         .and("have.class", "salt-density-high");
     });
   });
@@ -277,6 +322,7 @@ describe("Given a SaltProviderNext", () => {
         .and("have.attr", "data-mode", "light")
         .and("have.attr", "data-corner", "sharp")
         .and("have.attr", "data-accent", "blue")
+        .and("have.class", "salt-theme")
         .and("have.class", "salt-theme-next")
         .and("have.class", "salt-density-medium");
     });
@@ -293,8 +339,44 @@ describe("Given a SaltProviderNext", () => {
         .and("have.attr", "data-announcer", "true")
         .and("have.attr", "data-corner", "sharp")
         .and("have.attr", "data-accent", "blue")
-        .and("have.attr", "data-themeNext", "true");
+        .and("have.attr", "data-theme-next", "true");
       cy.get("[aria-live]").should("exist");
+    });
+  });
+
+  describe("with props set", () => {
+    it("should allow pass in multiple theme names", () => {
+      mount(
+        <UNSTABLE_SaltProviderNext
+          density="high"
+          mode="dark"
+          corner="rounded"
+          accent="teal"
+          theme="custom-theme-1 custom-theme-2"
+        >
+          <TestComponent />
+        </UNSTABLE_SaltProviderNext>
+      );
+
+      cy.get("html")
+        .should("exist")
+        .and("have.attr", "data-mode", "dark")
+        .and("have.attr", "data-accent", "teal")
+        .and("have.attr", "data-corner", "rounded")
+        .and("have.class", "salt-theme")
+        .and("have.class", "salt-theme-next")
+        .and("have.class", "custom-theme-1")
+        .and("have.class", "custom-theme-2")
+        .and("have.class", "salt-density-high");
+
+      cy.get("#test-1")
+        .should("exist")
+        .and("have.attr", "data-density", "high")
+        .and("have.attr", "data-mode", "dark")
+        .and("have.attr", "data-accent", "teal")
+        .and("have.attr", "data-corner", "rounded")
+        .and("have.attr", "data-theme", "custom-theme-1 custom-theme-2")
+        .and("have.attr", "data-announcer", "true");
     });
   });
 
