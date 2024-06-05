@@ -1,5 +1,5 @@
 import { Markdown } from "@storybook/blocks";
-import { ClassName } from "./utils";
+import type { ClassName } from "./utils";
 import { Name, Description, StyledTd } from "./common";
 
 interface ClassNameRowProps {

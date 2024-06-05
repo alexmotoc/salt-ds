@@ -20,7 +20,7 @@ describe("Given a ToastGroup", () => {
               <CloseIcon />
             </Button>
           </Toast>
-        </ToastGroup>
+        </ToastGroup>,
       );
       cy.get(".saltToastGroup-top-right")
         .should("exist")
@@ -38,7 +38,7 @@ describe("Given a ToastGroup", () => {
               <CloseIcon />
             </Button>
           </Toast>
-        </ToastGroup>
+        </ToastGroup>,
       );
       cy.get(".saltToastGroup-bottom-right")
         .should("exist")

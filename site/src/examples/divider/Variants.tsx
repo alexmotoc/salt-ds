@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { Divider } from "@salt-ds/lab";
 import { StackLayout } from "@salt-ds/core";
 

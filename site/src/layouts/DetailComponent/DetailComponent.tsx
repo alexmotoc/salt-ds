@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { type FC, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   Sidebar,
@@ -7,12 +7,12 @@ import {
 import {
   useRoute,
   useStore,
-  SiteState,
+  type SiteState,
   useMeta,
 } from "@jpmorganchase/mosaic-store";
 import { TabPanel, Tabs } from "@salt-ds/lab";
 import ReactMarkdown from "react-markdown";
-import { LayoutProps } from "../types/index";
+import type { LayoutProps } from "../types/index";
 import { DetailBase } from "../DetailBase";
 import SecondarySidebar from "./SecondarySidebar";
 import TitleWithDrawer from "./TitleWithDrawer";

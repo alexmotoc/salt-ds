@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { StoryFn } from "@storybook/react";
-import { TabstripNextProps, TabstripNext, TabNext } from "@salt-ds/lab";
+import type { StoryFn } from "@storybook/react";
+import { type TabstripNextProps, TabstripNext, TabNext } from "@salt-ds/lab";
 import { QAContainer } from "docs/components";
 import "./tabstrip-next.stories.css";
 

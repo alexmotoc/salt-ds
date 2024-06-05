@@ -1,10 +1,10 @@
 import {
   AccordionPanel,
   Accordion,
-  AccordionProps,
+  type AccordionProps,
   AccordionHeader,
 } from "@salt-ds/core";
-import { Component, ReactNode } from "react";
+import { Component, type ReactNode } from "react";
 
 interface DetailsSpyProps {
   children?: ReactNode;
@@ -73,7 +73,7 @@ describe("GIVEN an Accordion", () => {
           </AccordionPanel>
         </Accordion>
         <button>end</button>
-      </div>
+      </div>,
     );
 
     cy.realPress("Tab");

@@ -1,6 +1,6 @@
 import {
   Dropdown,
-  DropdownProps,
+  type DropdownProps,
   Option,
   OptionGroup,
   FormField,
@@ -10,8 +10,8 @@ import {
   Text,
 } from "@salt-ds/core";
 
-import { Meta, StoryFn } from "@storybook/react";
-import { SyntheticEvent, useState } from "react";
+import type { Meta, StoryFn } from "@storybook/react";
+import { type SyntheticEvent, useState } from "react";
 import {
   LocationIcon,
   UserAdminIcon,
@@ -212,7 +212,7 @@ export const ComplexOption: StoryFn<DropdownProps> = (args) => {
 
   const handleSelectionChange: DropdownProps["onSelectionChange"] = (
     event,
-    newSelected
+    newSelected,
   ) => {
     setSelected(newSelected);
     args.onSelectionChange?.(event, newSelected);
@@ -267,7 +267,7 @@ export const CustomValue: StoryFn<DropdownProps> = (args) => {
 
   const handleSelectionChange: DropdownProps["onSelectionChange"] = (
     event,
-    newSelected
+    newSelected,
   ) => {
     setSelected(newSelected);
     args.onSelectionChange?.(event, newSelected);
@@ -323,7 +323,7 @@ export const ObjectValue: StoryFn<DropdownProps<Person>> = () => {
   const [selected, setSelected] = useState<Person[]>([]);
   const handleSelectionChange = (
     event: SyntheticEvent,
-    newSelected: Person[]
+    newSelected: Person[],
   ) => {
     setSelected(newSelected);
   };

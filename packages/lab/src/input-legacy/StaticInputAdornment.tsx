@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { forwardRef, HTMLAttributes } from "react";
+import { forwardRef, type HTMLAttributes } from "react";
 import { makePrefixer } from "@salt-ds/core";
 
 import staticInputAdornmentCss from "./StaticInputAdornment.css";

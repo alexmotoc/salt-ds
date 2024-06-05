@@ -1,9 +1,14 @@
-import { ElementType, forwardRef, ReactElement, ReactNode } from "react";
-import { FlexLayout, FlexLayoutProps } from "../flex-layout";
+import {
+  type ElementType,
+  forwardRef,
+  type ReactElement,
+  type ReactNode,
+} from "react";
+import { FlexLayout, type FlexLayoutProps } from "../flex-layout";
 import {
   makePrefixer,
-  PolymorphicComponentPropWithRef,
-  PolymorphicRef,
+  type PolymorphicComponentPropWithRef,
+  type PolymorphicRef,
 } from "../utils";
 import splitLayoutCss from "./SplitLayout.css";
 import { useWindow } from "@salt-ds/window";
@@ -40,13 +45,13 @@ export type SplitLayoutProps<T extends ElementType> =
   >;
 
 type SplitLayoutComponent = <T extends ElementType = "div">(
-  props: SplitLayoutProps<T>
+  props: SplitLayoutProps<T>,
 ) => ReactElement | null;
 
 export const SplitLayout: SplitLayoutComponent = forwardRef(
   <T extends ElementType = "div">(
     { endItem, startItem, className, ...rest }: SplitLayoutProps<T>,
-    ref?: PolymorphicRef<T>
+    ref?: PolymorphicRef<T>,
   ) => {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -67,5 +72,5 @@ export const SplitLayout: SplitLayoutComponent = forwardRef(
         {endItem}
       </FlexLayout>
     );
-  }
+  },
 );

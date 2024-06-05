@@ -1,4 +1,8 @@
-import { ComponentPropsWithoutRef, forwardRef, MouseEventHandler } from "react";
+import {
+  type ComponentPropsWithoutRef,
+  forwardRef,
+  type MouseEventHandler,
+} from "react";
 import { clsx } from "clsx";
 import { Button } from "../button";
 import { Text } from "../text";

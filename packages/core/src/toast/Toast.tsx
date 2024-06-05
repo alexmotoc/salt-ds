@@ -1,8 +1,8 @@
 import { useComponentCssInjection } from "@salt-ds/styles";
 import { useWindow } from "@salt-ds/window";
 import { clsx } from "clsx";
-import { ComponentPropsWithoutRef, forwardRef } from "react";
-import { StatusIndicator, ValidationStatus } from "../status-indicator";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
+import { StatusIndicator, type ValidationStatus } from "../status-indicator";
 import { makePrefixer } from "../utils";
 
 import toastCss from "./Toast.css";
@@ -16,33 +16,32 @@ export interface ToastProps extends ComponentPropsWithoutRef<"div"> {
   status?: ValidationStatus;
 }
 
-export const Toast = forwardRef<HTMLDivElement, ToastProps>(function Toast(
-  props,
-  ref
-) {
-  const { children, className, status, ...rest } = props;
-  const targetWindow = useWindow();
-  useComponentCssInjection({
-    testId: "salt-toast",
-    css: toastCss,
-    window: targetWindow,
-  });
+export const Toast = forwardRef<HTMLDivElement, ToastProps>(
+  function Toast(props, ref) {
+    const { children, className, status, ...rest } = props;
+    const targetWindow = useWindow();
+    useComponentCssInjection({
+      testId: "salt-toast",
+      css: toastCss,
+      window: targetWindow,
+    });
 
-  return (
-    <div
-      className={clsx(
-        withBaseName(),
-        { [withBaseName(status ?? "")]: status },
-        className
-      )}
-      role="alert"
-      {...rest}
-      ref={ref}
-    >
-      {status && (
-        <StatusIndicator status={status} className={withBaseName("icon")} />
-      )}
-      {children}
-    </div>
-  );
-});
+    return (
+      <div
+        className={clsx(
+          withBaseName(),
+          { [withBaseName(status ?? "")]: status },
+          className,
+        )}
+        role="alert"
+        {...rest}
+        ref={ref}
+      >
+        {status && (
+          <StatusIndicator status={status} className={withBaseName("icon")} />
+        )}
+        {children}
+      </div>
+    );
+  },
+);

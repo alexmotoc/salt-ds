@@ -19,7 +19,7 @@ import {
   SearchIcon,
   UserIcon,
 } from "@salt-ds/icons";
-import { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import logo from "../../assets/logo.svg";
 
 export default {
@@ -83,7 +83,7 @@ export const Navigation = () => {
     },
   ];
   const [activeVerticalNav, setActiveVerticalNav] = useState(
-    verticalNavigationData[0].name
+    verticalNavigationData[0].name,
   );
   const [activeHeaderNav, setActiveHeaderNav] = useState(headerItems[0]);
   const [offset, setOffset] = useState(0);

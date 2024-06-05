@@ -1,4 +1,4 @@
-import { StoryFn } from "@storybook/react";
+import type { StoryFn } from "@storybook/react";
 import { Button, Pill, ToggleButton } from "@salt-ds/core";
 import {
   AddIcon,
@@ -21,7 +21,7 @@ import {
   Input,
   StaticInputAdornment,
 } from "@salt-ds/lab";
-import { QAContainer, QAContainerProps } from "docs/components";
+import { QAContainer, type QAContainerProps } from "docs/components";
 
 import "docs/story.css";
 

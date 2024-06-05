@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { makePrefixer } from "@salt-ds/core";
-import { RGBAValue } from "./Color";
+import type { RGBAValue } from "./Color";
 import { InputLegacy as Input } from "../input-legacy";
 
 import rgbaInputCss from "./RGBAInput.css";
@@ -27,7 +27,7 @@ export const RGBInput = ({
   });
 
   const [rgbaInputValue, setRgbaInputValue] = useState<number | string>(
-    rgbaValue ? rgbaValue[value] : ""
+    rgbaValue ? rgbaValue[value] : "",
   );
 
   useEffect(() => {
@@ -36,11 +36,11 @@ export const RGBInput = ({
 
   const handleRGBInputChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    value: string
+    value: string,
   ): void => {
     let rgb: string | number;
 
-    rgb = parseInt(value);
+    rgb = Number.parseInt(value);
 
     if (value.trim() === "" || Number.isNaN(rgb)) {
       rgb = "";

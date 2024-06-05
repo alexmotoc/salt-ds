@@ -1,5 +1,10 @@
-import { cloneElement, createContext, ReactElement, useContext } from "react";
-import { CollectionHookResult } from "./collectionTypes";
+import {
+  cloneElement,
+  createContext,
+  type ReactElement,
+  useContext,
+} from "react";
+import type { CollectionHookResult } from "./collectionTypes";
 
 export interface collectionContext<T> {
   collection: CollectionHookResult<T>;

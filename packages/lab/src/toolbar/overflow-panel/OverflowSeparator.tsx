@@ -1,6 +1,6 @@
 import { makePrefixer } from "@salt-ds/core";
 import { clsx } from "clsx";
-import { HTMLAttributes, ReactElement } from "react";
+import type { HTMLAttributes, ReactElement } from "react";
 import overflowSeparatorCss from "./OverflowSeparator.css";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -13,7 +13,7 @@ export interface OverflowSeparatorProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const OverflowSeparator = (
-  props: OverflowSeparatorProps
+  props: OverflowSeparatorProps,
 ): ReactElement => {
   const { className, focusable, ...rest } = props;
   const targetWindow = useWindow();

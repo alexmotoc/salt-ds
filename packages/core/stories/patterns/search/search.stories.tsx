@@ -6,8 +6,8 @@ import {
   FormFieldHelperText,
 } from "@salt-ds/core";
 import { CloseIcon, EditIcon, SearchIcon } from "@salt-ds/icons";
-import { Meta, StoryFn } from "@storybook/react";
-import { ChangeEventHandler, useRef, useState } from "react";
+import type { Meta, StoryFn } from "@storybook/react";
+import { type ChangeEventHandler, useRef, useState } from "react";
 
 export default {
   title: "Patterns/Search",

@@ -1,4 +1,4 @@
-import {
+import type {
   ComponentPropsWithoutRef,
   ComponentPropsWithRef,
   ElementType,
@@ -24,5 +24,5 @@ export type PolymorphicRef<T extends ElementType> =
 
 export type PolymorphicComponentPropWithRef<
   T extends ElementType,
-  Props
+  Props,
 > = PolymorphicComponentProp<T, Props> & { ref?: PolymorphicRef<T> };

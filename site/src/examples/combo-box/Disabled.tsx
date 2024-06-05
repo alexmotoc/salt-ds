@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { ComboBox, Option } from "@salt-ds/core";
 import { shortColorData } from "./exampleData";
 

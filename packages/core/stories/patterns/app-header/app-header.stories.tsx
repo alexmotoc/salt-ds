@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useState } from "react";
+import { type FC, type ReactNode, useEffect, useState } from "react";
 import {
   Button,
   FlexItem,
@@ -18,7 +18,7 @@ import {
   MenuIcon,
   CloseIcon,
 } from "@salt-ds/icons";
-import { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import logo from "../../assets/logo.svg";
 
 export default {

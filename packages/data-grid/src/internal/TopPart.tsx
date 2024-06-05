@@ -1,10 +1,10 @@
-import { RefObject } from "react";
+import type { RefObject } from "react";
 import { clsx } from "clsx";
 import { makePrefixer } from "@salt-ds/core";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 
-import { GridColumnGroupModel, GridColumnModel } from "../Grid";
+import type { GridColumnGroupModel, GridColumnModel } from "../Grid";
 
 import { HeaderRow } from "./HeaderRow";
 import { GroupHeaderRow } from "./GroupHeaderRow";

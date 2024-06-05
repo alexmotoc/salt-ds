@@ -1,9 +1,9 @@
 import {
-  ComponentPropsWithoutRef,
-  FocusEvent,
+  type ComponentPropsWithoutRef,
+  type FocusEvent,
   forwardRef,
-  KeyboardEvent,
-  MouseEvent,
+  type KeyboardEvent,
+  type MouseEvent,
 } from "react";
 import { clsx } from "clsx";
 import { useWindow } from "@salt-ds/window";
@@ -56,7 +56,7 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
           {
             [withBaseName("blurActive")]: blurActive,
           },
-          className
+          className,
         )}
         role="menuitem"
         aria-disabled={disabled || undefined}
@@ -75,7 +75,7 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
               const { view, ...eventInit } = event;
               queueMicrotask(() => {
                 element.dispatchEvent(
-                  new window.MouseEvent("click", eventInit)
+                  new window.MouseEvent("click", eventInit),
                 );
               });
               tree?.events.emit("click");
@@ -104,5 +104,5 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
         )}
       </div>
     );
-  }
+  },
 );

@@ -1,4 +1,4 @@
-import { ReactElement, SyntheticEvent } from "react";
+import type { ReactElement, SyntheticEvent } from "react";
 import {
   FileDropZone,
   FileDropZoneIcon,

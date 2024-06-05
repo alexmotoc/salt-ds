@@ -1,7 +1,7 @@
 import {
   Button,
   FlexItem,
-  StackLayoutProps,
+  type StackLayoutProps,
   FormField,
   FormFieldHelperText,
   FormFieldLabel,
@@ -18,8 +18,8 @@ import {
 } from "@salt-ds/core";
 import { ExportIcon, ImportIcon } from "@salt-ds/icons";
 
-import { Meta } from "@storybook/react";
-import { ElementType, useState } from "react";
+import type { Meta } from "@storybook/react";
+import { type ElementType, useState } from "react";
 
 export default {
   title: "Patterns/Button Bar",

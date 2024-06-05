@@ -1,8 +1,8 @@
-import { ReactElement, useState, ChangeEventHandler } from "react";
+import { type ReactElement, useState, type ChangeEventHandler } from "react";
 import {
   FlexLayout,
   FlexItem,
-  LayoutDirection,
+  type LayoutDirection,
   FormField,
   FormFieldLabel,
   RadioButtonGroup,

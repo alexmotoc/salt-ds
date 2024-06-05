@@ -3,10 +3,15 @@ import {
   ColumnGroup,
   Grid,
   GridColumn,
-  RowKeyGetter,
+  type RowKeyGetter,
   TextCellEditor,
 } from "../src";
-import { ChangeEvent, SyntheticEvent, useMemo, useState } from "react";
+import {
+  type ChangeEvent,
+  type SyntheticEvent,
+  useMemo,
+  useState,
+} from "react";
 import {
   Button,
   Checkbox,
@@ -17,7 +22,7 @@ import {
 } from "@salt-ds/core";
 import { DeleteIcon, UndoIcon } from "@salt-ds/icons";
 import "./grid.stories.css";
-import { StoryFn } from "@storybook/react";
+import type { StoryFn } from "@storybook/react";
 
 type Variant = "primary" | "secondary" | "zebra";
 

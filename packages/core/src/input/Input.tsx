@@ -1,12 +1,12 @@
 import { clsx } from "clsx";
 import {
-  ChangeEvent,
-  ComponentPropsWithoutRef,
-  FocusEvent,
+  type ChangeEvent,
+  type ComponentPropsWithoutRef,
+  type FocusEvent,
   forwardRef,
-  InputHTMLAttributes,
-  ReactNode,
-  Ref,
+  type InputHTMLAttributes,
+  type ReactNode,
+  type Ref,
   useState,
 } from "react";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -88,7 +88,7 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(function Input(
     variant = "primary",
     ...other
   },
-  ref
+  ref,
 ) {
   const targetWindow = useWindow();
   useComponentCssInjection({
@@ -176,7 +176,7 @@ export const Input = forwardRef<HTMLDivElement, InputProps>(function Input(
           [withBaseName("readOnly")]: isReadOnly,
           [withBaseName(validationStatus || "")]: validationStatus,
         },
-        classNameProp
+        classNameProp,
       )}
       ref={ref}
       style={inputStyle}

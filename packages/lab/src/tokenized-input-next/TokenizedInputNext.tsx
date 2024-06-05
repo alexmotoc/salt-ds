@@ -1,32 +1,32 @@
 import {
-  AdornmentValidationStatus,
+  type AdornmentValidationStatus,
   Button,
-  ButtonProps,
+  type ButtonProps,
   makePrefixer,
-  NecessityType,
+  type NecessityType,
   StatusAdornment,
   useForkRef,
   useId,
-  ValidationStatus,
+  type ValidationStatus,
 } from "@salt-ds/core";
 import {
-  ChangeEventHandler,
-  FocusEvent,
-  FocusEventHandler,
-  ForwardedRef,
+  type ChangeEventHandler,
+  type FocusEvent,
+  type FocusEventHandler,
+  type ForwardedRef,
   forwardRef,
-  HTMLAttributes,
-  KeyboardEvent,
-  KeyboardEventHandler,
-  ReactEventHandler,
-  Ref,
-  SyntheticEvent,
-  TextareaHTMLAttributes,
+  type HTMLAttributes,
+  type KeyboardEvent,
+  type KeyboardEventHandler,
+  type ReactEventHandler,
+  type Ref,
+  type SyntheticEvent,
+  type TextareaHTMLAttributes,
   useRef,
 } from "react";
 import {
-  TokenizedInputNextHelpers,
-  TokenizedInputNextState,
+  type TokenizedInputNextHelpers,
+  type TokenizedInputNextState,
   useTokenizedInputNext,
 } from "./useTokenizedInputNext";
 import { clsx } from "clsx";
@@ -38,7 +38,7 @@ import tokenizedInputCss from "./TokenizedInputNext.css";
 
 type ChangeHandler<Item> = (
   event: SyntheticEvent,
-  selectedItems: Item[] | undefined
+  selectedItems: Item[] | undefined,
 ) => void;
 
 type ExpandButtonProps = Pick<
@@ -111,7 +111,7 @@ export const TokenizedInputNext = forwardRef(function TokenizedInputNext<Item>(
     variant = "primary",
     ...rest
   }: TokenizedInputNextProps<Item>,
-  ref: ForwardedRef<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>,
 ) {
   const targetWindow = useWindow();
   useComponentCssInjection({
@@ -182,7 +182,7 @@ export const TokenizedInputNext = forwardRef(function TokenizedInputNext<Item>(
     if (process.env.NODE_ENV !== "production") {
       if (helpers == null) {
         console.warn(
-          'TokenizedInputNext is used without helpers. You should pass in "helpers" from "useTokenizedInputNext".'
+          'TokenizedInputNext is used without helpers. You should pass in "helpers" from "useTokenizedInputNext".',
         );
       }
     }
@@ -190,7 +190,7 @@ export const TokenizedInputNext = forwardRef(function TokenizedInputNext<Item>(
   };
 
   const handleExpandButtonKeyDown = (
-    event: KeyboardEvent<HTMLButtonElement>
+    event: KeyboardEvent<HTMLButtonElement>,
   ) => {
     const singleChar = event.key.length === 1;
     const triggerExpand =
@@ -215,7 +215,7 @@ export const TokenizedInputNext = forwardRef(function TokenizedInputNext<Item>(
   };
 
   const handleInputKeyUp = (
-    event: KeyboardEvent<HTMLButtonElement | HTMLTextAreaElement>
+    event: KeyboardEvent<HTMLButtonElement | HTMLTextAreaElement>,
   ) => {
     // Call keydown again if the initial event has been used to expand the input
     if (keydownExpandButton.current && "Enter" !== event.key) {
@@ -238,7 +238,7 @@ export const TokenizedInputNext = forwardRef(function TokenizedInputNext<Item>(
   };
 
   const selectedItemIds = selectedItems.map(
-    (_, index) => `${id}-pill-${index}`
+    (_, index) => `${id}-pill-${index}`,
   );
 
   const inputAriaLabelledBy = disabled
@@ -268,7 +268,7 @@ export const TokenizedInputNext = forwardRef(function TokenizedInputNext<Item>(
             [withBaseName("readOnly")]: readOnly,
             [withBaseName(validationStatus as string)]: validationStatus,
           },
-          className
+          className,
         )}
         ref={containerRef}
         onClick={onClick}

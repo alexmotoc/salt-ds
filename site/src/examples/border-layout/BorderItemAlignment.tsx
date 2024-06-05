@@ -1,4 +1,4 @@
-import { ReactElement, useState, ChangeEventHandler } from "react";
+import { type ReactElement, useState, type ChangeEventHandler } from "react";
 import {
   BorderLayout,
   BorderItem,
@@ -20,14 +20,14 @@ export const BorderItemAlignment = (): ReactElement => {
     useState<BorderItemAlignmentType>("stretch");
 
   const handleVerticalChange: ChangeEventHandler<HTMLInputElement> = (
-    event
+    event,
   ) => {
     const { value } = event.target;
     setVerticalAlignment(value as BorderItemAlignmentType);
   };
 
   const handleHorizontalChange: ChangeEventHandler<HTMLInputElement> = (
-    event
+    event,
   ) => {
     const { value } = event.target;
     setHorizontalAlignment(value as BorderItemAlignmentType);
@@ -65,7 +65,7 @@ export const BorderItemAlignment = (): ReactElement => {
               <RadioButton
                 key={alignment}
                 label={`${alignment.charAt(0).toUpperCase()}${alignment.slice(
-                  1
+                  1,
                 )}`}
                 value={alignment}
               />
@@ -86,7 +86,7 @@ export const BorderItemAlignment = (): ReactElement => {
               <RadioButton
                 key={alignment}
                 label={`${alignment.charAt(0).toUpperCase()}${alignment.slice(
-                  1
+                  1,
                 )}`}
                 value={alignment}
               />

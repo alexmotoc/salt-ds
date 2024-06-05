@@ -4,7 +4,7 @@ import {
   Text,
   StackLayout,
   Card,
-  CardProps,
+  type CardProps,
   RadioButtonGroup,
   RadioButton,
   Link,

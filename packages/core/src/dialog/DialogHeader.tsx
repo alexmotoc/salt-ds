@@ -1,6 +1,10 @@
-import { ReactNode, ComponentPropsWithoutRef, forwardRef } from "react";
+import {
+  type ReactNode,
+  type ComponentPropsWithoutRef,
+  forwardRef,
+} from "react";
 import clsx from "clsx";
-import { ValidationStatus, StatusIndicator } from "../status-indicator";
+import { type ValidationStatus, StatusIndicator } from "../status-indicator";
 import { H2, Text } from "../text";
 import { makePrefixer } from "../utils";
 import { useDialogContext } from "./DialogContext";
@@ -58,7 +62,7 @@ export const DialogHeader = forwardRef<HTMLDivElement, DialogHeaderProps>(
             [withBaseName("withAccent")]: !disableAccent && !status,
             [withBaseName(status ?? "")]: !!status,
           },
-          className
+          className,
         )}
         ref={ref}
         {...rest}
@@ -74,5 +78,5 @@ export const DialogHeader = forwardRef<HTMLDivElement, DialogHeaderProps>(
         </H2>
       </div>
     );
-  }
+  },
 );

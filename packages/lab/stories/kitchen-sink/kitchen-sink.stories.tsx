@@ -12,7 +12,7 @@ import {
   Text,
   Tooltip,
   VALIDATION_NAMED_STATUS,
-  ValidationStatus,
+  type ValidationStatus,
   RadioButton,
   RadioButtonGroup,
   H3,

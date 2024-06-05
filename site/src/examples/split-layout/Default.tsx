@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { SplitLayout, FlexItem, FlowLayout } from "@salt-ds/core";
 import styles from "./index.module.css";
 

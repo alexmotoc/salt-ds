@@ -53,7 +53,7 @@ export function useComponentCssInjection({
 
       targetWindow.document.head.insertBefore(
         styleMap.styleElement,
-        insertionPoint || targetWindow.document.head.firstChild
+        insertionPoint || targetWindow.document.head.firstChild,
       );
     } else {
       styleMap.styleElement.textContent = css;

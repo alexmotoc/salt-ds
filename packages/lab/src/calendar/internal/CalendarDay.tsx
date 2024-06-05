@@ -1,8 +1,18 @@
-import { makePrefixer, Tooltip, TooltipProps, useForkRef } from "@salt-ds/core";
+import {
+  makePrefixer,
+  Tooltip,
+  type TooltipProps,
+  useForkRef,
+} from "@salt-ds/core";
 import { clsx } from "clsx";
-import { ComponentPropsWithRef, forwardRef, ReactElement, useRef } from "react";
-import { DateValue } from "@internationalized/date";
-import { DayStatus, useCalendarDay } from "../useCalendarDay";
+import {
+  type ComponentPropsWithRef,
+  forwardRef,
+  type ReactElement,
+  useRef,
+} from "react";
+import type { DateValue } from "@internationalized/date";
+import { type DayStatus, useCalendarDay } from "../useCalendarDay";
 import calendarDayCss from "./CalendarDay.css";
 import { formatDate } from "./utils";
 import { useWindow } from "@salt-ds/window";
@@ -41,7 +51,7 @@ export const CalendarDay = forwardRef<HTMLButtonElement, CalendarDayProps>(
           date: day,
           month,
         },
-        dayRef
+        dayRef,
       );
     const { outOfRange, today, unselectable, highlighted, hidden, disabled } =
       status;
@@ -80,7 +90,7 @@ export const CalendarDay = forwardRef<HTMLButtonElement, CalendarDayProps>(
               [withBaseName("highlighted")]: !!highlighted,
             },
             dayProps.className,
-            className
+            className,
           )}
         >
           <span
@@ -95,5 +105,5 @@ export const CalendarDay = forwardRef<HTMLButtonElement, CalendarDayProps>(
         </button>
       </Tooltip>
     );
-  }
+  },
 );

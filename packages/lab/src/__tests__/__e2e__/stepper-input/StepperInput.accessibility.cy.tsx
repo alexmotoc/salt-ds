@@ -9,7 +9,7 @@ describe("Stepper Input - Accessibility", () => {
         defaultValue={-20.1}
         max={250.23}
         min={-500.11}
-      />
+      />,
     );
 
     cy.findByRole("spinbutton").should("have.attr", "aria-valuenow", "-20.1");
@@ -24,13 +24,13 @@ describe("Stepper Input - Accessibility", () => {
         <FormFieldLabel>Stepper Input</FormFieldLabel>
         <StepperInput defaultValue={-10} min={0} />
         <FormFieldHelperText>Please enter a value</FormFieldHelperText>
-      </FormField>
+      </FormField>,
     );
 
     cy.findByRole("spinbutton").should("have.accessibleName", "Stepper Input");
     cy.findByRole("spinbutton").should(
       "have.accessibleDescription",
-      "Please enter a value"
+      "Please enter a value",
     );
   });
 

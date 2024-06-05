@@ -1,4 +1,4 @@
-import { ReactElement, useState, ChangeEventHandler } from "react";
+import { type ReactElement, useState, type ChangeEventHandler } from "react";
 import {
   GridLayout,
   GridItem,

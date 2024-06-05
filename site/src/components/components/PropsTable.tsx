@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { type FC, useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { Table } from "../mdx/table";
 import { code, p, ul } from "../mdx";
@@ -64,7 +64,7 @@ export const PropsTable: FC<PropsTableType> = ({
       .then((propsTableData) => {
         if (!propsTableData) {
           console.warn(
-            `No props were found for the ${componentName} component.`
+            `No props were found for the ${componentName} component.`,
           );
         } else {
           setProps(propsTableData);
@@ -103,7 +103,7 @@ export const PropsTable: FC<PropsTableType> = ({
                   <code>{defaultValue ? defaultValue.value : "-"}</code>
                 </td>
               </tr>
-            )
+            ),
           )}
       </tbody>
     </Table>

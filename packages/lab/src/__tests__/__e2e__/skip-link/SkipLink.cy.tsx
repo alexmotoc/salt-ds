@@ -67,7 +67,7 @@ describe("GIVEN a SkipLink", () => {
     it("THEN it should move focus to the target element when interacted with", () => {
       cy.mount(<Default />);
       cy.findByText(
-        "Click here and press the Tab key to see the Skip Link"
+        "Click here and press the Tab key to see the Skip Link",
       ).click();
       cy.realPress("Tab");
       cy.findByTestId("skipLink").should("be.visible");
@@ -79,7 +79,7 @@ describe("GIVEN a SkipLink", () => {
     it("THEN it should not move focus if no target ref is given", () => {
       cy.mount(<NoTargetRef />);
       cy.findByText(
-        "Click here and press the Tab key to see the Skip Link"
+        "Click here and press the Tab key to see the Skip Link",
       ).click();
       cy.realPress("Tab");
       cy.findByTestId("skipLink").should("be.visible");
@@ -93,7 +93,7 @@ describe("GIVEN a SkipLink", () => {
     it("THEN it should move focus on to correct target when the appropriate link is interacted with", () => {
       cy.mount(<MultipleLinks />);
       cy.findByText(
-        "Click here and press the Tab key to see the Skip Link"
+        "Click here and press the Tab key to see the Skip Link",
       ).click();
       cy.realPress("Tab");
       cy.realPress("Tab");

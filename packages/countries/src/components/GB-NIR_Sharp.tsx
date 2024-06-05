@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import { useId } from "@salt-ds/core";
 import { clsx } from "clsx";
 
-import { CountrySymbol, CountrySymbolProps } from "../country-symbol";
+import { CountrySymbol, type CountrySymbolProps } from "../country-symbol";
 
 export type GB_NIR_SharpProps = CountrySymbolProps;
 
@@ -50,7 +50,7 @@ const GB_NIR_Sharp = forwardRef<SVGSVGElement, GB_NIR_SharpProps>(
         </g>
       </CountrySymbol>
     );
-  }
+  },
 );
 
 export default GB_NIR_Sharp;

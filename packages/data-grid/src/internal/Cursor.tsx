@@ -6,7 +6,7 @@ import cursorCss from "./Cursor.css";
 
 const withBaseName = makePrefixer("saltGridCursor");
 
-export interface CursorProps {}
+export type CursorProps = {};
 
 // This is probably obsolete. Cursor is rendered using cell borders now.
 export function Cursor(props: CursorProps) {

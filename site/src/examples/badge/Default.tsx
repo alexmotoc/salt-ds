@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { Badge, Button } from "@salt-ds/core";
 import { NotificationSolidIcon } from "@salt-ds/icons";
 

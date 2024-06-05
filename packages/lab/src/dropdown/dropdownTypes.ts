@@ -1,5 +1,10 @@
-import { PortalProps } from "../portal";
-import { HTMLAttributes, KeyboardEvent, ReactElement, RefObject } from "react";
+import type { PortalProps } from "../portal";
+import type {
+  HTMLAttributes,
+  KeyboardEvent,
+  ReactElement,
+  RefObject,
+} from "react";
 
 export type DropdownPlacement =
   | "bottom-start"

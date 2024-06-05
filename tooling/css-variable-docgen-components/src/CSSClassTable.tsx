@@ -1,4 +1,4 @@
-import { useOf, Of } from "@storybook/addon-docs";
+import { useOf, type Of } from "@storybook/addon-docs";
 import { ResetWrapper } from "@storybook/components";
 import { ClassNameRow } from "./ClassNameRow";
 import { EmptyBlock } from "./EmptyBlock";

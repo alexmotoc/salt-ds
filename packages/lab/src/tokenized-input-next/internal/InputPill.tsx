@@ -1,8 +1,8 @@
 import { clsx } from "clsx";
 import {
   memo,
-  MutableRefObject,
-  SyntheticEvent,
+  type MutableRefObject,
+  type SyntheticEvent,
   useRef,
   useState,
 } from "react";
@@ -11,7 +11,7 @@ import {
   Tooltip,
   useIsomorphicLayoutEffect,
   Pill,
-  PillProps,
+  type PillProps,
 } from "@salt-ds/core";
 import { getWidth } from "./useWidth";
 import { useWindow } from "@salt-ds/window";
@@ -85,7 +85,7 @@ export const InputPill = memo(function InputPill(props: InputPillProps) {
     () => () => {
       pillsRef.current[index] = undefined;
     },
-    [pillsRef, index]
+    [pillsRef, index],
   );
 
   const handleClose = (event: SyntheticEvent) => {
@@ -101,7 +101,7 @@ export const InputPill = memo(function InputPill(props: InputPillProps) {
             [withBaseName("expanded")]: isRemovable,
             [withBaseName("hidden")]: hidden,
           },
-          className
+          className,
         )}
         tabIndex={-1}
         onClick={isRemovable ? handleClose : undefined}

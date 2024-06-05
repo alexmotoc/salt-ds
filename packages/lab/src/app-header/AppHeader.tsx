@@ -3,7 +3,7 @@ import { Toolbar } from "../toolbar";
 import { makePrefixer } from "@salt-ds/core";
 import { MenuIcon } from "@salt-ds/icons";
 
-import { forwardRef, HTMLAttributes } from "react";
+import { forwardRef, type HTMLAttributes } from "react";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 
@@ -49,5 +49,5 @@ export const AppHeader = forwardRef<HTMLDivElement, AppHeaderProps>(
     //     </div>
     //   </div>
     // );
-  }
+  },
 );

@@ -1,5 +1,5 @@
-import { ChangeEvent, useState } from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { type ChangeEvent, useState } from "react";
+import type { Meta, StoryFn } from "@storybook/react";
 import {
   Button,
   Card,
@@ -10,7 +10,7 @@ import {
   RadioButton,
   RadioButtonGroup,
   Label,
-  CardProps,
+  type CardProps,
 } from "@salt-ds/core";
 import exampleImage from "./../assets/exampleImage1x.png";
 

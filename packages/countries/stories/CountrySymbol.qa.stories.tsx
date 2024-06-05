@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import { StackLayout } from "@salt-ds/core";
 import { MX, countryMetaMap } from "@salt-ds/countries";
 import "@salt-ds/countries/saltCountries.css";

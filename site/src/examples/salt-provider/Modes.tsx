@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { capitalize, Card, useTheme } from "@salt-ds/core";
 
 export const Modes = (): ReactElement => {

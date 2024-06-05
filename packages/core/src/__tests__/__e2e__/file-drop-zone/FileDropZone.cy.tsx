@@ -22,11 +22,11 @@ describe("Given a file drop zone", () => {
       },
       {
         action: "drag-drop",
-      }
+      },
     );
     cy.findByTestId("file-drop-zone-example").should(
       "have.class",
-      "saltFileDropZone-success"
+      "saltFileDropZone-success",
     );
   });
   it("should be able to accept multiple files", () => {
@@ -50,7 +50,7 @@ describe("Given a file drop zone", () => {
     cy.get("@dropSpy").should("have.been.calledOnce");
     cy.findByTestId("file-drop-zone-example").should(
       "have.class",
-      "saltFileDropZone-success"
+      "saltFileDropZone-success",
     );
   });
   it("should trigger onDrop when files are dropped", () => {

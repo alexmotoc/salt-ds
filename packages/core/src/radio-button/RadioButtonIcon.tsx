@@ -2,9 +2,9 @@ import { makePrefixer } from "../utils";
 import { clsx } from "clsx";
 import { useComponentCssInjection } from "@salt-ds/styles";
 import { useWindow } from "@salt-ds/window";
-import { AdornmentValidationStatus } from "../status-adornment";
+import type { AdornmentValidationStatus } from "../status-adornment";
 import radioButtonIconCss from "./RadioButtonIcon.css";
-import { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef } from "react";
 
 const withBaseName = makePrefixer("saltRadioButtonIcon");
 
@@ -49,7 +49,7 @@ export const RadioButtonIcon = ({
           [withBaseName(validationStatus || "")]: validationStatus,
           [withBaseName("readOnly")]: readOnly,
         },
-        className
+        className,
       )}
       {...rest}
     >

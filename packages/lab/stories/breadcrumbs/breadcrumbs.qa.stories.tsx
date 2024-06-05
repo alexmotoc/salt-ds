@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 
 import { Breadcrumb, Breadcrumbs } from "@salt-ds/lab";
 import { HomeIcon, TreeIcon } from "@salt-ds/icons";
@@ -71,7 +71,7 @@ export const AllExamplesGrid: StoryFn = (props: {
             console.log(
               "Clicked Root Level Entity from menu",
               sourceItem,
-              event
+              event,
             )
           }
         >
@@ -114,7 +114,7 @@ export const AllExamplesGrid: StoryFn = (props: {
             console.log(
               "Clicked Root Level Entity from menu",
               sourceItem,
-              event
+              event,
             )
           }
         >

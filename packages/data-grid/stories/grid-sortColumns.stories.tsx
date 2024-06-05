@@ -1,7 +1,7 @@
 import { Grid, GridColumn, SortOrder } from "@salt-ds/data-grid";
-import { Decorator } from "@storybook/react";
+import type { Decorator } from "@storybook/react";
 import {
-  Investor,
+  type Investor,
   investorKeyGetter,
   db,
   createDummyInvestors,

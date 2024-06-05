@@ -53,7 +53,7 @@ describe("GIVEN a FlexLayout", () => {
 
       cy.get(".saltFlexLayout").should(
         "have.class",
-        "saltFlexLayout-separator"
+        "saltFlexLayout-separator",
       );
     });
   });
@@ -85,7 +85,7 @@ describe("GIVEN a FlexLayout", () => {
         cy.mount(<Default wrap={wrap} />);
 
         cy.get(".saltFlexLayout").should("have.css", "flex-wrap", "nowrap");
-      }
+      },
     );
 
     it(
@@ -98,7 +98,7 @@ describe("GIVEN a FlexLayout", () => {
         cy.mount(<Default wrap={wrap} />);
 
         cy.get(".saltFlexLayout").should("have.css", "flex-wrap", "wrap");
-      }
+      },
     );
 
     it(
@@ -111,7 +111,7 @@ describe("GIVEN a FlexLayout", () => {
         cy.mount(<Default wrap={wrap} />);
 
         cy.get(".saltFlexLayout").should("have.css", "flex-wrap", "wrap");
-      }
+      },
     );
 
     it(
@@ -124,7 +124,7 @@ describe("GIVEN a FlexLayout", () => {
         cy.mount(<Default wrap={wrap} />);
 
         cy.get(".saltFlexLayout").should("have.css", "flex-wrap", "wrap");
-      }
+      },
     );
   });
 
@@ -155,11 +155,11 @@ describe("GIVEN a FlexLayout", () => {
         cy.mount(
           <SaltProvider breakpoints={breakpoints}>
             <Default wrap={wrap} />
-          </SaltProvider>
+          </SaltProvider>,
         );
 
         cy.get(".saltFlexLayout").should("have.css", "flex-wrap", "nowrap");
-      }
+      },
     );
 
     it(
@@ -172,11 +172,11 @@ describe("GIVEN a FlexLayout", () => {
         cy.mount(
           <SaltProvider breakpoints={breakpoints}>
             <Default wrap={wrap} />
-          </SaltProvider>
+          </SaltProvider>,
         );
 
         cy.get(".saltFlexLayout").should("have.css", "flex-wrap", "wrap");
-      }
+      },
     );
 
     it(
@@ -189,11 +189,11 @@ describe("GIVEN a FlexLayout", () => {
         cy.mount(
           <SaltProvider breakpoints={breakpoints}>
             <Default wrap={wrap} />
-          </SaltProvider>
+          </SaltProvider>,
         );
 
         cy.get(".saltFlexLayout").should("have.css", "flex-wrap", "wrap");
-      }
+      },
     );
 
     it(
@@ -206,11 +206,11 @@ describe("GIVEN a FlexLayout", () => {
         cy.mount(
           <SaltProvider breakpoints={breakpoints}>
             <Default wrap={wrap} />
-          </SaltProvider>
+          </SaltProvider>,
         );
 
         cy.get(".saltFlexLayout").should("have.css", "flex-wrap", "wrap");
-      }
+      },
     );
   });
 });

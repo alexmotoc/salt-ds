@@ -2,14 +2,14 @@ import { useGridContext } from "./GridContext";
 import {
   Children,
   cloneElement,
-  ComponentType,
+  type ComponentType,
   isValidElement,
-  ReactNode,
+  type ReactNode,
   useEffect,
   useRef,
 } from "react";
-import { GridColumnPin } from "./GridColumn";
-import { GridColumnGroupModel } from "./Grid";
+import type { GridColumnPin } from "./GridColumn";
+import type { GridColumnGroupModel } from "./Grid";
 
 export interface ColumnGroupCellProps {
   group: GridColumnGroupModel;

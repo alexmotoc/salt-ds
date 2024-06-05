@@ -1,4 +1,9 @@
-import { ChangeEvent, SyntheticEvent, useEffect, useState } from "react";
+import {
+  type ChangeEvent,
+  type SyntheticEvent,
+  useEffect,
+  useState,
+} from "react";
 import {
   Button,
   Card,
@@ -17,9 +22,9 @@ import {
   DrawerCloseButton,
   ComboBox,
   Option,
-  DrawerProps,
+  type DrawerProps,
 } from "@salt-ds/core";
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 
 export default {
   title: "Core/Drawer",
@@ -309,7 +314,7 @@ export const OptionalCloseAction = () => {
 
   const handleSelectionChange = (
     event: SyntheticEvent,
-    newSelected: string[]
+    newSelected: string[],
   ) => {
     return newSelected.length === 1 ? setValue(newSelected[0]) : setValue("");
   };

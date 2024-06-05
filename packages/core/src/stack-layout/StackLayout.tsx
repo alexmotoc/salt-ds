@@ -1,16 +1,16 @@
-import { ElementType, forwardRef, ReactElement } from "react";
+import { type ElementType, forwardRef, type ReactElement } from "react";
 import {
   FlexLayout,
-  FlexLayoutProps,
-  LayoutDirection,
-  LayoutSeparator,
+  type FlexLayoutProps,
+  type LayoutDirection,
+  type LayoutSeparator,
 } from "../flex-layout";
 import {
   makePrefixer,
-  PolymorphicComponentPropWithRef,
-  PolymorphicRef,
+  type PolymorphicComponentPropWithRef,
+  type PolymorphicRef,
   resolveResponsiveValue,
-  ResponsiveProp,
+  type ResponsiveProp,
 } from "../utils";
 import { clsx } from "clsx";
 import stackLayoutCss from "./StackLayout.css";
@@ -44,7 +44,7 @@ export type StackLayoutProps<T extends ElementType> =
   >;
 
 type StackLayoutComponent = <T extends ElementType = "div">(
-  props: StackLayoutProps<T>
+  props: StackLayoutProps<T>,
 ) => ReactElement | null;
 
 function parseSpacing(value: number | string | undefined) {
@@ -66,7 +66,7 @@ export const StackLayout: StackLayoutComponent = forwardRef(
       style,
       ...rest
     }: StackLayoutProps<T>,
-    ref?: PolymorphicRef<T>
+    ref?: PolymorphicRef<T>,
   ) => {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -95,7 +95,7 @@ export const StackLayout: StackLayoutComponent = forwardRef(
               ? withBaseName(`separator-${separatorAlignment}`)
               : ""]: separatorAlignment,
           },
-          className
+          className,
         )}
         ref={ref}
         direction={direction}
@@ -107,5 +107,5 @@ export const StackLayout: StackLayoutComponent = forwardRef(
         {children}
       </FlexLayout>
     );
-  }
+  },
 );

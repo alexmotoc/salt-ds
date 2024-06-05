@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { FlowLayout, Input } from "@salt-ds/core";
 
 export const TextAlignment = (): ReactElement => (

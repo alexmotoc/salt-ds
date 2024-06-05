@@ -1,10 +1,10 @@
 import {
-  FC,
-  ReactElement,
+  type FC,
+  type ReactElement,
   useState,
   createContext,
-  ChangeEvent,
-  SyntheticEvent,
+  type ChangeEvent,
+  type SyntheticEvent,
 } from "react";
 import clsx from "clsx";
 import { Switch } from "@salt-ds/core";
@@ -13,8 +13,8 @@ import {
   SaltProvider,
   ToggleButtonGroup,
   ToggleButton,
-  Density,
-  Mode,
+  type Density,
+  type Mode,
 } from "@salt-ds/core";
 import ExamplesListView from "./ExamplesListView";
 import useIsMobileView from "../../utils/useIsMobileView";

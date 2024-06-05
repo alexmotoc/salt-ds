@@ -1,6 +1,6 @@
 import {
   makePrefixer,
-  Mode,
+  type Mode,
   SaltProvider,
   UNSTABLE_SaltProviderNext,
   useTheme,
@@ -8,10 +8,10 @@ import {
 import { clsx } from "clsx";
 import {
   Children,
-  CSSProperties,
-  DetailedHTMLProps,
+  type CSSProperties,
+  type DetailedHTMLProps,
   Fragment,
-  HTMLAttributes,
+  type HTMLAttributes,
 } from "react";
 import { DraggableImg } from "./DraggableSnapshot";
 

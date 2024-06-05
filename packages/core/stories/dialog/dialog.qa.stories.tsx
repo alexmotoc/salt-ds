@@ -9,11 +9,11 @@ import {
   DialogActions,
   DialogContent,
   DialogCloseButton,
-  DialogProps,
+  type DialogProps,
   DialogContext,
 } from "@salt-ds/core";
-import { StoryFn, Meta } from "@storybook/react";
-import { QAContainer, QAContainerProps } from "docs/components";
+import type { StoryFn, Meta } from "@storybook/react";
+import { QAContainer, type QAContainerProps } from "docs/components";
 
 import "./dialog.stories.css";
 

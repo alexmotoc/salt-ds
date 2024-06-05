@@ -1,7 +1,12 @@
-import { Link, makePrefixer, Text, TooltipProps } from "@salt-ds/core";
-import { IconProps } from "@salt-ds/icons";
+import { Link, makePrefixer, Text, type TooltipProps } from "@salt-ds/core";
+import type { IconProps } from "@salt-ds/icons";
 import { clsx } from "clsx";
-import { Children, forwardRef, HTMLAttributes, ReactNode } from "react";
+import {
+  Children,
+  forwardRef,
+  type HTMLAttributes,
+  type ReactNode,
+} from "react";
 import { useBreadcrumbsContext } from "./internal/BreadcrumbsContext";
 
 import { useWindow } from "@salt-ds/window";
@@ -42,7 +47,7 @@ export const Breadcrumb = forwardRef<HTMLLIElement, BreadcrumbProps>(
       className,
       ...props
     },
-    ref
+    ref,
   ) {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -63,7 +68,7 @@ export const Breadcrumb = forwardRef<HTMLLIElement, BreadcrumbProps>(
           className={clsx(
             withBaseName(),
             className,
-            withBaseName("currentLevel")
+            withBaseName("currentLevel"),
           )}
           styleAs="label"
         >
@@ -77,7 +82,7 @@ export const Breadcrumb = forwardRef<HTMLLIElement, BreadcrumbProps>(
             {
               [withBaseName("justifyContentCenter")]: hasOnlyIcon,
             },
-            withBaseName("regular")
+            withBaseName("regular"),
           )}
         >
           {Icon && <Icon className={withBaseName("icon")} />}
@@ -111,5 +116,5 @@ export const Breadcrumb = forwardRef<HTMLLIElement, BreadcrumbProps>(
         {content}
       </li>
     );
-  }
+  },
 );

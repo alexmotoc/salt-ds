@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from "react";
+import type { FC, PropsWithChildren } from "react";
 import type { PreProps } from "@jpmorganchase/mosaic-components";
 import {
   Pre as InnerPre,

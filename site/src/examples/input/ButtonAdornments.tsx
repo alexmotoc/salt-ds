@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { Button, FlowLayout, Input } from "@salt-ds/core";
 import {
   NoteIcon,

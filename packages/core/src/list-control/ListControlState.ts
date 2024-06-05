@@ -1,12 +1,12 @@
 import {
-  SyntheticEvent,
+  type SyntheticEvent,
   useCallback,
   useEffect,
   useRef,
   useState,
 } from "react";
 import { useControlled } from "../utils";
-import { OptionValue } from "./ListControlContext";
+import type { OptionValue } from "./ListControlContext";
 
 export type OpenChangeReason = "input" | "manual";
 
@@ -75,7 +75,7 @@ export function useListControl<Item>(props: ListControlProps<Item>) {
   const [focusVisibleState, setFocusVisibleState] = useState(false);
 
   const [activeState, setActiveState] = useState<OptionValue<Item> | undefined>(
-    undefined
+    undefined,
   );
 
   const setActive = (option?: OptionValue<Item>) => {
@@ -98,7 +98,7 @@ export function useListControl<Item>(props: ListControlProps<Item>) {
   const setOpen = (
     newOpen: boolean,
     reason?: OpenChangeReason,
-    key?: string
+    key?: string,
   ) => {
     if (disabled || readOnly) {
       return;
@@ -174,11 +174,11 @@ export function useListControl<Item>(props: ListControlProps<Item>) {
 
       return () => {
         optionsRef.current = optionsRef.current.filter(
-          (item) => item.value.id !== id
+          (item) => item.value.id !== id,
         );
       };
     },
-    []
+    [],
   );
 
   const getOptionAtIndex = (index: number) => {
@@ -190,7 +190,7 @@ export function useListControl<Item>(props: ListControlProps<Item>) {
   };
 
   const getOptionsMatching = (
-    predicate: (option: OptionValue<Item>) => boolean
+    predicate: (option: OptionValue<Item>) => boolean,
   ) => {
     return optionsRef.current
       .filter((item) => predicate(item.value))
@@ -199,7 +199,7 @@ export function useListControl<Item>(props: ListControlProps<Item>) {
 
   const getOptionFromSearch = (
     search: string,
-    startFrom?: OptionValue<Item>
+    startFrom?: OptionValue<Item>,
   ) => {
     const collator = new Intl.Collator("en", {
       usage: "search",
@@ -213,8 +213,8 @@ export function useListControl<Item>(props: ListControlProps<Item>) {
       (option) =>
         collator.compare(
           valueToString(option.value).substring(0, search.length),
-          search
-        ) === 0
+          search,
+        ) === 0,
     );
 
     if (matches.length === 0) {
@@ -227,8 +227,8 @@ export function useListControl<Item>(props: ListControlProps<Item>) {
           (option) =>
             collator.compare(
               valueToString(option.value)[0].toLowerCase(),
-              letters[0]
-            ) === 0
+              letters[0],
+            ) === 0,
         );
       }
     }
@@ -240,7 +240,7 @@ export function useListControl<Item>(props: ListControlProps<Item>) {
   useEffect(() => {
     if (listRef.current) {
       const activeElement = optionsRef.current.find(
-        (option) => option.value === activeState
+        (option) => option.value === activeState,
       )?.element;
 
       if (!activeElement) {

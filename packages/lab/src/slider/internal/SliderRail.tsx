@@ -4,7 +4,7 @@ import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 import sliderCss from "../Slider.css";
 
-export interface SliderRailProps {}
+export type SliderRailProps = {};
 
 const withBaseName = makePrefixer("saltSliderRail");
 

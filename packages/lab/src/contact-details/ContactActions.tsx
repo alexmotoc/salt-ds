@@ -1,4 +1,4 @@
-import { forwardRef, HTMLAttributes } from "react";
+import { forwardRef, type HTMLAttributes } from "react";
 import { makePrefixer } from "@salt-ds/core";
 import { useContactDetailsContext } from "./internal";
 
@@ -7,7 +7,7 @@ const withBaseName = makePrefixer("saltContactActions");
 export interface ContactActionsProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const ContactActions = forwardRef<HTMLDivElement, ContactActionsProps>(
-  function (props, ref) {
+  (props, ref) => {
     const { children, ...restProps } = props;
     const { variant } = useContactDetailsContext();
     if (variant === "mini") {
@@ -18,5 +18,5 @@ export const ContactActions = forwardRef<HTMLDivElement, ContactActionsProps>(
         {children}
       </div>
     );
-  }
+  },
 );

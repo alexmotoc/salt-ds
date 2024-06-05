@@ -10,7 +10,7 @@ import { TableWrapper } from "./TableWrapper";
 import "./CharacteristicUsage.css";
 
 export function CharacteristicUsage(
-  props: Record<string, string>
+  props: Record<string, string>,
 ): JSX.Element {
   const { of } = props;
 

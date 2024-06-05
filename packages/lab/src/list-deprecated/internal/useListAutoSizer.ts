@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback, Ref } from "react";
+import { useRef, useState, useCallback, type Ref } from "react";
 import { useIsomorphicLayoutEffect } from "@salt-ds/core";
 
 export interface ListAutosizerProps {
@@ -13,7 +13,7 @@ interface size {
 }
 
 export function useListAutoSizer<Element extends HTMLElement>(
-  props: ListAutosizerProps
+  props: ListAutosizerProps,
 ): [Ref<Element>, size] {
   const { responsive, width, height } = props;
   const [size, setSize] = useState({ width, height });
@@ -40,7 +40,7 @@ export function useListAutoSizer<Element extends HTMLElement>(
         observer = new ResizeObserver(
           ([{ contentRect }]: ResizeObserverEntry[]) => {
             handleResize(contentRect);
-          }
+          },
         );
         observer.observe(ref.current);
       }

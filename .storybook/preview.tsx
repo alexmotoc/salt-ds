@@ -16,7 +16,7 @@ import "@fontsource/open-sans/800-italic.css";
 import "@fontsource/pt-mono";
 import "./styles.css";
 
-import { ComponentProps } from "react";
+import type { ComponentProps } from "react";
 import { withTheme } from "docs/decorators/withTheme";
 import { withResponsiveWrapper } from "docs/decorators/withResponsiveWrapper";
 import { WithTextSpacingWrapper } from "docs/decorators/withTextSpacingWrapper";

@@ -1,4 +1,4 @@
-import { ReactElement, useState, useEffect, useCallback } from "react";
+import { type ReactElement, useState, useEffect, useCallback } from "react";
 import {
   Button,
   FlexItem,
@@ -45,7 +45,7 @@ function useProgressingValue(updateInterval = 100) {
         handleStop();
       }
     },
-    [handleStop, value]
+    [handleStop, value],
   );
 
   return {

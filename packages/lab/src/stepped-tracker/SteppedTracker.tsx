@@ -1,8 +1,8 @@
 import {
-  ComponentPropsWithoutRef,
+  type ComponentPropsWithoutRef,
   forwardRef,
-  ReactElement,
-  ReactNode,
+  type ReactElement,
+  type ReactNode,
   Children,
   isValidElement,
   useEffect,
@@ -48,7 +48,7 @@ const useCheckInvalidChildren = (children: ReactNode) => {
 
       if (hasInvalidChild) {
         console.error(
-          "Invalid child: children of SteppedTracker must be a TrackerStep component"
+          "Invalid child: children of SteppedTracker must be a TrackerStep component",
         );
       }
     }
@@ -64,7 +64,7 @@ export const SteppedTracker = forwardRef<HTMLUListElement, SteppedTrackerProps>(
       orientation = "horizontal",
       ...restProps
     },
-    ref
+    ref,
   ): ReactElement<SteppedTrackerProps> {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -89,5 +89,5 @@ export const SteppedTracker = forwardRef<HTMLUListElement, SteppedTrackerProps>(
         </ul>
       </SteppedTrackerProvider>
     );
-  }
+  },
 );

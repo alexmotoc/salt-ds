@@ -1,6 +1,6 @@
 import { makePrefixer, Tooltip } from "@salt-ds/core";
 import { clsx } from "clsx";
-import { CSSProperties } from "react";
+import type { CSSProperties } from "react";
 import { getSliderAriaLabel } from "./utils";
 
 import { useWindow } from "@salt-ds/window";

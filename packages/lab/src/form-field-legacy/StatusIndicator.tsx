@@ -1,11 +1,11 @@
-import { IconProps } from "@salt-ds/icons";
+import type { IconProps } from "@salt-ds/icons";
 import { clsx } from "clsx";
-import { ElementType } from "react";
+import type { ElementType } from "react";
 import {
   makePrefixer,
   StatusIndicator as BaseStatusIndicator,
   Tooltip,
-  TooltipProps,
+  type TooltipProps,
 } from "@salt-ds/core";
 
 const withBaseName = makePrefixer("saltFormField");
@@ -49,7 +49,7 @@ export const StatusIndicator = (props: StatusIndicatorProps) => {
         className={clsx(
           withBaseName("statusIndicator"),
           className,
-          IconProps?.className
+          IconProps?.className,
         )}
       />
     </TooltipComponent>

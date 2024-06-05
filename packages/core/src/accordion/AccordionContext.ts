@@ -1,4 +1,4 @@
-import { SyntheticEvent, useContext } from "react";
+import { type SyntheticEvent, useContext } from "react";
 import { createContext } from "../utils";
 
 export interface AccordionContextValue {
@@ -18,7 +18,7 @@ export const AccordionContext = createContext<AccordionContextValue>(
     toggle: () => undefined,
     disabled: false,
     id: "",
-  }
+  },
 );
 
 export function useAccordion() {

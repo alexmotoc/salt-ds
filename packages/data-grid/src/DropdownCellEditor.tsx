@@ -1,11 +1,15 @@
 import { useEffect, useRef } from "react";
 import { makePrefixer } from "@salt-ds/core";
-import { Dropdown, SelectionChangeHandler, SelectHandler } from "@salt-ds/lab";
+import {
+  Dropdown,
+  type SelectionChangeHandler,
+  type SelectHandler,
+} from "@salt-ds/lab";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 
 import { useEditorContext } from "./EditorContext";
-import { GridColumnModel, GridRowModel } from "./Grid";
+import type { GridColumnModel, GridRowModel } from "./Grid";
 import { CornerTag } from "./CornerTag";
 import { Cell } from "./internal";
 

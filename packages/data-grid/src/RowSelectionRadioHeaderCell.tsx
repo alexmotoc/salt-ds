@@ -5,7 +5,7 @@ import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 
 import { AutoSizeHeaderCell } from "./HeaderCell";
-import { HeaderCellProps } from "./GridColumn";
+import type { HeaderCellProps } from "./GridColumn";
 
 import checkboxCellCss from "./CheckboxCell.css";
 

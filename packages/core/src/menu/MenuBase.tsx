@@ -1,4 +1,10 @@
-import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import {
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { MenuContext } from "./MenuContext";
 import {
   flip,
@@ -17,12 +23,12 @@ import {
   useListNavigation,
   useFloatingTree,
   size,
-  ReferenceType,
+  type ReferenceType,
 } from "@floating-ui/react";
 import {
   useControlled,
   useFloatingUI,
-  UseFloatingUIProps,
+  type UseFloatingUIProps,
   useIsomorphicLayoutEffect,
 } from "../utils";
 
@@ -76,7 +82,7 @@ export function MenuBase(props: MenuBaseProps) {
       setOpenState(newOpen);
       onOpenChange?.(newOpen);
     },
-    [setOpenState, onOpenChange]
+    [setOpenState, onOpenChange],
   );
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -132,7 +138,7 @@ export function MenuBase(props: MenuBaseProps) {
         nested: isNested,
         onNavigate: setActiveIndex,
       }),
-    ]
+    ],
   );
 
   const getPanelPosition = () => ({

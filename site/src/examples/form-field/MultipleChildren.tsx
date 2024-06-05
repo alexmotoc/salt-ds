@@ -1,4 +1,4 @@
-import { ChangeEvent, ReactElement, useState } from "react";
+import { type ChangeEvent, type ReactElement, useState } from "react";
 import {
   StackLayout,
   Checkbox,
@@ -25,15 +25,15 @@ export const MultipleChildren = (): ReactElement => {
     let update = values;
     const value = e.target.value;
 
-    if (parseFloat(value)) {
+    if (Number.parseFloat(value)) {
       if (index === 0) {
         update = {
           firstValue: value,
-          secondValue: (parseFloat(value) * 1.5).toString(),
+          secondValue: (Number.parseFloat(value) * 1.5).toString(),
         };
       } else {
         update = {
-          firstValue: ((parseFloat(value) * 2) / 3).toString(),
+          firstValue: ((Number.parseFloat(value) * 2) / 3).toString(),
           secondValue: value,
         };
       }

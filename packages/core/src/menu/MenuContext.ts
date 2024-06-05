@@ -1,6 +1,11 @@
-import { Dispatch, MutableRefObject, SetStateAction, useContext } from "react";
-import { useInteractions } from "@floating-ui/react";
-import { createContext, UseFloatingUIReturn } from "../utils";
+import {
+  type Dispatch,
+  type MutableRefObject,
+  type SetStateAction,
+  useContext,
+} from "react";
+import type { useInteractions } from "@floating-ui/react";
+import { createContext, type UseFloatingUIReturn } from "../utils";
 
 type UseInteractionsReturn = ReturnType<typeof useInteractions>;
 

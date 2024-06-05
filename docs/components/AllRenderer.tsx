@@ -1,4 +1,4 @@
-import { cloneElement, Fragment, ReactElement } from "react";
+import { cloneElement, Fragment, type ReactElement } from "react";
 import { DensityValues, SaltProvider } from "@salt-ds/core";
 import { DocGrid } from "./DocGrid";
 import { BackgroundBlock } from "./BackgroundBlock";

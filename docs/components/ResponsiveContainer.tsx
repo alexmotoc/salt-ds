@@ -1,4 +1,4 @@
-import { useState, ReactNode, SyntheticEvent } from "react";
+import { useState, type ReactNode, type SyntheticEvent } from "react";
 import "./ResponsiveContainer.css";
 import { Slider, StepperInput } from "@salt-ds/lab";
 import { Tooltip, ToggleButton, ToggleButtonGroup } from "@salt-ds/core";

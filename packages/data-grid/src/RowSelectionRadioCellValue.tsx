@@ -2,7 +2,7 @@ import { RadioButton } from "@salt-ds/core";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 
-import { GridCellValueProps } from "./GridColumn";
+import type { GridCellValueProps } from "./GridColumn";
 import { useSelectionContext } from "./SelectionContext";
 
 import checkboxCellCss from "./CheckboxCell.css";

@@ -1,6 +1,6 @@
-import { forwardRef, HTMLAttributes } from "react";
+import { forwardRef, type HTMLAttributes } from "react";
 import { makePrefixer } from "../utils";
-import { StatusIndicator, ValidationStatus } from "../status-indicator";
+import { StatusIndicator, type ValidationStatus } from "../status-indicator";
 import { clsx } from "clsx";
 
 import { useWindow } from "@salt-ds/window";
@@ -23,7 +23,7 @@ const withBaseName = makePrefixer("saltBanner");
 
 export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(
   { children, className, variant = "primary", status = "info", ...rest },
-  ref
+  ref,
 ) {
   const targetWindow = useWindow();
   useComponentCssInjection({
@@ -38,7 +38,7 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(
         withBaseName(),
         withBaseName(status),
         withBaseName(variant),
-        className
+        className,
       )}
       ref={ref}
       {...rest}

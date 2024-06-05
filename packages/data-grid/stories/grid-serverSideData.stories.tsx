@@ -1,4 +1,4 @@
-import { Decorator, StoryFn } from "@storybook/react";
+import type { Decorator, StoryFn } from "@storybook/react";
 import {
   useInfiniteQuery,
   QueryClient,
@@ -6,7 +6,7 @@ import {
 } from "@tanstack/react-query";
 import { useCallback } from "react";
 import { rest } from "msw";
-import { db, Investor, investorKeyGetter } from "./dummyData";
+import { db, type Investor, investorKeyGetter } from "./dummyData";
 import { Grid, GridColumn, RowSelectionCheckboxColumn } from "../src";
 import "./grid.stories.css";
 
@@ -59,7 +59,7 @@ const ServerSideDataTemplate: StoryFn<{}> = (props) => {
         void fetchNextPage();
       }
     },
-    [lastRow]
+    [lastRow],
   );
   return (
     <Grid

@@ -1,6 +1,6 @@
 import { ToggleButton, Tooltip } from "@salt-ds/core";
 import { HomeIcon, FavoriteSolidIcon } from "@salt-ds/icons";
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 
 export default {
   title: "Core/Toggle Button",

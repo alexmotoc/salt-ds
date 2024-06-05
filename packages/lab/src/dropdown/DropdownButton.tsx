@@ -1,8 +1,17 @@
-import { Button, ButtonProps, makePrefixer } from "@salt-ds/core";
-import { ChevronDownIcon, IconProps, DEFAULT_ICON_SIZE } from "@salt-ds/icons";
+import { Button, type ButtonProps, makePrefixer } from "@salt-ds/core";
+import {
+  ChevronDownIcon,
+  type IconProps,
+  DEFAULT_ICON_SIZE,
+} from "@salt-ds/icons";
 import { useFormFieldLegacyProps } from "../form-field-context-legacy";
 import { clsx } from "clsx";
-import { AriaAttributes, ComponentType, ForwardedRef, forwardRef } from "react";
+import {
+  type AriaAttributes,
+  type ComponentType,
+  type ForwardedRef,
+  forwardRef,
+} from "react";
 
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -73,7 +82,7 @@ export const DropdownButton = forwardRef(function DropdownButton(
     labelAriaAttributes,
     ...rest
   }: DropdownButtonProps,
-  ref: ForwardedRef<HTMLButtonElement>
+  ref: ForwardedRef<HTMLButtonElement>,
 ) {
   const targetWindow = useWindow();
   useComponentCssInjection({
@@ -94,7 +103,7 @@ export const DropdownButton = forwardRef(function DropdownButton(
           [withBaseName("fullwidth")]: fullWidth,
           [withBaseName("formField")]: inFormField,
         },
-        className
+        className,
       )}
       data-testid="dropdown-button"
       disabled={disabled}

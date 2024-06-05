@@ -1,4 +1,4 @@
-import { styled, CSSObject } from "@storybook/theming";
+import { styled, type CSSObject } from "@storybook/theming";
 import { codeCommon } from "@storybook/components";
 
 export const Name = styled.span({ fontWeight: "bold" });

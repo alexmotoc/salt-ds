@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { useDensity, StackLayout, Text, capitalize } from "@salt-ds/core";
 import styles from "./Density.module.css";
 

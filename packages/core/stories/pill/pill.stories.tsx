@@ -1,5 +1,5 @@
 import { CloseIcon, FavoriteIcon } from "@salt-ds/icons";
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
 import { Button, Pill, FlowLayout } from "@salt-ds/core";
 import { shortColorData } from "../assets/exampleData";
@@ -30,7 +30,7 @@ export const Closable: StoryFn<typeof Pill> = () => {
   const removeColor = (color: string) => {
     console.log(`Closed ${color}`);
     setColor((oldColors) =>
-      oldColors.filter((colorItem) => colorItem !== color)
+      oldColors.filter((colorItem) => colorItem !== color),
     );
   };
   return (

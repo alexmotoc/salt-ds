@@ -1,7 +1,7 @@
-import { ReactElement, useState } from "react";
+import { type ReactElement, useState } from "react";
 import {
   Dropdown,
-  DropdownProps,
+  type DropdownProps,
   Option,
   StackLayout,
   Text,
@@ -37,7 +37,7 @@ export const ComplexOptions = (): ReactElement => {
 
   const handleSelectionChange: DropdownProps["onSelectionChange"] = (
     event,
-    newSelected
+    newSelected,
   ) => {
     setSelected(newSelected);
   };

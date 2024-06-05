@@ -3,13 +3,13 @@ import {
   useReducer,
   useRef,
   Children,
-  ReactElement,
-  ReactNode,
+  type ReactElement,
+  type ReactNode,
   isValidElement,
 } from "react";
 import { useIsomorphicLayoutEffect } from "@salt-ds/core";
 
-import {
+import type {
   OverflowItem,
   OverflowCollectionOptions,
   OverflowCollectionHookProps,
@@ -19,10 +19,10 @@ import {
 import { measureOverflowItems } from "./overflowUtils";
 import {
   reducerInitialiser,
-  OverflowAction,
+  type OverflowAction,
   overflowReducer,
-  OverflowReducer,
-  OverflowReducerInitialisationProps,
+  type OverflowReducer,
+  type OverflowReducerInitialisationProps,
 } from "./OverflowReducer";
 
 const defaultOptions: OverflowCollectionOptions = {};
@@ -50,7 +50,7 @@ const defaultSourceIdentity = (source: WithLabel[]): string => {
 const getItemsIdentity = (
   defaultSource?: OverflowSource[],
   source?: OverflowSource[],
-  children?: ReactNode
+  children?: ReactNode,
 ): string => {
   let identity;
   if (Array.isArray(defaultSource)) {
@@ -64,7 +64,7 @@ const getItemsIdentity = (
 };
 
 type OverflowCollectionHook = (
-  props: OverflowCollectionHookProps
+  props: OverflowCollectionHookProps,
 ) => OverflowCollectionHookResult;
 
 export const useOverflowCollectionItems: OverflowCollectionHook = ({
@@ -86,7 +86,7 @@ export const useOverflowCollectionItems: OverflowCollectionHook = ({
   const isControlled = Array.isArray(source) || Children.count(children) > 0;
   if (isControlled && defaultSource !== undefined) {
     throw Error(
-      "useOverflowCollectionItems: defaultSource prop should not be used in combination with either source prop or children "
+      "useOverflowCollectionItems: defaultSource prop should not be used in combination with either source prop or children ",
     );
   }
 
@@ -102,7 +102,7 @@ export const useOverflowCollectionItems: OverflowCollectionHook = ({
       idRoot,
       options,
     },
-    reducerInitialiser
+    reducerInitialiser,
   );
 
   dataRef.current = data;
@@ -121,7 +121,7 @@ export const useOverflowCollectionItems: OverflowCollectionHook = ({
           const dimension = orientation === "horizontal" ? "width" : "height";
           const overflowItems = measureOverflowItems(
             dataRef.current,
-            dimension
+            dimension,
           );
           // TODO if measurements have not changed, do nothing
           // Track the generation of measured items. This can be used to trigger
@@ -134,7 +134,7 @@ export const useOverflowCollectionItems: OverflowCollectionHook = ({
         }
       }
     },
-    [orientation]
+    [orientation],
   );
 
   // Take the initial measurements of overflow items. All subsequent re-measurement will be
@@ -168,7 +168,7 @@ export const useOverflowCollectionItems: OverflowCollectionHook = ({
         }
       }
     },
-    [measureManagedItems]
+    [measureManagedItems],
   );
 
   useIsomorphicLayoutEffect(() => {

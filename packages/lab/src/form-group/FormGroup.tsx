@@ -1,4 +1,4 @@
-import { forwardRef, HTMLAttributes } from "react";
+import { forwardRef, type HTMLAttributes } from "react";
 import { clsx } from "clsx";
 
 import { useWindow } from "@salt-ds/window";
@@ -30,5 +30,5 @@ export const FormGroup = forwardRef<HTMLDivElement, FormGroupProps>(
         {...other}
       />
     );
-  }
+  },
 );

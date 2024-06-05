@@ -1,7 +1,7 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import {
   AccordionGroup,
-  AccordionProps,
+  type AccordionProps,
   Accordion,
   AccordionHeader,
   AccordionPanel,

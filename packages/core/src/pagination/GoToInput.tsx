@@ -1,10 +1,10 @@
 import { clsx } from "clsx";
 import {
-  ChangeEventHandler,
+  type ChangeEventHandler,
   forwardRef,
-  HTMLAttributes,
-  KeyboardEventHandler,
-  Ref,
+  type HTMLAttributes,
+  type KeyboardEventHandler,
+  type Ref,
   useState,
 } from "react";
 import { FormField, FormFieldLabel } from "../form-field";
@@ -42,7 +42,7 @@ export const GoToInput = forwardRef<HTMLDivElement, GoToInputProps>(
       label = "Go to",
       ...restProps
     },
-    ref
+    ref,
   ) {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -104,5 +104,5 @@ export const GoToInput = forwardRef<HTMLDivElement, GoToInputProps>(
         />
       </FormField>
     );
-  }
+  },
 );

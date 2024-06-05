@@ -24,7 +24,7 @@ describe("GIVEN a Banner", () => {
     cy.mount(
       <Banner>
         <BannerContent>{message}</BannerContent>
-      </Banner>
+      </Banner>,
     );
 
     cy.get("[aria-live]").contains(message);
@@ -35,12 +35,12 @@ describe("GIVEN a Banner", () => {
       cy.mount(
         <Banner data-testid="bannerRoot" variant="secondary">
           <BannerContent> Default Banner State</BannerContent>
-        </Banner>
+        </Banner>,
       );
 
       cy.findByTestId("bannerRoot").should(
         "have.class",
-        "saltBanner-secondary"
+        "saltBanner-secondary",
       );
     });
   });

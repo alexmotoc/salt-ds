@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { type ReactElement, useState } from "react";
 import { Button, FlexLayout, StackLayout, Tooltip } from "@salt-ds/core";
 import { SteppedTracker, TrackerStep, StepLabel } from "@salt-ds/lab";
 import { RefreshIcon } from "@salt-ds/icons";
@@ -46,8 +46,8 @@ export const StepProgression = (): ReactElement => {
               ...step,
               state: "completed",
             }
-          : step
-      )
+          : step,
+      ),
     );
   };
 

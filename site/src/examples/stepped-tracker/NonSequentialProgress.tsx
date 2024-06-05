@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { type ReactElement, useState } from "react";
 import { Button, FlexLayout, StackLayout } from "@salt-ds/core";
 import { SteppedTracker, TrackerStep, StepLabel } from "@salt-ds/lab";
 
@@ -49,8 +49,8 @@ export const NonSequentialProgress = (): ReactElement => {
               ...step,
               state: step.state === "default" ? "completed" : "default",
             }
-          : step
-      )
+          : step,
+      ),
     );
   };
 

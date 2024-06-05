@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import {
-  LivePreviewContextType,
+  type LivePreviewContextType,
   LivePreviewContext,
 } from "./LivePreviewControls";
 

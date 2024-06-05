@@ -1,11 +1,11 @@
-import { FC, useState } from "react";
+import { type FC, useState } from "react";
 import {
   BorderLayout,
   BorderItem,
   NavigationItem,
   StackLayout,
 } from "@salt-ds/core";
-import { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import {
   LineChartIcon,
   NotificationIcon,
@@ -141,13 +141,13 @@ export const Nested = () => {
     setExpanded(
       isExpanded
         ? expanded.filter((name) => name !== item.name)
-        : [...expanded, item.name]
+        : [...expanded, item.name],
     );
   };
 
   const isParentOfActiveItem = (
     children: NavigationItemData[],
-    activeName: string
+    activeName: string,
   ): boolean => {
     return children.some((child: NavigationItemData) => {
       if (child.name === activeName) return true;

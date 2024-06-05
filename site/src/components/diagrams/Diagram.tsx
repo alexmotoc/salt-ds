@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Image } from "@jpmorganchase/mosaic-site-components";
 import { clsx } from "clsx";
 

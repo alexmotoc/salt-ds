@@ -1,5 +1,11 @@
 // based on https://github.com/WICG/focus-visible/blob/v4.1.5/src/focus-visible.js
-import { useCallback, useRef, FocusEvent, MutableRefObject, Ref } from "react";
+import {
+  useCallback,
+  useRef,
+  type FocusEvent,
+  type MutableRefObject,
+  type Ref,
+} from "react";
 
 let hadKeyboardEvent = true;
 let hadFocusVisibleRecently = false;

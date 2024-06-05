@@ -3,7 +3,7 @@ import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 
 import { GroupHeaderCell } from "../GroupHeaderCell";
-import { GridColumnGroupModel } from "../Grid";
+import type { GridColumnGroupModel } from "../Grid";
 import { GroupHeaderCellValue } from "../GroupHeaderCellValue";
 
 import { FakeGroupCell } from "./FakeGroupCell";

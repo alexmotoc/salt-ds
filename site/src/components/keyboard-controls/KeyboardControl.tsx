@@ -1,4 +1,4 @@
-import { FC, ReactNode, Fragment } from "react";
+import { type FC, type ReactNode, Fragment } from "react";
 
 export interface KeyboardControlProps {
   children: ReactNode;

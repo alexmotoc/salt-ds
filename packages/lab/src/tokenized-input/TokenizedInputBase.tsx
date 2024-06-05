@@ -1,25 +1,25 @@
 import { clsx } from "clsx";
 import deepmerge from "deepmerge";
 import {
-  ChangeEventHandler,
-  FocusEvent,
-  FocusEventHandler,
-  ForwardedRef,
+  type ChangeEventHandler,
+  type FocusEvent,
+  type FocusEventHandler,
+  type ForwardedRef,
   forwardRef,
-  HTMLAttributes,
-  KeyboardEvent,
-  KeyboardEventHandler,
-  ReactElement,
-  ReactEventHandler,
-  Ref,
-  SyntheticEvent,
+  type HTMLAttributes,
+  type KeyboardEvent,
+  type KeyboardEventHandler,
+  type ReactElement,
+  type ReactEventHandler,
+  type Ref,
+  type SyntheticEvent,
   useCallback,
   useRef,
   useState,
 } from "react";
 import {
   Button,
-  ButtonProps,
+  type ButtonProps,
   makePrefixer,
   useDensity,
   useForkRef,
@@ -33,13 +33,13 @@ import { InputPill } from "./internal/InputPill";
 import { InputRuler } from "./internal/InputRuler";
 import { useResizeObserver } from "./internal/useResizeObserver";
 import { useWidth } from "./internal/useWidth";
-import {
+import type {
   TokenizedInputHelpers,
   TokenizedInputState,
 } from "./useTokenizedInput";
 import {
   InputLegacy as Input,
-  InputLegacyProps as InputProps,
+  type InputLegacyProps as InputProps,
 } from "../input-legacy";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -92,7 +92,7 @@ const hasHelpers = (helpers: any) => {
   if (process.env.NODE_ENV !== "production") {
     if (helpers == null) {
       console.warn(
-        'TokenizedInputBase is used without helpers. You should pass in "helpers" from "useTokenizedInput".'
+        'TokenizedInputBase is used without helpers. You should pass in "helpers" from "useTokenizedInput".',
       );
     }
   }
@@ -101,7 +101,7 @@ const hasHelpers = (helpers: any) => {
 
 export const TokenizedInputBase = forwardRef(function TokenizedInputBase<Item>(
   props: TokenizedInputBaseProps<Item>,
-  ref: ForwardedRef<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>,
 ) {
   const {
     InputProps = {},
@@ -177,8 +177,8 @@ export const TokenizedInputBase = forwardRef(function TokenizedInputBase<Item>(
       ([{ contentRect }]) => {
         setPillGroupWidth(contentRect.width - widthOffset);
       },
-      [widthOffset]
-    )
+      [widthOffset],
+    ),
   );
 
   useIsomorphicLayoutEffect(
@@ -187,7 +187,7 @@ export const TokenizedInputBase = forwardRef(function TokenizedInputBase<Item>(
       // readonly state before they are measured.
       setFirstHiddenIndex(null);
     },
-    [density]
+    [density],
   );
 
   // useLayoutEffect because of potential layout change
@@ -201,14 +201,14 @@ export const TokenizedInputBase = forwardRef(function TokenizedInputBase<Item>(
           calcFirstHiddenIndex({
             containerWidth: pillGroupWidth,
             pillWidths: Object.values(pillsRef.current).filter(
-              Boolean
+              Boolean,
             ) as number[],
-          })
+          }),
         );
       }
     },
     // Additional dependency on selectedItems is for the controlled version
-    [expanded, pillGroupWidth, selectedItems]
+    [expanded, pillGroupWidth, selectedItems],
   );
 
   useIsomorphicLayoutEffect(() => {
@@ -219,7 +219,7 @@ export const TokenizedInputBase = forwardRef(function TokenizedInputBase<Item>(
   }, [expanded, pillGroupWidth, value]);
 
   const handleExpandButtonKeyDown = (
-    event: KeyboardEvent<HTMLButtonElement>
+    event: KeyboardEvent<HTMLButtonElement>,
   ) => {
     const singleChar = event.key.length === 1;
     const triggerExpand =
@@ -276,7 +276,7 @@ export const TokenizedInputBase = forwardRef(function TokenizedInputBase<Item>(
   };
 
   const selectedItemIds = selectedItems.map(
-    (_, index) => `${id}-pill-${index}`
+    (_, index) => `${id}-pill-${index}`,
   );
 
   const inputAriaLabelledBy = disabled
@@ -300,7 +300,7 @@ export const TokenizedInputBase = forwardRef(function TokenizedInputBase<Item>(
             : undefined,
       },
     },
-    InputProps
+    InputProps,
   );
 
   const {
@@ -318,7 +318,7 @@ export const TokenizedInputBase = forwardRef(function TokenizedInputBase<Item>(
           [withBaseName("expanded")]: expanded,
           [withBaseName("disabled")]: disabled,
         },
-        className
+        className,
       )}
       id={id}
       onClick={onClick}
@@ -414,5 +414,5 @@ export const TokenizedInputBase = forwardRef(function TokenizedInputBase<Item>(
     </div>
   );
 }) as <Item>(
-  p: TokenizedInputBaseProps<Item> & { ref?: ForwardedRef<HTMLDivElement> }
+  p: TokenizedInputBaseProps<Item> & { ref?: ForwardedRef<HTMLDivElement> },
 ) => ReactElement<TokenizedInputBaseProps<Item>>;

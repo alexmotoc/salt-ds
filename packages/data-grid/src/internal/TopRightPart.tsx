@@ -5,7 +5,7 @@ import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 import { clsx } from "clsx";
 
-import { GridColumnGroupModel, GridColumnModel } from "../Grid";
+import type { GridColumnGroupModel, GridColumnModel } from "../Grid";
 
 import { GroupHeaderRow } from "./GroupHeaderRow";
 import { useActiveOnWheel } from "./gridHooks";

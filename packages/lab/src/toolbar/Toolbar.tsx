@@ -4,7 +4,7 @@ import {
   Children,
   cloneElement,
   forwardRef,
-  ReactElement,
+  type ReactElement,
   useRef,
 } from "react";
 
@@ -17,9 +17,9 @@ import {
   useOverflowLayout,
 } from "../responsive";
 import { renderToolbarItems } from "./internal/renderToolbarItems";
-import { ToolbarProps } from "./ToolbarProps";
+import type { ToolbarProps } from "./ToolbarProps";
 import { Tooltray } from "./Tooltray";
-import { TooltrayProps } from "./TooltrayProps";
+import type { TooltrayProps } from "./TooltrayProps";
 
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -88,8 +88,8 @@ export const Toolbar = forwardRef<HTMLDivElement, ToolbarProps>(
               cloneElement(el, {
                 "data-is-inside-panel": true,
                 key: id,
-              })
-            )
+              }),
+            ),
           );
           if (i < arr.length - 1) {
             items.push(<OverflowSeparator key={`separator-${i}`} />);
@@ -99,16 +99,16 @@ export const Toolbar = forwardRef<HTMLDivElement, ToolbarProps>(
             cloneElement(element, {
               key: id,
               "data-is-inside-panel": true,
-            })
+            }),
           );
         }
         return items;
       },
-      [] as ReactElement[]
+      [] as ReactElement[],
     );
 
     const overflowIndicator = collectionHook.data.find(
-      (i) => i.isOverflowIndicator
+      (i) => i.isOverflowIndicator,
     );
 
     const overflowPanel = overflowIndicator ? (
@@ -156,5 +156,5 @@ export const Toolbar = forwardRef<HTMLDivElement, ToolbarProps>(
         </div>
       </div>
     );
-  }
+  },
 );

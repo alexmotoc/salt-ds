@@ -10,8 +10,8 @@ import {
   RefreshIcon,
   SendIcon,
 } from "@salt-ds/icons";
-import { Meta, StoryFn } from "@storybook/react";
-import { ChangeEvent, useState } from "react";
+import type { Meta, StoryFn } from "@storybook/react";
+import { type ChangeEvent, useState } from "react";
 
 export default {
   title: "Core/Input",

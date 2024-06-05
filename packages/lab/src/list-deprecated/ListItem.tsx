@@ -1,9 +1,9 @@
-import { forwardRef, ForwardedRef, ReactElement } from "react";
+import { forwardRef, type ForwardedRef, type ReactElement } from "react";
 
 import { isPlainObject } from "./internal/helpers";
 import { useDescendant } from "./internal/DescendantContext";
 import { useListItem } from "./useListItem";
-import { ListItemBase, ListItemBaseProps } from "./ListItemBase";
+import { ListItemBase, type ListItemBaseProps } from "./ListItemBase";
 
 export interface ListItemProps<Item = string>
   extends Omit<
@@ -16,7 +16,7 @@ export interface ListItemProps<Item = string>
 
 function ListItem<Item = string>(
   props: ListItemProps<Item>,
-  ref?: ForwardedRef<HTMLDivElement>
+  ref?: ForwardedRef<HTMLDivElement>,
 ) {
   const {
     children,
@@ -45,7 +45,7 @@ function ListItem<Item = string>(
 // `const` could not be generic, but we has to use `forwardRef` so that React would use the component correctly..?
 // So we have to override the type definition of forwardRef to be our own
 type GenericListItem = <Item = string>(
-  p: ListItemProps<Item> & { ref?: ForwardedRef<HTMLDivElement> }
+  p: ListItemProps<Item> & { ref?: ForwardedRef<HTMLDivElement> },
 ) => ReactElement<ListItemProps<Item>>;
 
 const _ListItem = forwardRef(ListItem) as GenericListItem;

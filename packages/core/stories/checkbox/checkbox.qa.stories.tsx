@@ -1,8 +1,8 @@
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import {
   Checkbox,
   CheckboxGroup,
-  CheckboxGroupProps,
+  type CheckboxGroupProps,
   FormField,
   FormFieldLabel,
   FormFieldHelperText,
@@ -10,8 +10,8 @@ import {
 import {
   QAContainer,
   QAContainerNoStyleInjection,
-  QAContainerNoStyleInjectionProps,
-  QAContainerProps,
+  type QAContainerNoStyleInjectionProps,
+  type QAContainerProps,
 } from "docs/components";
 
 export default {
@@ -81,7 +81,7 @@ AllExamplesGrid.parameters = {
 };
 
 export const NoStyleInjectionGrid: StoryFn<QAContainerNoStyleInjectionProps> = (
-  props
+  props,
 ) => (
   <QAContainerNoStyleInjection cols={1} itemPadding={8} {...props}>
     <CheckboxGroupExample direction="vertical" />

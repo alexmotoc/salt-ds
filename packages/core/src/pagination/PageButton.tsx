@@ -1,4 +1,4 @@
-import { MouseEventHandler, forwardRef } from "react";
+import { type MouseEventHandler, forwardRef } from "react";
 import { clsx } from "clsx";
 import { Button } from "../button";
 import { makePrefixer } from "../utils";
@@ -47,5 +47,5 @@ export const PageButton = forwardRef<HTMLButtonElement, PageButtonProps>(
         {page}
       </Button>
     );
-  }
+  },
 );

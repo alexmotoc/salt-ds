@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { Button, StackLayout, SegmentedButtonGroup } from "@salt-ds/core";
 import { CallIcon, MessageIcon, ChatGroupIcon } from "@salt-ds/icons";
 

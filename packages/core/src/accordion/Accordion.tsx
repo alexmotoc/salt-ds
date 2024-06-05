@@ -1,4 +1,8 @@
-import { ComponentPropsWithoutRef, forwardRef, SyntheticEvent } from "react";
+import {
+  type ComponentPropsWithoutRef,
+  forwardRef,
+  type SyntheticEvent,
+} from "react";
 import { clsx } from "clsx";
 import { AccordionContext } from "./AccordionContext";
 import { useWindow } from "@salt-ds/window";
@@ -84,11 +88,11 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
           className={clsx(
             withBaseName(),
             { [withBaseName(status ?? "")]: status },
-            className
+            className,
           )}
           {...rest}
         />
       </AccordionContext.Provider>
     );
-  }
+  },
 );

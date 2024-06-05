@@ -8,8 +8,8 @@ import {
   countryMetaMap,
   LazyCountrySymbol,
 } from "@salt-ds/countries";
-import { type CountryCode } from "@salt-ds/countries";
-import { Meta, StoryFn } from "@storybook/react";
+import type { CountryCode } from "@salt-ds/countries";
+import type { Meta, StoryFn } from "@storybook/react";
 import { FlexLayout, StackLayout } from "@salt-ds/core";
 import { FormField, Input } from "@salt-ds/lab";
 
@@ -54,7 +54,7 @@ export const CountrySymbolSharpMultipleSizes: StoryFn<
 );
 
 export const AllCountrySymbolsWithSearch: StoryFn<typeof CountrySymbol> = (
-  args
+  args,
 ) => {
   const [inputText, setInputText] = useState("");
 
@@ -73,7 +73,7 @@ export const AllCountrySymbolsWithSearch: StoryFn<typeof CountrySymbol> = (
         <FlexLayout wrap gap={3} style={{ paddingBlock: "1rem" }}>
           {Object.keys(countryMetaMap)
             .map(
-              (componentCode) => countryMetaMap[componentCode as CountryCode]
+              (componentCode) => countryMetaMap[componentCode as CountryCode],
             )
             .filter(({ countryCode, countryName }) => {
               const searchText = inputText.toLowerCase();

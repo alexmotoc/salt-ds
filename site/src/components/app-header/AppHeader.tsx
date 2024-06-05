@@ -1,9 +1,9 @@
-import React, { FC, useState } from "react";
+import React, { type FC, useState } from "react";
 import { Logo, LogoImage } from "@salt-ds/lab";
 import { useIsomorphicLayoutEffect, Text } from "@salt-ds/core";
 import { useBreakpoint, Link } from "@jpmorganchase/mosaic-components";
 import type { TabsMenu, TabsLinkItem } from "@jpmorganchase/mosaic-components";
-import { useRoute, SidebarItem } from "@jpmorganchase/mosaic-store";
+import { useRoute, type SidebarItem } from "@jpmorganchase/mosaic-store";
 import {
   AppHeaderDrawer,
   AppHeaderTabs,

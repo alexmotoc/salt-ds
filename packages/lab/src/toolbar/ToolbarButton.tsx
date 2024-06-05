@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { Button, ButtonProps } from "@salt-ds/core";
+import { Button, type ButtonProps } from "@salt-ds/core";
 
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -29,5 +29,5 @@ export const ToolbarButton = forwardRef<HTMLButtonElement, ToolbarButtonProps>(
         ref={forwardedRef}
       />
     );
-  }
+  },
 );

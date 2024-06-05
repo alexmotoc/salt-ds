@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { Markdown } from "@storybook/blocks";
-import { characteristic, getCharacteristicValue } from "@salt-ds/core";
+import { type characteristic, getCharacteristicValue } from "@salt-ds/core";
 import { ColorBlock } from "docs/components/ColorBlock";
 import { Name, Description, StyledTd } from "./common";
 import { ShadowBlockCell } from "docs/components/ShadowBlock";
@@ -52,7 +52,7 @@ const TokenInfo = (props: { token: string }) => {
     "salt-theme",
     characteristicName,
     token.split(`${characteristicName}-`)[1],
-    provider
+    provider,
   );
 
   return (

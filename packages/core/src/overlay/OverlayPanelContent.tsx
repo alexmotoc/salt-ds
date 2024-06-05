@@ -1,7 +1,11 @@
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 import { makePrefixer } from "../utils";
-import { ReactNode, ComponentPropsWithoutRef, forwardRef } from "react";
+import {
+  type ReactNode,
+  type ComponentPropsWithoutRef,
+  forwardRef,
+} from "react";
 import clsx from "clsx";
 import overlayPanelContentCss from "./OverlayPanelContent.css";
 

@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import clsx from "clsx";
 import { BorderLayout, BorderItem } from "@salt-ds/core";
 import styles from "./index.module.css";

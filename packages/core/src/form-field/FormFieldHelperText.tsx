@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { StatusIndicator } from "../status-indicator";
-import { Text, TextProps } from "../text";
+import { Text, type TextProps } from "../text";
 import { makePrefixer } from "../utils";
 import { useFormFieldProps } from "../form-field-context";
 
@@ -31,7 +31,7 @@ export const FormFieldHelperText = ({
       className={clsx(
         withBaseName(),
         { [withBaseName("withValidation")]: validationStatus },
-        className
+        className,
       )}
     >
       {!disabled && !readOnly && validationStatus && (

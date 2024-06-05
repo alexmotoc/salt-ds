@@ -3,13 +3,13 @@ import { forwardRef } from "react";
 import { useId } from "@salt-ds/core";
 import { clsx } from "clsx";
 
-import { CountrySymbol, CountrySymbolProps } from "../country-symbol";
+import { CountrySymbol, type CountrySymbolProps } from "../country-symbol";
 
 export type BQ_SharpProps = CountrySymbolProps;
 
 const BQ_Sharp = forwardRef<SVGSVGElement, BQ_SharpProps>(function BQ_Sharp(
   props: BQ_SharpProps,
-  ref
+  ref,
 ) {
   const uid = useId(props.id);
 

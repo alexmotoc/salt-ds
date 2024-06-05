@@ -3,13 +3,13 @@ import { forwardRef } from "react";
 import { useId } from "@salt-ds/core";
 import { clsx } from "clsx";
 
-import { CountrySymbol, CountrySymbolProps } from "../country-symbol";
+import { CountrySymbol, type CountrySymbolProps } from "../country-symbol";
 
 export type CI_SharpProps = CountrySymbolProps;
 
 const CI_Sharp = forwardRef<SVGSVGElement, CI_SharpProps>(function CI_Sharp(
   props: CI_SharpProps,
-  ref
+  ref,
 ) {
   const uid = useId(props.id);
 

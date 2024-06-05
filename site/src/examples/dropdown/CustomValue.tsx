@@ -1,5 +1,5 @@
-import { ReactElement, useState } from "react";
-import { Dropdown, DropdownProps, Option } from "@salt-ds/core";
+import { type ReactElement, useState } from "react";
+import { Dropdown, type DropdownProps, Option } from "@salt-ds/core";
 import { shortColorData } from "./exampleData";
 
 export const CustomValue = (): ReactElement => {
@@ -7,7 +7,7 @@ export const CustomValue = (): ReactElement => {
 
   const handleSelectionChange: DropdownProps["onSelectionChange"] = (
     event,
-    newSelected
+    newSelected,
   ) => {
     setSelected(newSelected);
   };

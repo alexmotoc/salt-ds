@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import clsx from "clsx";
-import { FooterProps as MosaicFooterProps } from "@jpmorganchase/mosaic-site-components";
+import type { FooterProps as MosaicFooterProps } from "@jpmorganchase/mosaic-site-components";
 import { Link } from "@salt-ds/core";
 import styles from "./Footer.module.css";
 

@@ -1,4 +1,4 @@
-import React, { FC, Dispatch, SetStateAction } from "react";
+import React, { type FC, type Dispatch, type SetStateAction } from "react";
 import { Button } from "@salt-ds/core";
 import { OverflowMenuIcon, CloseIcon } from "@salt-ds/icons";
 

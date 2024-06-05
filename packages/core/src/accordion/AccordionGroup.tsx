@@ -1,4 +1,8 @@
-import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react";
+import {
+  type ComponentPropsWithoutRef,
+  forwardRef,
+  type ReactNode,
+} from "react";
 import { clsx } from "clsx";
 import { makePrefixer } from "../utils";
 import { useWindow } from "@salt-ds/window";
@@ -28,5 +32,5 @@ export const AccordionGroup = forwardRef<HTMLDivElement, AccordionGroupProps>(
     return (
       <div className={clsx(withBaseName(), className)} ref={ref} {...rest} />
     );
-  }
+  },
 );

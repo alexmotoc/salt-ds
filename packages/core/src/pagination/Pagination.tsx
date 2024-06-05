@@ -1,7 +1,7 @@
 import {
   forwardRef,
-  HTMLAttributes,
-  SyntheticEvent,
+  type HTMLAttributes,
+  type SyntheticEvent,
   useCallback,
   useEffect,
   useMemo,
@@ -10,7 +10,7 @@ import {
 import { clsx } from "clsx";
 import { useAriaAnnouncer } from "../aria-announcer";
 import { makePrefixer, useControlled } from "../utils";
-import { PaginationContext, paginationContext } from "./PaginationContext";
+import { type PaginationContext, paginationContext } from "./PaginationContext";
 
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -51,7 +51,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
       onPageChange: onPageChangeProp,
       ...restProps
     },
-    ref
+    ref,
   ) {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -72,7 +72,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         setPageState(page);
         onPageChangeProp && onPageChangeProp(event, page);
       },
-      [onPageChangeProp, setPageState]
+      [onPageChangeProp, setPageState],
     );
 
     const contextValue: PaginationContext = useMemo(
@@ -81,7 +81,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         count,
         onPageChange,
       }),
-      [pageState, count, onPageChange]
+      [pageState, count, onPageChange],
     );
 
     const { announce } = useAriaAnnouncer();
@@ -110,5 +110,5 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(
         </nav>
       </Provider>
     );
-  }
+  },
 );

@@ -1,7 +1,13 @@
-import { Dispatch, SetStateAction, useCallback, useRef, useState } from "react";
+import {
+  type Dispatch,
+  type SetStateAction,
+  useCallback,
+  useRef,
+  useState,
+} from "react";
 import { makePrefixer, useIsomorphicLayoutEffect } from "@salt-ds/core";
-import { QueryInputCategory } from "../queryInputTypes";
-import { SelectHandler } from "../../common-hooks";
+import type { QueryInputCategory } from "../queryInputTypes";
+import type { SelectHandler } from "../../common-hooks";
 import { List } from "../../list";
 import { CategoryListItem } from "./CategoryListItem";
 import { CategoryListContext } from "./CategoryListContext";
@@ -51,7 +57,7 @@ export function CategoryList(props: CategoryListProps) {
     (_, item) => {
       onCategorySelect(item);
     },
-    [onCategorySelect]
+    [onCategorySelect],
   );
 
   const isMeasuring = measuredCategories !== categories;

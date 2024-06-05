@@ -1,13 +1,13 @@
 import {
-  RefObject,
-  UIEvent,
+  type RefObject,
+  type UIEvent,
   useCallback,
   useMemo,
   useRef,
   useState,
 } from "react";
 import { KeySet } from "./keyset";
-import { CollectionItem } from "../common-hooks";
+import type { CollectionItem } from "../common-hooks";
 import { useIsomorphicLayoutEffect } from "@salt-ds/core";
 
 /**
@@ -63,12 +63,12 @@ export const useVirtualization = <Item>({
               (idx + lo) * rowHeightWithGap,
               idx + lo + 1,
               value,
-            ] as Row<Item>
+            ] as Row<Item>,
         )
         .sort(byKey);
       setRows(newRows);
     },
-    [data, itemGapSize, keys]
+    [data, itemGapSize, keys],
   );
 
   useIsomorphicLayoutEffect(() => {
@@ -104,7 +104,7 @@ export const useVirtualization = <Item>({
         }
       }
     },
-    [updateRows]
+    [updateRows],
   );
 
   return {

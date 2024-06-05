@@ -5,8 +5,8 @@ import {
   Card,
   useAriaAnnouncer,
 } from "@salt-ds/core";
-import { ContentStatus, ContentStatusProps } from "@salt-ds/lab";
-import { StoryFn, Meta } from "@storybook/react";
+import { ContentStatus, type ContentStatusProps } from "@salt-ds/lab";
+import type { StoryFn, Meta } from "@storybook/react";
 
 export default {
   title: "Lab/Content Status",

@@ -333,7 +333,7 @@ describe("GIVEN Text component within font family CSS var override", () => {
     cy.mount(
       <div style={{ "--salt-text-fontFamily": "Lato" } as React.CSSProperties}>
         <Text>{textExample}</Text>
-      </div>
+      </div>,
     );
     cy.get(".saltText")
       .should("have.class", "saltText")

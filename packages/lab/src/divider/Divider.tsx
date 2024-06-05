@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { clsx } from "clsx";
 import { makePrefixer } from "@salt-ds/core";
 import { useWindow } from "@salt-ds/window";
@@ -42,7 +42,7 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
           withBaseName(),
           withBaseName(orientation),
           withBaseName(variant),
-          className
+          className,
         )}
         aria-orientation={orientation}
         role="separator"
@@ -50,5 +50,5 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
         {...rest}
       />
     );
-  }
+  },
 );

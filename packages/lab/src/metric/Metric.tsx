@@ -1,7 +1,7 @@
 import { makePrefixer, useId } from "@salt-ds/core";
 import { clsx } from "clsx";
-import { forwardRef, HTMLAttributes, useMemo } from "react";
-import { MetricContextProvider, MetricContextValue } from "./internal";
+import { forwardRef, type HTMLAttributes, useMemo } from "react";
+import { MetricContextProvider, type MetricContextValue } from "./internal";
 
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -41,7 +41,7 @@ export const Metric = forwardRef<HTMLDivElement, MetricProps>(function Metric(
     size = "medium",
     ...restProps
   },
-  ref
+  ref,
 ) {
   const targetWindow = useWindow();
   useComponentCssInjection({
@@ -79,7 +79,7 @@ export const Metric = forwardRef<HTMLDivElement, MetricProps>(function Metric(
       titleId,
       subtitleId,
       valueId,
-    ]
+    ],
   );
 
   return (
@@ -94,7 +94,7 @@ export const Metric = forwardRef<HTMLDivElement, MetricProps>(function Metric(
             [withBaseName(`orientation-${orientation}`)]: orientation,
             [withBaseName(`align-${align}`)]: align,
           },
-          className
+          className,
         )}
         id={id}
         ref={ref}

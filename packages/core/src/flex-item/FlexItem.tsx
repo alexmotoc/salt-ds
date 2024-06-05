@@ -1,9 +1,14 @@
-import { forwardRef, ElementType, ReactElement, CSSProperties } from "react";
+import {
+  forwardRef,
+  type ElementType,
+  type ReactElement,
+  type CSSProperties,
+} from "react";
 import {
   makePrefixer,
-  ResponsiveProp,
-  PolymorphicComponentPropWithRef,
-  PolymorphicRef,
+  type ResponsiveProp,
+  type PolymorphicComponentPropWithRef,
+  type PolymorphicRef,
   resolveResponsiveValue,
 } from "../utils";
 import flexItemCss from "./FlexItem.css";
@@ -46,7 +51,7 @@ export type FlexItemProps<T extends ElementType> =
   >;
 
 type FlexItemComponent = <T extends ElementType = "div">(
-  props: FlexItemProps<T>
+  props: FlexItemProps<T>,
 ) => ReactElement | null;
 
 export const FlexItem: FlexItemComponent = forwardRef(
@@ -62,7 +67,7 @@ export const FlexItem: FlexItemComponent = forwardRef(
       style,
       ...rest
     }: FlexItemProps<T>,
-    ref?: PolymorphicRef<T>
+    ref?: PolymorphicRef<T>,
   ) => {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -94,5 +99,5 @@ export const FlexItem: FlexItemComponent = forwardRef(
         {children}
       </Component>
     );
-  }
+  },
 );

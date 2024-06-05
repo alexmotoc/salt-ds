@@ -1,11 +1,11 @@
 import { makePrefixer, useControlled, useForkRef } from "@salt-ds/core";
 import clsx from "clsx";
 import {
-  ComponentPropsWithoutRef,
+  type ComponentPropsWithoutRef,
   forwardRef,
-  ReactNode,
-  SyntheticEvent,
-  KeyboardEvent,
+  type ReactNode,
+  type SyntheticEvent,
+  type KeyboardEvent,
   useCallback,
   useMemo,
   useRef,
@@ -17,7 +17,7 @@ import { Overflow } from "@fluentui/react-overflow";
 import { OverflowMenu } from "./OverflowMenu";
 import tabstripCss from "./TabstripNext.css";
 import { TabsContext } from "./TabNextContext";
-import { SelectionChangeHandler } from "../common-hooks";
+import type { SelectionChangeHandler } from "../common-hooks";
 
 const withBaseName = makePrefixer("saltTabstripNext");
 
@@ -84,14 +84,14 @@ export const TabstripNext = forwardRef<HTMLDivElement, TabstripNextProps>(
           onChange?.(event, { value: newValue });
         }
       },
-      [onChange, value, setValue]
+      [onChange, value, setValue],
     );
 
     const isActive = useCallback(
       (id: string | undefined) => {
         return value === id;
       },
-      [value]
+      [value],
     );
 
     const setFocusable = useCallback((id: string | undefined) => {
@@ -102,7 +102,7 @@ export const TabstripNext = forwardRef<HTMLDivElement, TabstripNextProps>(
       (id: string | undefined) => {
         return focusable === id || !focusable;
       },
-      [focusable]
+      [focusable],
     );
 
     const [tabList, setTabList] = useState<TabValue[]>([]);
@@ -119,12 +119,12 @@ export const TabstripNext = forwardRef<HTMLDivElement, TabstripNextProps>(
 
       const elements: HTMLElement[] = Array.from(
         tabstripRef.current?.querySelectorAll(
-          `div:not([data-overflowing]) > [role="tab"]:not([disabled])`
-        ) ?? []
+          `div:not([data-overflowing]) > [role="tab"]:not([disabled])`,
+        ) ?? [],
       );
 
       const currentIndex = elements.findIndex(
-        (element) => element === targetWindow?.document.activeElement
+        (element) => element === targetWindow?.document.activeElement,
       );
 
       if (currentIndex < 0) return;
@@ -150,13 +150,13 @@ export const TabstripNext = forwardRef<HTMLDivElement, TabstripNextProps>(
 
     const handleOverflowItemClick: SelectionChangeHandler<TabValue> = (
       event,
-      item
+      item,
     ) => {
       if (item) {
         setValue(item.value);
         requestAnimationFrame(() => {
           const element = tabstripRef.current?.querySelector(
-            `[value="${item.value}"]`
+            `[value="${item.value}"]`,
           );
           if (element instanceof HTMLElement) {
             element?.focus();
@@ -192,7 +192,7 @@ export const TabstripNext = forwardRef<HTMLDivElement, TabstripNextProps>(
         unregisterTab,
         variant,
         activeColor,
-      ]
+      ],
     );
 
     const tabstripStyle = {
@@ -209,7 +209,7 @@ export const TabstripNext = forwardRef<HTMLDivElement, TabstripNextProps>(
               className={clsx(
                 withBaseName(),
                 withBaseName("horizontal"),
-                className
+                className,
               )}
               onKeyDown={handleKeyDown}
               style={tabstripStyle}
@@ -226,5 +226,5 @@ export const TabstripNext = forwardRef<HTMLDivElement, TabstripNextProps>(
         </div>
       </TabsContext.Provider>
     );
-  }
+  },
 );

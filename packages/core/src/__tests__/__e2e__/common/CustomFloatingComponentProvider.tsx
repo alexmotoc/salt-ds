@@ -1,6 +1,6 @@
-import { forwardRef, ReactNode, CSSProperties } from "react";
+import { forwardRef, type ReactNode, type CSSProperties } from "react";
 import {
-  FloatingComponentProps,
+  type FloatingComponentProps,
   SaltProvider,
   FloatingComponentProvider,
 } from "@salt-ds/core";

@@ -11,8 +11,12 @@ import {
   useRole,
   limitShift,
 } from "@floating-ui/react";
-import { HTMLProps, useRef } from "react";
-import { useControlled, UseFloatingUIProps, useFloatingUI } from "../utils";
+import { type HTMLProps, useRef } from "react";
+import {
+  useControlled,
+  type UseFloatingUIProps,
+  useFloatingUI,
+} from "../utils";
 import { useAriaAnnounce } from "./useAriaAnnounce";
 
 export interface UseTooltipProps

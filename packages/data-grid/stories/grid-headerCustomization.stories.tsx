@@ -1,6 +1,6 @@
 import {
   createContext,
-  SyntheticEvent,
+  type SyntheticEvent,
   useCallback,
   useContext,
   useMemo,
@@ -8,11 +8,11 @@ import {
 } from "react";
 import {
   ColumnGroup,
-  ColumnGroupCellValueProps,
+  type ColumnGroupCellValueProps,
   Grid,
-  GridCellValueProps,
+  type GridCellValueProps,
   GridColumn,
-  GridHeaderValueProps,
+  type GridHeaderValueProps,
   NumericColumn,
 } from "../src";
 import { MenuButton } from "@salt-ds/lab";
@@ -25,7 +25,7 @@ import {
 import { ArrowDownIcon, ArrowUpIcon, MenuIcon, HomeIcon } from "@salt-ds/icons";
 import { randomInt, randomNumber } from "./utils";
 import "./grid.stories.css";
-import { StoryFn } from "@storybook/react";
+import type { StoryFn } from "@storybook/react";
 
 export default {
   title: "Lab/Data Grid",
@@ -242,7 +242,7 @@ const HeaderCustomizationTemplate: StoryFn<{}> = () => {
       setSortBy,
       sortOrder,
       setSortOrder,
-    ]
+    ],
   );
 
   const rowKeyGetter = useCallback((row: ExampleRow) => row.name, []);

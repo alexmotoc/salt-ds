@@ -1,8 +1,8 @@
 import {
-  FocusEvent,
+  type FocusEvent,
   forwardRef,
-  HTMLAttributes,
-  SyntheticEvent,
+  type HTMLAttributes,
+  type SyntheticEvent,
   useRef,
 } from "react";
 import { useForkRef } from "../utils";
@@ -35,7 +35,7 @@ export const FileDropZoneTrigger = forwardRef<
   FileDropZoneTriggerProps
 >(function FileDropZoneTrigger(
   { accept, children, disabled, multiple = false, onChange, ...rest },
-  ref
+  ref,
 ) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);

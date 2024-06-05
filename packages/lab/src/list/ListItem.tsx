@@ -1,7 +1,7 @@
-import { ForwardedRef, forwardRef, HTMLAttributes } from "react";
+import { type ForwardedRef, forwardRef, type HTMLAttributes } from "react";
 import { clsx } from "clsx";
 import { CheckboxIcon, makePrefixer } from "@salt-ds/core";
-import { ListItemProps, ListItemType } from "./listTypes";
+import type { ListItemProps, ListItemType } from "./listTypes";
 import { Highlighter } from "./Highlighter";
 
 import { useWindow } from "@salt-ds/window";
@@ -17,7 +17,7 @@ const withBaseName = makePrefixer("saltListItem");
 // be controlled purely through CSS.
 export const ListItemProxy = forwardRef(function ListItemNextProxy(
   props: HTMLAttributes<HTMLDivElement>,
-  forwardedRef: ForwardedRef<HTMLDivElement>
+  forwardedRef: ForwardedRef<HTMLDivElement>,
 ) {
   return (
     <div
@@ -48,7 +48,7 @@ export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
       style: styleProp,
       ...props
     },
-    forwardedRef
+    forwardedRef,
   ) {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -93,5 +93,5 @@ export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
         )}
       </div>
     );
-  }
+  },
 ) as ListItemType;

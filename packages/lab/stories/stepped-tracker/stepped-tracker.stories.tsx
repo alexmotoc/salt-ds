@@ -3,7 +3,7 @@ import { useState } from "react";
 import { SteppedTracker, TrackerStep, StepLabel } from "@salt-ds/lab";
 import { Button, StackLayout, FlexLayout, Tooltip } from "@salt-ds/core";
 import { RefreshIcon } from "@salt-ds/icons";
-import { StoryFn, Meta } from "@storybook/react";
+import type { StoryFn, Meta } from "@storybook/react";
 
 export default {
   title: "Lab/Stepped Tracker",
@@ -181,8 +181,8 @@ export const AutoProgress: StoryFn<typeof SteppedTracker> = () => {
               ...step,
               state: "completed",
             }
-          : step
-      )
+          : step,
+      ),
     );
   };
 
@@ -266,8 +266,8 @@ export const NonSequentialProgress: StoryFn<typeof SteppedTracker> = () => {
               ...step,
               state: step.state === "default" ? "completed" : "default",
             }
-          : step
-      )
+          : step,
+      ),
     );
   };
 

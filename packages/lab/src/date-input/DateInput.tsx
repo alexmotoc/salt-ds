@@ -1,15 +1,15 @@
 import { clsx } from "clsx";
 import {
-  ChangeEvent,
-  ChangeEventHandler,
-  ComponentPropsWithoutRef,
-  FocusEvent,
+  type ChangeEvent,
+  type ChangeEventHandler,
+  type ComponentPropsWithoutRef,
+  type FocusEvent,
   forwardRef,
-  InputHTMLAttributes,
-  KeyboardEvent,
-  ReactNode,
-  RefObject,
-  SyntheticEvent,
+  type InputHTMLAttributes,
+  type KeyboardEvent,
+  type ReactNode,
+  type RefObject,
+  type SyntheticEvent,
   useEffect,
   useRef,
   useState,
@@ -28,7 +28,7 @@ import {
 import {
   CalendarDate,
   DateFormatter,
-  DateValue,
+  type DateValue,
   getLocalTimeZone,
   parseAbsoluteToLocal,
 } from "@internationalized/date";
@@ -119,7 +119,7 @@ export interface DateInputProps
    */
   onSelectionChange?: (
     event: SyntheticEvent,
-    selectedDate?: DateValue | { startDate?: DateValue; endDate?: DateValue }
+    selectedDate?: DateValue | { startDate?: DateValue; endDate?: DateValue },
   ) => void;
   onChange?: ChangeEventHandler<HTMLInputElement>;
 }
@@ -145,7 +145,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
       onChange,
       ...rest
     },
-    ref
+    ref,
   ) {
     const wrapperRef = useRef(null);
     const inputRef = useForkRef<HTMLDivElement>(ref, wrapperRef);
@@ -177,10 +177,10 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
 
     const [focused, setFocused] = useState(false);
     const [startDateStringValue, setStartDateStringValue] = useState<string>(
-      dateFormatter(startDate)
+      dateFormatter(startDate),
     );
     const [endDateStringValue, setEndDateStringValue] = useState<string>(
-      dateFormatter(endDate)
+      dateFormatter(endDate),
     );
 
     const {
@@ -299,7 +299,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
             [withBaseName("readOnly")]: isReadOnly,
             [withBaseName(validationStatus ?? "")]: validationStatus,
           },
-          className
+          className,
         )}
         onClick={(event) => handleInputClick(event)}
         ref={inputRef}
@@ -311,7 +311,7 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
           aria-labelledby={clsx(
             formFieldLabelledBy,
             dateInputLabelledBy,
-            startDateInputID
+            startDateInputID,
           )}
           aria-label={clsx("Start date", ariaLabel)}
           id={startDateInputID}
@@ -341,12 +341,12 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
               autoComplete="off"
               aria-describedby={clsx(
                 formFieldDescribedBy,
-                dateInputDescribedBy
+                dateInputDescribedBy,
               )}
               aria-labelledby={clsx(
                 formFieldLabelledBy,
                 dateInputLabelledBy,
-                endDateInputID
+                endDateInputID,
               )}
               aria-label={clsx("End date", ariaLabel)}
               id={endDateInputID}
@@ -382,5 +382,5 @@ export const DateInput = forwardRef<HTMLDivElement, DateInputProps>(
         <div className={withBaseName("activationIndicator")} />
       </div>
     );
-  }
+  },
 );

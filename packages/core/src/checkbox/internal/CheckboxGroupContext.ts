@@ -1,5 +1,5 @@
-import { AdornmentValidationStatus } from "../../status-adornment";
-import { CheckboxGroupProps } from "../CheckboxGroup";
+import type { AdornmentValidationStatus } from "../../status-adornment";
+import type { CheckboxGroupProps } from "../CheckboxGroup";
 import { createContext } from "../../utils";
 
 export interface CheckboxGroupState {
@@ -13,7 +13,7 @@ export interface CheckboxGroupState {
 
 const CheckboxGroupContext = createContext<CheckboxGroupState | undefined>(
   "CheckboxGroupContext",
-  undefined
+  undefined,
 );
 
 export { CheckboxGroupContext };

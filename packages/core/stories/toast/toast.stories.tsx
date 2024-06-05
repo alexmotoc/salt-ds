@@ -1,11 +1,11 @@
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import {
   Button,
   FlowLayout,
   Text,
   Toast,
   ToastContent,
-  ToastProps,
+  type ToastProps,
   Link,
 } from "@salt-ds/core";
 import { CloseIcon } from "@salt-ds/icons";

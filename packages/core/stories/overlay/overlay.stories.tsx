@@ -7,13 +7,13 @@ import {
   useId,
   Overlay,
   OverlayPanel,
-  OverlayProps,
+  type OverlayProps,
   OverlayTrigger,
   OverlayPanelCloseButton,
   OverlayPanelContent,
 } from "@salt-ds/core";
-import React, { ChangeEvent, useState } from "react";
-import { StoryFn, Meta } from "@storybook/react";
+import React, { type ChangeEvent, useState } from "react";
+import type { StoryFn, Meta } from "@storybook/react";
 
 import "./overlay.stories.css";
 
@@ -191,8 +191,8 @@ const WithActionsContent = ({
     } else {
       setControlledValues((prevControlledValues) =>
         prevControlledValues.filter(
-          (controlledValue) => controlledValue !== value
-        )
+          (controlledValue) => controlledValue !== value,
+        ),
       );
     }
   };

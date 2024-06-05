@@ -1,5 +1,5 @@
 import { makePrefixer } from "@salt-ds/core";
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { escapeRegExp } from "../utils";
 
 import { useWindow } from "@salt-ds/window";
@@ -15,7 +15,7 @@ export interface HighlighterProps {
 }
 
 export const Highlighter = (
-  props: HighlighterProps
+  props: HighlighterProps,
 ): ReactElement<HighlighterProps> => {
   const { matchPattern, text = "" } = props;
   const targetWindow = useWindow();
@@ -44,7 +44,7 @@ export const Highlighter = (
           </strong>
         ) : (
           part
-        )
+        ),
       )}
     </span>
   );

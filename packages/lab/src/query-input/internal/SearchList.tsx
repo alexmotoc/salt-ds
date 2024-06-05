@@ -1,10 +1,10 @@
-import { Dispatch, SetStateAction, useCallback } from "react";
+import { type Dispatch, type SetStateAction, useCallback } from "react";
 import { makePrefixer } from "@salt-ds/core";
 import { List, ListItem, ListItemGroup } from "../../list";
 
-import { SelectionChangeHandler } from "../../common-hooks";
+import type { SelectionChangeHandler } from "../../common-hooks";
 
-import { QueryInputCategory, QueryInputItem } from "../queryInputTypes";
+import type { QueryInputCategory, QueryInputItem } from "../queryInputTypes";
 
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -49,7 +49,7 @@ export function SearchList(props: SearchListProps) {
       (event, items) => {
         onChangeProp(items || []);
       },
-      [onChangeProp]
+      [onChangeProp],
     );
 
   return (

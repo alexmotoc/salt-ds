@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { useFooter } from "@jpmorganchase/mosaic-store";
-import { FooterProps } from "./Footer";
+import type { FooterProps } from "./Footer";
 
 export const withFooterAdapter = (Component: FC<FooterProps>) => () => {
   const props = useFooter();

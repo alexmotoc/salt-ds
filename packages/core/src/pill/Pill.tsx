@@ -1,4 +1,4 @@
-import { forwardRef, ComponentPropsWithoutRef } from "react";
+import { forwardRef, type ComponentPropsWithoutRef } from "react";
 import clsx from "clsx";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -22,7 +22,7 @@ export const Pill = forwardRef<HTMLButtonElement, PillProps>(function Pill(
     onBlur,
     ...rest
   },
-  ref
+  ref,
 ) {
   const targetWindow = useWindow();
   useComponentCssInjection({
@@ -49,7 +49,7 @@ export const Pill = forwardRef<HTMLButtonElement, PillProps>(function Pill(
         withBaseName(),
         withBaseName("clickable"),
         { [withBaseName("active")]: active },
-        className
+        className,
       )}
       type="button"
       {...restButtonProps}

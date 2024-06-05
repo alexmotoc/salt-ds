@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { TabstripNext, TabNext } from "@salt-ds/lab";
 import { Badge } from "@salt-ds/core";
 

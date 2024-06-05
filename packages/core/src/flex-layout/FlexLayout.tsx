@@ -1,11 +1,11 @@
-import { ElementType, forwardRef, ReactElement } from "react";
+import { type ElementType, forwardRef, type ReactElement } from "react";
 import { clsx } from "clsx";
 
 import {
   makePrefixer,
-  ResponsiveProp,
-  PolymorphicComponentPropWithRef,
-  PolymorphicRef,
+  type ResponsiveProp,
+  type PolymorphicComponentPropWithRef,
+  type PolymorphicRef,
   resolveResponsiveValue,
 } from "../utils";
 
@@ -64,7 +64,7 @@ export type FlexLayoutProps<T extends ElementType> =
   >;
 
 type FlexLayoutComponent = <T extends ElementType = "div">(
-  props: FlexLayoutProps<T>
+  props: FlexLayoutProps<T>,
 ) => ReactElement | null;
 
 function parseAlignment(style: string | undefined) {
@@ -94,7 +94,7 @@ export const FlexLayout: FlexLayoutComponent = forwardRef(
       wrap = false,
       ...rest
     }: FlexLayoutProps<T>,
-    ref?: PolymorphicRef<T>
+    ref?: PolymorphicRef<T>,
   ) => {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -128,12 +128,12 @@ export const FlexLayout: FlexLayoutComponent = forwardRef(
             [withBaseName(
               `separator-${flexDirection ?? "row"}-${
                 separatorAlignment ?? "center"
-              }`
+              }`,
             )]: separatorAlignment && !wrap,
             [withBaseName(`separator-${flexDirection ?? "row"}`)]:
               separatorAlignment && !wrap,
           },
-          className
+          className,
         )}
         ref={ref}
         style={flexLayoutStyles}
@@ -142,5 +142,5 @@ export const FlexLayout: FlexLayoutComponent = forwardRef(
         {children}
       </Component>
     );
-  }
+  },
 );

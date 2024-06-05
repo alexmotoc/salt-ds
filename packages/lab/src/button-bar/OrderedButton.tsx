@@ -1,7 +1,12 @@
 import { forwardRef, useContext } from "react";
 import { clsx } from "clsx";
 
-import { Button, ButtonProps, capitalize, makePrefixer } from "@salt-ds/core";
+import {
+  Button,
+  type ButtonProps,
+  capitalize,
+  makePrefixer,
+} from "@salt-ds/core";
 import { ButtonBarContext } from "./internal/ButtonBarContext";
 import { useDescendant } from "./internal/useDescendant";
 
@@ -53,7 +58,7 @@ export const OrderedButton = forwardRef<HTMLButtonElement, OrderedButtonProps>(
       variant,
       ...restProps
     },
-    ref
+    ref,
   ) {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -81,12 +86,12 @@ export const OrderedButton = forwardRef<HTMLButtonElement, OrderedButtonProps>(
               align && !matches,
             [withBasename("stacked")]: matches,
           },
-          className
+          className,
         )}
         ref={ref}
         variant={variant}
         {...restProps}
       />
     );
-  }
+  },
 );

@@ -1,6 +1,6 @@
-import { forwardRef, ReactNode, useCallback, useState } from "react";
-import { ButtonProps } from "@salt-ds/core";
-import { CascadingMenu, CascadingMenuProps } from "../cascading-menu";
+import { forwardRef, type ReactNode, useCallback, useState } from "react";
+import type { ButtonProps } from "@salt-ds/core";
+import { CascadingMenu, type CascadingMenuProps } from "../cascading-menu";
 import { MenuButtonTrigger } from "./MenuButtonTrigger";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -17,7 +17,7 @@ export interface MenuButtonProps extends ButtonProps {
 export const MenuButton = forwardRef<HTMLButtonElement, MenuButtonProps>(
   function MenuButton(
     { variant = "secondary", CascadingMenuProps = {}, children, ...restProps },
-    ref
+    ref,
   ) {
     const {
       initialSource = { menuItems: [] },
@@ -64,5 +64,5 @@ export const MenuButton = forwardRef<HTMLButtonElement, MenuButtonProps>(
         </MenuButtonTrigger>
       </CascadingMenu>
     );
-  }
+  },
 );

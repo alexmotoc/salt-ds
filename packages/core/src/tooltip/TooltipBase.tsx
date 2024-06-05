@@ -1,6 +1,6 @@
-import { StatusIndicator, ValidationStatus } from "../status-indicator";
-import { FloatingArrow, FloatingArrowProps } from "@floating-ui/react";
-import { TooltipProps } from "./Tooltip";
+import { StatusIndicator, type ValidationStatus } from "../status-indicator";
+import { FloatingArrow, type FloatingArrowProps } from "@floating-ui/react";
+import type { TooltipProps } from "./Tooltip";
 import { makePrefixer } from "../utils";
 import { useFormFieldProps } from "../form-field-context";
 

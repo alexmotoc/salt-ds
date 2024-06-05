@@ -1,8 +1,8 @@
 import {
-  ComponentPropsWithoutRef,
+  type ComponentPropsWithoutRef,
   forwardRef,
-  MouseEvent,
-  ReactNode,
+  type MouseEvent,
+  type ReactNode,
   useEffect,
   useMemo,
   useRef,
@@ -13,7 +13,7 @@ import { useComponentCssInjection } from "@salt-ds/styles";
 import { makePrefixer, useForkRef, useId } from "../utils";
 import { Checkbox } from "../checkbox";
 import {
-  OptionValue,
+  type OptionValue,
   useListControlContext,
 } from "../list-control/ListControlContext";
 import optionCss from "./Option.css";
@@ -35,106 +35,105 @@ export interface OptionProps extends ComponentPropsWithoutRef<"div"> {
 
 const withBaseName = makePrefixer("saltOption");
 
-export const Option = forwardRef<HTMLDivElement, OptionProps>(function Option(
-  props,
-  ref
-) {
-  const {
-    className,
-    children,
-    disabled,
-    onClick,
-    id: idProp,
-    value,
-    ...rest
-  } = props;
-
-  const targetWindow = useWindow();
-  useComponentCssInjection({
-    testId: "salt-option",
-    css: optionCss,
-    window: targetWindow,
-  });
-
-  const optionRef = useRef(null);
-  const id = useId(idProp);
-
-  const {
-    setActive,
-    activeState,
-    multiselect,
-    select,
-    register,
-    selectedState,
-    focusVisibleState,
-    valueToString,
-  } = useListControlContext();
-
-  const selected = selectedState.includes(value);
-  const active = activeState?.id === id;
-
-  const optionValue: OptionValue<unknown> = useMemo(
-    () => ({
-      id: String(id),
-      disabled: Boolean(disabled),
+export const Option = forwardRef<HTMLDivElement, OptionProps>(
+  function Option(props, ref) {
+    const {
+      className,
+      children,
+      disabled,
+      onClick,
+      id: idProp,
       value,
-    }),
-    [id, disabled, value]
-  );
+      ...rest
+    } = props;
 
-  const handleClick = (event: MouseEvent<HTMLDivElement>) => {
-    if (disabled || id == undefined) {
-      return;
-    }
+    const targetWindow = useWindow();
+    useComponentCssInjection({
+      testId: "salt-option",
+      css: optionCss,
+      window: targetWindow,
+    });
 
-    // set active descendent
-    setActive(optionValue);
+    const optionRef = useRef(null);
+    const id = useId(idProp);
 
-    // handle selection
-    select(event, optionValue);
+    const {
+      setActive,
+      activeState,
+      multiselect,
+      select,
+      register,
+      selectedState,
+      focusVisibleState,
+      valueToString,
+    } = useListControlContext();
 
-    onClick?.(event);
-  };
+    const selected = selectedState.includes(value);
+    const active = activeState?.id === id;
 
-  const handleMouseOver = () => {
-    setActive(optionValue);
-  };
+    const optionValue: OptionValue<unknown> = useMemo(
+      () => ({
+        id: String(id),
+        disabled: Boolean(disabled),
+        value,
+      }),
+      [id, disabled, value],
+    );
 
-  useEffect(() => {
-    if (id && optionRef.current) {
-      return register(optionValue, optionRef.current);
-    }
-  }, [optionValue, id, register]);
+    const handleClick = (event: MouseEvent<HTMLDivElement>) => {
+      if (disabled || id == undefined) {
+        return;
+      }
 
-  const handleRef = useForkRef(optionRef, ref);
+      // set active descendent
+      setActive(optionValue);
 
-  return (
-    <div
-      aria-disabled={disabled ? "true" : undefined}
-      aria-selected={selected}
-      className={clsx(
-        withBaseName(),
-        {
-          [withBaseName("active")]: active,
-          [withBaseName("focusVisible")]: focusVisibleState && active,
-        },
-        className
-      )}
-      ref={handleRef}
-      role="option"
-      id={id}
-      onClick={handleClick}
-      onMouseOver={handleMouseOver}
-      {...rest}
-    >
-      {multiselect && (
-        <Checkbox
-          checked={selected}
-          aria-hidden="true"
-          inputProps={{ tabIndex: -1 }}
-        />
-      )}
-      {children ?? valueToString(value)}
-    </div>
-  );
-});
+      // handle selection
+      select(event, optionValue);
+
+      onClick?.(event);
+    };
+
+    const handleMouseOver = () => {
+      setActive(optionValue);
+    };
+
+    useEffect(() => {
+      if (id && optionRef.current) {
+        return register(optionValue, optionRef.current);
+      }
+    }, [optionValue, id, register]);
+
+    const handleRef = useForkRef(optionRef, ref);
+
+    return (
+      <div
+        aria-disabled={disabled ? "true" : undefined}
+        aria-selected={selected}
+        className={clsx(
+          withBaseName(),
+          {
+            [withBaseName("active")]: active,
+            [withBaseName("focusVisible")]: focusVisibleState && active,
+          },
+          className,
+        )}
+        ref={handleRef}
+        role="option"
+        id={id}
+        onClick={handleClick}
+        onMouseOver={handleMouseOver}
+        {...rest}
+      >
+        {multiselect && (
+          <Checkbox
+            checked={selected}
+            aria-hidden="true"
+            inputProps={{ tabIndex: -1 }}
+          />
+        )}
+        {children ?? valueToString(value)}
+      </div>
+    );
+  },
+);

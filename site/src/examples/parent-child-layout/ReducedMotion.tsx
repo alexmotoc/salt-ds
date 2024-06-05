@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { type ReactElement, useState } from "react";
 import {
   StackLayout,
   ToggleButton,
@@ -38,7 +38,7 @@ export const ReducedMotion = (): ReactElement => {
         child={child}
         className={clsx(
           styles["parent-child-layout"],
-          styles["reduced-motion"]
+          styles["reduced-motion"],
         )}
       />
       <StackLayout align="center" gap={1}>

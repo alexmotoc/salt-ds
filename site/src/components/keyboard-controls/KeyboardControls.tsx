@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import type { FC, ReactNode } from "react";
 import clsx from "clsx";
 import { Table } from "../mdx/table";
 import styles from "./KeyboardControls.module.css";

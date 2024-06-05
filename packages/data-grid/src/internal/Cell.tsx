@@ -1,10 +1,10 @@
 import { makePrefixer } from "@salt-ds/core";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
-import { forwardRef, HTMLAttributes } from "react";
+import { forwardRef, type HTMLAttributes } from "react";
 import { clsx } from "clsx";
 
-import { ColumnSeparatorType } from "../Grid";
+import type { ColumnSeparatorType } from "../Grid";
 
 import cellCss from "./Cell.css";
 
@@ -46,7 +46,7 @@ export const Cell = forwardRef<HTMLTableCellElement, CellProps>(
               separator === "regular" || separator === "groupEdge",
             [withBaseName("pinnedSeparator")]: separator === "pinned",
           },
-          className
+          className,
         )}
         {...tdProps}
       >
@@ -56,5 +56,5 @@ export const Cell = forwardRef<HTMLTableCellElement, CellProps>(
         <div className={withBaseName("topSeparator")} />
       </td>
     );
-  }
+  },
 );

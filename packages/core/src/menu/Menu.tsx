@@ -1,4 +1,4 @@
-import { MenuBase, MenuBaseProps } from "./MenuBase";
+import { MenuBase, type MenuBaseProps } from "./MenuBase";
 import { FloatingTree, useFloatingParentNodeId } from "@floating-ui/react";
 
 export interface MenuProps extends MenuBaseProps {}

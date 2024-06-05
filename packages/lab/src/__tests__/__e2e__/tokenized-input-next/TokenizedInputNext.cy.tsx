@@ -132,7 +132,7 @@ describe("GIVEN a Tokenized Input", () => {
           onClear={onClearSpy}
           onExpand={onExpandSpy}
           onCollapse={onCollapseSpy}
-        />
+        />,
       );
       // expand
       cy.findByTestId("expand-button").should("exist");
@@ -168,7 +168,7 @@ describe("GIVEN a Tokenized Input", () => {
             defaultSelected={["Delhi"]}
             value="Tokio"
             onChange={changeSpy}
-          />
+          />,
         );
         cy.findByRole("textbox").focus();
         cy.findByRole("textbox").click().clear().type("Mexico City,");

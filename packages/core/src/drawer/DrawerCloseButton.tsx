@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import clsx from "clsx";
-import { Button, ButtonProps } from "../button";
+import { Button, type ButtonProps } from "../button";
 import { makePrefixer } from "../utils";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -32,5 +32,5 @@ export const DrawerCloseButton = forwardRef<HTMLButtonElement, ButtonProps>(
         </Button>
       </div>
     );
-  }
+  },
 );

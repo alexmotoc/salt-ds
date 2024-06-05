@@ -1,9 +1,9 @@
-import { forwardRef, HTMLAttributes, useEffect, useState } from "react";
+import { forwardRef, type HTMLAttributes, useEffect, useState } from "react";
 import { clsx } from "clsx";
 import {
   Scrim,
-  ScrimProps,
-  Breakpoints,
+  type ScrimProps,
+  type Breakpoints,
   makePrefixer,
   usePrevious,
 } from "@salt-ds/core";
@@ -78,7 +78,7 @@ export const LayerLayout = forwardRef<HTMLDivElement, LayerLayoutProps>(
     const previousDisableAnimationsProp = usePrevious(
       disableAnimations,
       [disableAnimations],
-      false
+      false,
     ); // we check the previous value for this prop to prevent the animations from triggering again when it changes
 
     const [showComponent, setShowComponent] = useState(false);
@@ -96,7 +96,7 @@ export const LayerLayout = forwardRef<HTMLDivElement, LayerLayoutProps>(
     }, [isOpen, showComponent, disableAnimations, isAnimating]);
 
     const fullScreen = useIsViewportLargerThanBreakpoint(
-      fullScreenAtBreakpoint
+      fullScreenAtBreakpoint,
     );
 
     const anchored = position !== "center" && !fullScreen;
@@ -143,5 +143,5 @@ export const LayerLayout = forwardRef<HTMLDivElement, LayerLayoutProps>(
         {layerLayout}
       </Scrim>
     );
-  }
+  },
 );

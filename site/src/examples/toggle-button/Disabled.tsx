@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { ToggleButton } from "@salt-ds/core";
 import { HomeIcon } from "@salt-ds/icons";
 

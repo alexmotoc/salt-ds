@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { Card, StackLayout, Text } from "@salt-ds/core";
 import styles from "./index.module.css";
 

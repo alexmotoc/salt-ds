@@ -1,15 +1,15 @@
 import { clsx } from "clsx";
 import {
-  ChangeEvent,
-  KeyboardEvent,
-  SyntheticEvent,
-  ComponentPropsWithoutRef,
-  MouseEvent,
-  ForwardedRef,
+  type ChangeEvent,
+  type KeyboardEvent,
+  type SyntheticEvent,
+  type ComponentPropsWithoutRef,
+  type MouseEvent,
+  type ForwardedRef,
   forwardRef,
-  InputHTMLAttributes,
-  ReactNode,
-  Ref,
+  type InputHTMLAttributes,
+  type ReactNode,
+  type Ref,
   useState,
   useRef,
 } from "react";
@@ -106,7 +106,7 @@ export const PillInput = forwardRef(function PillInput(
     truncate,
     ...other
   }: PillInputProps,
-  ref: ForwardedRef<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>,
 ) {
   const targetWindow = useWindow();
   useComponentCssInjection({
@@ -250,7 +250,7 @@ export const PillInput = forwardRef(function PillInput(
           [withBaseName("truncate")]: truncate,
           [withBaseName(validationStatus ?? "")]: validationStatus,
         },
-        classNameProp
+        classNameProp,
       )}
       ref={ref}
       style={inputStyle}
@@ -279,7 +279,7 @@ export const PillInput = forwardRef(function PillInput(
                     pillElementsRef.current[index] = element;
                   } else {
                     pillElementsRef.current = pillElementsRef.current.filter(
-                      (pillEl) => pillEl !== element
+                      (pillEl) => pillEl !== element,
                     );
                   }
                 }}

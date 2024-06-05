@@ -1,4 +1,4 @@
-import { ReactElement, CSSProperties } from "react";
+import type { ReactElement, CSSProperties } from "react";
 import { H3, Text, StackLayout, Card, Link } from "@salt-ds/core";
 import { Image } from "@jpmorganchase/mosaic-site-components";
 

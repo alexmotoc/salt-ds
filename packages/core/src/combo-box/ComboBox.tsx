@@ -1,13 +1,13 @@
 import {
-  ChangeEvent,
-  FocusEvent,
-  ForwardedRef,
+  type ChangeEvent,
+  type FocusEvent,
+  type ForwardedRef,
   forwardRef,
-  KeyboardEvent,
-  MouseEvent,
-  ReactNode,
-  Ref,
-  SyntheticEvent,
+  type KeyboardEvent,
+  type MouseEvent,
+  type ReactNode,
+  type Ref,
+  type SyntheticEvent,
   useEffect,
   useRef,
 } from "react";
@@ -26,7 +26,7 @@ import { useComponentCssInjection } from "@salt-ds/styles";
 import {
   makePrefixer,
   useFloatingUI,
-  UseFloatingUIProps,
+  type UseFloatingUIProps,
   useForkRef,
   useId,
 } from "../utils";
@@ -34,9 +34,9 @@ import { Button } from "../button";
 import { useFormFieldProps } from "../form-field-context";
 import { defaultValueToString } from "../list-control/ListControlState";
 import { ListControlContext } from "../list-control/ListControlContext";
-import { useComboBox, UseComboBoxProps } from "./useComboBox";
+import { useComboBox, type UseComboBoxProps } from "./useComboBox";
 import { OptionList } from "../option/OptionList";
-import { PillInput, PillInputProps } from "../pill-input";
+import { PillInput, type PillInputProps } from "../pill-input";
 import comboBoxCss from "./ComboBox.css";
 
 export type ComboBoxProps<Item = string> = {
@@ -51,7 +51,7 @@ const withBaseName = makePrefixer("saltComboBox");
 
 export const ComboBox = forwardRef(function ComboBox<Item>(
   props: ComboBoxProps<Item>,
-  ref: ForwardedRef<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>,
 ) {
   const {
     children,
@@ -137,7 +137,7 @@ export const ComboBox = forwardRef(function ComboBox<Item>(
   const handleOpenChange: UseFloatingUIProps["onOpenChange"] = (
     newOpen,
     _event,
-    reason
+    reason,
   ) => {
     const focusNotBlur = reason === "focus" && newOpen;
     if (reason == "focus") {
@@ -341,7 +341,7 @@ export const ComboBox = forwardRef(function ComboBox<Item>(
     // If we have selected an item, we should make that the active item
     if (selectedState.length > 0) {
       newActive = getOptionsMatching(
-        (option) => option.value === selectedState[0]
+        (option) => option.value === selectedState[0],
       ).pop();
     }
 
@@ -380,7 +380,7 @@ export const ComboBox = forwardRef(function ComboBox<Item>(
             [withBaseName("focused")]: focusedState,
             [withBaseName("focusVisible")]: focusVisibleState,
           },
-          className
+          className,
         )}
         endAdornment={
           <>
@@ -462,5 +462,5 @@ export const ComboBox = forwardRef(function ComboBox<Item>(
     </ListControlContext.Provider>
   );
 }) as <Item = string>(
-  props: ComboBoxProps<Item> & { ref?: Ref<HTMLDivElement> }
+  props: ComboBoxProps<Item> & { ref?: Ref<HTMLDivElement> },
 ) => JSX.Element;

@@ -4,12 +4,12 @@ import { useRifm } from "rifm";
 import { useControlled } from "@salt-ds/core";
 import {
   InputLegacy as Input,
-  InputLegacyProps as InputProps,
+  type InputLegacyProps as InputProps,
 } from "../input-legacy";
 import {
   baseName,
   InputWithMask,
-  InputWithMaskProps,
+  type InputWithMaskProps,
 } from "./internal/InputWithMask";
 
 import { useWindow } from "@salt-ds/window";
@@ -51,7 +51,7 @@ export const FormattedInput = forwardRef<HTMLInputElement, FormattedInputProps>(
       textAlign,
       ...other
     },
-    ref
+    ref,
   ) {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -102,5 +102,5 @@ export const FormattedInput = forwardRef<HTMLInputElement, FormattedInputProps>(
         ref={ref}
       />
     );
-  }
+  },
 );

@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { FlowLayout } from "@salt-ds/core";
 import { MX } from "@salt-ds/countries";
 

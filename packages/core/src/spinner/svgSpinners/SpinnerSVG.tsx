@@ -1,7 +1,7 @@
-import { SVGAttributes } from "react";
+import type { SVGAttributes } from "react";
 import { makePrefixer } from "../../utils";
-import { SpinnerSVGSize } from "../Spinner";
-import { Density } from "../../theme";
+import type { SpinnerSVGSize } from "../Spinner";
+import type { Density } from "../../theme";
 
 const withBaseName = makePrefixer("saltSpinner");
 

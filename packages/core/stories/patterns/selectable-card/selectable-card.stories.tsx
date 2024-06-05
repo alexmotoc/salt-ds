@@ -4,13 +4,13 @@ import {
   StackLayout,
   InteractableCard,
   InteractableCardGroup,
-  InteractableCardValue,
+  type InteractableCardValue,
   Avatar,
   CheckboxIcon,
   RadioButtonIcon,
 } from "@salt-ds/core";
 import { CreditCardIcon, BankIcon } from "@salt-ds/icons";
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
 
 import persona1 from "../../assets/avatar.png";

@@ -1,11 +1,11 @@
 import { makePrefixer, useForkRef, useId } from "@salt-ds/core";
 import {
-  ComponentPropsWithoutRef,
-  FocusEvent,
+  type ComponentPropsWithoutRef,
+  type FocusEvent,
   forwardRef,
-  KeyboardEvent,
-  MouseEvent,
-  SyntheticEvent,
+  type KeyboardEvent,
+  type MouseEvent,
+  type SyntheticEvent,
   useRef,
 } from "react";
 import { clsx } from "clsx";
@@ -32,7 +32,7 @@ export interface ListNextProps
   /* Callback for change event. Returns current selection.*/
   onChange?: (
     event: SyntheticEvent,
-    data: { value: string | undefined }
+    data: { value: string | undefined },
   ) => void;
   /* Callback for select event. Returns new selected item.*/
   onSelect?: (event: SyntheticEvent, data: { value: string }) => void;
@@ -59,7 +59,7 @@ export const ListNext = forwardRef<HTMLUListElement, ListNextProps>(
       onChange,
       ...rest
     },
-    ref
+    ref,
   ) {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -138,5 +138,5 @@ export const ListNext = forwardRef<HTMLUListElement, ListNextProps>(
         </ul>
       </ListNextContext.Provider>
     );
-  }
+  },
 );

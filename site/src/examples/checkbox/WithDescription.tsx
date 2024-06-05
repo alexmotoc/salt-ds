@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { Checkbox, Text, StackLayout, CheckboxGroup } from "@salt-ds/core";
 
 export const WithDescription = (): ReactElement => {

@@ -1,11 +1,11 @@
-import { forwardRef, ElementType, ReactElement } from "react";
+import { forwardRef, type ElementType, type ReactElement } from "react";
 import { clsx } from "clsx";
-import { GridItem, GridItemProps } from "../grid-item";
+import { GridItem, type GridItemProps } from "../grid-item";
 import borderItemCss from "./BorderItem.css";
 import {
   makePrefixer,
-  PolymorphicComponentPropWithRef,
-  PolymorphicRef,
+  type PolymorphicComponentPropWithRef,
+  type PolymorphicRef,
 } from "../utils";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -46,7 +46,7 @@ export type BorderItemProps<T extends ElementType> =
 const withBaseName = makePrefixer("saltBorderItem");
 
 type BorderItemComponent = <T extends ElementType = "div">(
-  props: BorderItemProps<T>
+  props: BorderItemProps<T>,
 ) => ReactElement | null;
 
 export const BorderItem: BorderItemComponent = forwardRef(
@@ -59,7 +59,7 @@ export const BorderItem: BorderItemComponent = forwardRef(
       style,
       ...rest
     }: BorderItemProps<T>,
-    ref?: PolymorphicRef<T>
+    ref?: PolymorphicRef<T>,
   ) => {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -82,7 +82,7 @@ export const BorderItem: BorderItemComponent = forwardRef(
           {
             [withBaseName("sticky")]: sticky,
           },
-          className
+          className,
         )}
         style={gridItemStyles}
         {...rest}
@@ -90,5 +90,5 @@ export const BorderItem: BorderItemComponent = forwardRef(
         {children}
       </GridItem>
     );
-  }
+  },
 );

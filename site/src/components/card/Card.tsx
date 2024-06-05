@@ -1,9 +1,9 @@
 import {
-  ComponentPropsWithoutRef,
+  type ComponentPropsWithoutRef,
   useRef,
   cloneElement,
-  CSSProperties,
-  ReactNode,
+  type CSSProperties,
+  type ReactNode,
 } from "react";
 import clsx from "clsx";
 import { Link } from "@jpmorganchase/mosaic-site-components";

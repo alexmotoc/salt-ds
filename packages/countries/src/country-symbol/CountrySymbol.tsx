@@ -1,4 +1,4 @@
-import { forwardRef, SVGAttributes } from "react";
+import { forwardRef, type SVGAttributes } from "react";
 import { clsx } from "clsx";
 
 import { useWindow } from "@salt-ds/window";
@@ -36,7 +36,7 @@ export const CountrySymbol = forwardRef<SVGSVGElement, CountrySymbolProps>(
       sharp,
       ...rest
     },
-    ref
+    ref,
   ) {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -55,7 +55,7 @@ export const CountrySymbol = forwardRef<SVGSVGElement, CountrySymbolProps>(
         className={clsx(
           withBaseName(),
           withBaseName(sharp ? "sharp" : "round"),
-          className
+          className,
         )}
         style={style}
         role="img"
@@ -65,5 +65,5 @@ export const CountrySymbol = forwardRef<SVGSVGElement, CountrySymbolProps>(
         <g aria-hidden>{children}</g>
       </svg>
     );
-  }
+  },
 );

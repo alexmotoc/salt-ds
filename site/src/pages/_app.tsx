@@ -1,6 +1,6 @@
 // eslint-disable import/no-duplicates
-import { useMemo, ReactNode } from "react";
-import { AppProps } from "next/app";
+import { useMemo, type ReactNode } from "react";
+import type { AppProps } from "next/app";
 import Head from "next/head";
 import {
   BaseUrlProvider,
@@ -40,7 +40,7 @@ import Homepage from "./index";
 import * as saltLayouts from "../layouts";
 import * as saltComponents from "../components";
 
-import { MyAppProps } from "../types/mosaic";
+import type { MyAppProps } from "../types/mosaic";
 
 const components = {
   ...getMarkdownComponents(),
@@ -58,7 +58,7 @@ const DensityProvider = ({ children }: { children: ReactNode }) => {
 
   const density = useMemo(
     () => (viewport === "xl" || viewport === "lg" ? "low" : "touch"),
-    [viewport]
+    [viewport],
   );
 
   return <SaltProvider density={density}>{children}</SaltProvider>;

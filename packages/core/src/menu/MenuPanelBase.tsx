@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 import menuPanelCss from "./MenuPanel.css";
@@ -21,5 +21,5 @@ export const MenuPanelBase = forwardRef<HTMLDivElement, MenuPanelBaseProps>(
         {children}
       </div>
     );
-  }
+  },
 );

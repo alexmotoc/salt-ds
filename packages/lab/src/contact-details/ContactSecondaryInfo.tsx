@@ -1,9 +1,14 @@
 import { makePrefixer, useId, Text } from "@salt-ds/core";
-import { IconProps } from "@salt-ds/icons";
+import type { IconProps } from "@salt-ds/icons";
 import { clsx } from "clsx";
-import { ComponentType, forwardRef, HTMLAttributes, useEffect } from "react";
+import {
+  type ComponentType,
+  forwardRef,
+  type HTMLAttributes,
+  useEffect,
+} from "react";
 import { useContactDetailsContext } from "./internal";
-import { ValueComponentProps } from "./types";
+import type { ValueComponentProps } from "./types";
 
 const withBaseName = makePrefixer("saltContactSecondaryInfo");
 

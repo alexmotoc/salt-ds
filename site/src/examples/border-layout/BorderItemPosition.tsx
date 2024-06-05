@@ -1,10 +1,10 @@
-import { ReactElement, useState, ChangeEventHandler } from "react";
+import { type ReactElement, useState, type ChangeEventHandler } from "react";
 import clsx from "clsx";
 import {
   BorderLayout,
   BorderItem,
   BORDER_POSITION as borderPosition,
-  BorderPosition,
+  type BorderPosition,
   RadioButtonGroup,
   RadioButton,
   FormField,
@@ -79,7 +79,7 @@ export const BorderItemPosition = (): ReactElement => {
               <RadioButton
                 key={position}
                 label={`${position.charAt(0).toUpperCase()}${position.slice(
-                  1
+                  1,
                 )}`}
                 value={position}
               />

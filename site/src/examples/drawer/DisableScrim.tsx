@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { type ReactElement, useState } from "react";
 
 import { Button, StackLayout, Drawer, DrawerCloseButton } from "@salt-ds/core";
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Scrim, Spinner, Text, Card, StackLayout } from "@salt-ds/core";
-import { StoryFn, Meta } from "@storybook/react";
+import type { StoryFn, Meta } from "@storybook/react";
 
 export default {
   title: "Core/Scrim",

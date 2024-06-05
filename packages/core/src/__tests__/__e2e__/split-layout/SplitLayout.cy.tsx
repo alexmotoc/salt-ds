@@ -24,9 +24,9 @@ describe("GIVEN a Split", () => {
         cy.get(".saltFlexLayout").should(
           "have.css",
           "flex-direction",
-          "column"
+          "column",
         );
-      }
+      },
     );
 
     it("THEN it should render with a default gap", () => {

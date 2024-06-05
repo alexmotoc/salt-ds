@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { Button, Text, Tooltip } from "@salt-ds/core";
 
 export const Content = (): ReactElement => (

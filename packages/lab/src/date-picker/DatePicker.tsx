@@ -1,9 +1,9 @@
 import { clsx } from "clsx";
 import {
-  ChangeEventHandler,
-  ComponentPropsWithoutRef,
+  type ChangeEventHandler,
+  type ComponentPropsWithoutRef,
   forwardRef,
-  SyntheticEvent,
+  type SyntheticEvent,
   useRef,
   useState,
 } from "react";
@@ -20,10 +20,14 @@ import { DatePickerContext } from "./DatePickerContext";
 import { DatePickerPanel } from "./DatePickerPanel";
 import { flip, useDismiss, useInteractions } from "@floating-ui/react";
 import { DateInput } from "../date-input";
-import { DateValue, getLocalTimeZone, today } from "@internationalized/date";
+import {
+  type DateValue,
+  getLocalTimeZone,
+  today,
+} from "@internationalized/date";
 import { CalendarIcon } from "@salt-ds/icons";
 import {
-  CalendarProps,
+  type CalendarProps,
   isRangeOrOffsetSelectionWithStartDate,
 } from "../calendar";
 
@@ -97,7 +101,7 @@ export interface DatePickerProps
    */
   onSelectionChange?: (
     event: SyntheticEvent,
-    selectedDate?: DateValue | { startDate?: DateValue; endDate?: DateValue }
+    selectedDate?: DateValue | { startDate?: DateValue; endDate?: DateValue },
   ) => void;
   /**
    * Callback fired when the input value change.
@@ -126,7 +130,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       onChange,
       ...rest
     },
-    ref
+    ref,
   ) {
     const [open, setOpen] = useControlled({
       controlled: openProp,
@@ -164,7 +168,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
     >(
       endDate ??
         startDate?.add({ months: 1 }) ??
-        today(getLocalTimeZone()).add({ months: 1 })
+        today(getLocalTimeZone()).add({ months: 1 }),
     );
 
     const onOpenChange = (newState: boolean) => {
@@ -205,7 +209,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
     // Handlers
     const handleSelect = (
       event: SyntheticEvent,
-      selectedDate?: DateValue | { startDate?: DateValue; endDate?: DateValue }
+      selectedDate?: DateValue | { startDate?: DateValue; endDate?: DateValue },
     ) => {
       if (selectionVariant === "default" && startDate) {
         startInputRef?.current?.focus();
@@ -234,7 +238,7 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
       endVisibleMonth,
       setEndVisibleMonth,
       defaultStartDate: isRangeOrOffsetSelectionWithStartDate(
-        defaultSelectedDate
+        defaultSelectedDate,
       )
         ? defaultSelectedDate.startDate
         : defaultSelectedDate,
@@ -279,5 +283,5 @@ export const DatePicker = forwardRef<HTMLDivElement, DatePickerProps>(
         />
       </DatePickerContext.Provider>
     );
-  }
+  },
 );

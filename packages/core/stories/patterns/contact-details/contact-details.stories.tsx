@@ -9,7 +9,7 @@ import {
   FlowLayout,
   SplitLayout,
   Dropdown,
-  DropdownProps,
+  type DropdownProps,
   Option,
 } from "@salt-ds/core";
 import {
@@ -21,7 +21,7 @@ import {
   ChevronUpIcon,
   UserIcon,
 } from "@salt-ds/icons";
-import { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 import { useState } from "react";
 import persona from "../../assets/avatar.png";
 import persona2 from "../../assets/avatar2.png";
@@ -367,7 +367,7 @@ export const List = () => {
 
   const handleSelectionChange: DropdownProps<Contact>["onSelectionChange"] = (
     event,
-    newSelected
+    newSelected,
   ) => {
     setSelectedContact(newSelected);
   };

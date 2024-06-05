@@ -6,11 +6,11 @@ import {
   NumericCellEditor,
   NumericColumn,
   TextCellEditor,
-  CellValidationState,
-  GridColumnProps,
+  type CellValidationState,
+  type GridColumnProps,
   RowSelectionCheckboxColumn,
 } from "../src";
-import { StoryFn } from "@storybook/react";
+import type { StoryFn } from "@storybook/react";
 import * as yup from "yup";
 import { faker } from "@faker-js/faker";
 import { useCallback, useState } from "react";
@@ -37,7 +37,7 @@ interface RowExample {
 }
 
 const discountMap: Map<string, number> = new Map(
-  discountOptions.map((n, i) => [n, discountValues[i]])
+  discountOptions.map((n, i) => [n, discountValues[i]]),
 );
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -109,7 +109,7 @@ const useExampleDataSource = () => {
         return x;
       });
     },
-    [setRows]
+    [setRows],
   );
 
   return { rows, setValue };
@@ -125,7 +125,7 @@ const validationSchema = yup.object({
 
 type EditableFieldKeys = "name" | "price" | "amount" | "total" | "discount";
 type CreateValueSetter = (
-  name: EditableFieldKeys
+  name: EditableFieldKeys,
 ) => GridColumnProps<RowExample>["onChange"];
 
 export const CellValidation: StoryFn = () => {
@@ -150,7 +150,7 @@ export const CellValidation: StoryFn = () => {
         };
       }
       return {};
-    })
+    }),
   );
 
   const setNumberValue: CreateValueSetter = (name) => (_, index, value) => {

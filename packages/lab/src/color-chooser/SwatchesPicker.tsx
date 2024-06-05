@@ -1,4 +1,4 @@
-import { Color } from "./Color";
+import type { Color } from "./Color";
 import { Swatch } from "./Swatch";
 import { convertColorMapValueToHex } from "./ColorHelpers";
 import { isTransparent } from "./color-utils";
@@ -15,7 +15,7 @@ interface SwatchesPickerProps {
   onChange: (
     color: Color | undefined,
     finalSelection: boolean,
-    e?: React.ChangeEvent
+    e?: React.ChangeEvent,
   ) => void;
   onDialogClosed: () => void;
 }
@@ -27,7 +27,7 @@ interface SwatchesGroupProps {
   onClick: (
     color: Color | undefined,
     finalSelection: boolean,
-    e?: React.ChangeEvent
+    e?: React.ChangeEvent,
   ) => void;
   onDialogClosed: () => void;
 }

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { type ReactNode } from "react";
 import clsx from "clsx";
 import { Sidebar } from "@jpmorganchase/mosaic-site-components";
 import { useBreakpoint } from "@jpmorganchase/mosaic-components";

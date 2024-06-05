@@ -1,7 +1,7 @@
-import { KeyboardEvent, useCallback } from "react";
+import { type KeyboardEvent, useCallback } from "react";
 import { RowSelectionCheckboxHeaderCellValue } from "./RowSelectionCheckboxHeaderCellValue";
 import { RowSelectionCheckboxCellValue } from "./RowSelectionCheckboxCellValue";
-import { GridColumn, GridColumnProps } from "./GridColumn";
+import { GridColumn, type GridColumnProps } from "./GridColumn";
 import { useSelectionContext } from "./SelectionContext";
 import { AutoSizeHeaderCell } from "./HeaderCell";
 
@@ -11,7 +11,7 @@ export type RowSelectionCheckboxColumnProps<T> = Omit<
 >;
 
 export function RowSelectionCheckboxColumn<T>(
-  props: RowSelectionCheckboxColumnProps<T>
+  props: RowSelectionCheckboxColumnProps<T>,
 ) {
   const { selectRows } = useSelectionContext();
 
@@ -26,7 +26,7 @@ export function RowSelectionCheckboxColumn<T>(
         event.stopPropagation();
       }
     },
-    [selectRows]
+    [selectRows],
   );
 
   return (

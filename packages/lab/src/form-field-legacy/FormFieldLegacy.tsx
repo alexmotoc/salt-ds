@@ -1,12 +1,12 @@
 import { clsx } from "clsx";
 import {
-  Dispatch,
-  ElementType,
-  FocusEventHandler,
-  ForwardedRef,
+  type Dispatch,
+  type ElementType,
+  type FocusEventHandler,
+  type ForwardedRef,
   forwardRef,
-  HTMLAttributes,
-  SetStateAction,
+  type HTMLAttributes,
+  type SetStateAction,
   useMemo,
   useRef,
   useState,
@@ -16,12 +16,12 @@ import { FormFieldLegacyContext } from "../form-field-context-legacy";
 import { classBase } from "./constant";
 import {
   FormActivationIndicator,
-  FormActivationIndicatorProps,
+  type FormActivationIndicatorProps,
 } from "./FormActivationIndicator";
-import { FormHelperText, FormHelperTextProps } from "./FormHelperText";
-import { FormLabel, FormLabelProps } from "./FormLabel";
-import { NecessityIndicatorOptions } from "./NecessityIndicator";
-import { StatusIndicatorProps } from "./StatusIndicator";
+import { FormHelperText, type FormHelperTextProps } from "./FormHelperText";
+import { FormLabel, type FormLabelProps } from "./FormLabel";
+import type { NecessityIndicatorOptions } from "./NecessityIndicator";
+import type { StatusIndicatorProps } from "./StatusIndicator";
 
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -148,7 +148,7 @@ const useA11yValue = ({
       disabled,
       readOnly,
     }),
-    [labelId, disabled, readOnly, required, renderHelperText, helperTextId]
+    [labelId, disabled, readOnly, required, renderHelperText, helperTextId],
   );
 };
 
@@ -165,7 +165,7 @@ export const useFormFieldLegacy = ({
   {
     onBlur: FocusEventHandler<HTMLDivElement>;
     onFocus: FocusEventHandler<HTMLDivElement>;
-  }
+  },
 ] => {
   const [focused, setFocused] = useState(false);
   const handleBlur: FocusEventHandler<HTMLDivElement> = (event) => {
@@ -219,7 +219,7 @@ export const FormFieldLegacy = forwardRef(
       variant = "primary",
       ...restProps
     }: FormFieldLegacyProps,
-    ref: ForwardedRef<HTMLDivElement>
+    ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -283,7 +283,7 @@ export const FormFieldLegacy = forwardRef(
               [withBaseName(`withHelperText`)]: inlineHelperText,
               [withBaseName(variant)]: variant,
             },
-            className
+            className,
           )}
           {...eventHandlers}
           {...restProps}
@@ -330,5 +330,5 @@ export const FormFieldLegacy = forwardRef(
         </div>
       </Tooltip>
     );
-  }
+  },
 );

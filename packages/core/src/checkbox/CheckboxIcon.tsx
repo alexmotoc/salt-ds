@@ -2,11 +2,11 @@ import { clsx } from "clsx";
 import { useComponentCssInjection } from "@salt-ds/styles";
 import { useWindow } from "@salt-ds/window";
 import { useDensity } from "../salt-provider";
-import { AdornmentValidationStatus } from "../status-adornment";
+import type { AdornmentValidationStatus } from "../status-adornment";
 import { makePrefixer } from "../utils";
 import checkboxIconCss from "./CheckboxIcon.css";
 import {
-  IconProps,
+  type IconProps,
   SuccessIcon,
   SuccessSmallIcon,
   SuccessSmallSolidIcon,
@@ -75,7 +75,7 @@ export const CheckboxIcon = ({
           [withBaseName("indeterminate")]: indeterminate,
           [withBaseName("readOnly")]: readOnly,
         },
-        className
+        className,
       )}
     >
       {checked && !indeterminate && !readOnly && (

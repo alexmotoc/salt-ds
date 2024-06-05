@@ -1,6 +1,6 @@
-import { ElementType, FC, ReactNode } from "react";
+import { ElementType, type FC, type ReactNode } from "react";
 import clsx from "clsx";
-import { CloseIcon, SuccessTickIcon, IconProps } from "@salt-ds/icons";
+import { CloseIcon, SuccessTickIcon, type IconProps } from "@salt-ds/icons";
 import styles from "./ExampleContainer.module.css";
 
 export interface ExampleContainerProps {
@@ -46,7 +46,7 @@ export const ExampleContainer: FC<ExampleContainerProps> = ({
       className={clsx(
         styles.root,
         type === "positive" ? styles.positive : styles.negative,
-        className
+        className,
       )}
     >
       {customPillText || type !== "neutral" ? (

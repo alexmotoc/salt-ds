@@ -1,10 +1,10 @@
 import {
-  ComponentPropsWithoutRef,
+  type ComponentPropsWithoutRef,
   forwardRef,
   useState,
   createContext,
   useContext,
-  ForwardedRef,
+  type ForwardedRef,
   useMemo,
 } from "react";
 import { WindowProvider, useWindow } from "@salt-ds/window";
@@ -65,17 +65,17 @@ const StyleInjection = () => {
 export const FloatingComponentWindow = forwardRef(
   (
     { children, title, style, ...rest }: Props,
-    ref: ForwardedRef<HTMLIFrameElement>
+    ref: ForwardedRef<HTMLIFrameElement>,
   ) => {
     const [contentRef, setContentRef] = useState<HTMLIFrameElement | null>(
-      null
+      null,
     );
 
     const mountNode = contentRef?.contentWindow?.document?.body;
 
     const wrappedChildren = useMemo(
       () => <SaltProvider>{children}</SaltProvider>,
-      [children]
+      [children],
     );
 
     return (
@@ -93,16 +93,16 @@ export const FloatingComponentWindow = forwardRef(
         )}
       </iframe>
     );
-  }
+  },
 );
 
 export const NewWindow = forwardRef(
   (
     { children, title, style, ...rest }: Props,
-    ref: ForwardedRef<HTMLIFrameElement>
+    ref: ForwardedRef<HTMLIFrameElement>,
   ) => {
     const [contentRef, setContentRef] = useState<HTMLIFrameElement | null>(
-      null
+      null,
     );
 
     const mountNode = contentRef?.contentWindow?.document?.body;
@@ -111,7 +111,7 @@ export const NewWindow = forwardRef(
 
     const wrappedChildren = useMemo(
       () => <SaltProvider>{children}</SaltProvider>,
-      [children]
+      [children],
     );
 
     return (
@@ -129,5 +129,5 @@ export const NewWindow = forwardRef(
         )}
       </iframe>
     );
-  }
+  },
 );

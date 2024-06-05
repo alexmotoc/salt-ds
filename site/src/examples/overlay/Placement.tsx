@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import {
   Tooltip,
   Button,
@@ -6,7 +6,7 @@ import {
   Overlay,
   OverlayPanel,
   OverlayPanelContent,
-  OverlayProps,
+  type OverlayProps,
   OverlayTrigger,
 } from "@salt-ds/core";
 import styles from "./index.module.css";

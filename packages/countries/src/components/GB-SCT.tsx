@@ -3,13 +3,13 @@ import { forwardRef } from "react";
 import { useId } from "@salt-ds/core";
 import { clsx } from "clsx";
 
-import { CountrySymbol, CountrySymbolProps } from "../country-symbol";
+import { CountrySymbol, type CountrySymbolProps } from "../country-symbol";
 
 export type GB_SCTProps = CountrySymbolProps;
 
 const GB_SCT = forwardRef<SVGSVGElement, GB_SCTProps>(function GB_SCT(
   props: GB_SCTProps,
-  ref
+  ref,
 ) {
   const uid = useId(props.id);
 

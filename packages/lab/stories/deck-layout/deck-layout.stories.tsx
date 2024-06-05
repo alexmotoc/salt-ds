@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import { Card } from "@salt-ds/core";
 import { DeckLayout, DeckItem, Tab, Tabstrip } from "@salt-ds/lab";
 import "../layout/layout.stories.css";

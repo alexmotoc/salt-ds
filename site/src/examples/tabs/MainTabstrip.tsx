@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { TabstripNext, TabNext } from "@salt-ds/lab";
 
 export const MainTabstrip = (): ReactElement => {

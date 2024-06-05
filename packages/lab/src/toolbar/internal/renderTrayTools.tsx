@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
-import {
+import React, { type ReactNode } from "react";
+import type {
   OverflowCollectionHookResult,
   OverflowItem,
 } from "../../responsive/overflowTypes";
@@ -8,7 +8,7 @@ import {
   liftResponsivePropsToFormField,
 } from "../../responsive/utils";
 import { ToolbarField } from "../toolbar-field/ToolbarField";
-import { OrientationShape } from "../ToolbarProps";
+import type { OrientationShape } from "../ToolbarProps";
 
 type TooltrayItem = {
   "data-priority"?: number | string;
@@ -19,7 +19,7 @@ export const renderTrayTools = (
   collectionHook: OverflowCollectionHookResult,
   overflowedItems: OverflowItem[],
   orientation: OrientationShape,
-  collapsed?: boolean | string
+  collapsed?: boolean | string,
 ): ReactNode => {
   if (collapsed) {
     return [];

@@ -2,7 +2,7 @@ import { makePrefixer } from "@salt-ds/core";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 
-import { GridColumnModel } from "../Grid";
+import type { GridColumnModel } from "../Grid";
 import { HeaderCell } from "../HeaderCell";
 import { HeaderCellValue } from "../HeaderCellValue";
 import { useCursorContext } from "../CursorContext";

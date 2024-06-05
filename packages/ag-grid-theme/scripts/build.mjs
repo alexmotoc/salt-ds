@@ -34,12 +34,12 @@ esbuild
         console.log(
           `${path.relative(
             process.cwd(),
-            path.resolve(__dirname, "../package.json")
+            path.resolve(__dirname, "../package.json"),
           )} copied to ${path.relative(
             process.cwd(),
-            path.join(buildFolder, "package.json")
-          )}`
+            path.join(buildFolder, "package.json"),
+          )}`,
         );
-      }
+      },
     );
   });

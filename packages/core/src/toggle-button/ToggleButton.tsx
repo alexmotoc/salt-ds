@@ -1,9 +1,9 @@
 import {
   forwardRef,
   useRef,
-  MouseEvent,
-  FocusEvent,
-  ComponentPropsWithoutRef,
+  type MouseEvent,
+  type FocusEvent,
+  type ComponentPropsWithoutRef,
 } from "react";
 import { clsx } from "clsx";
 import { useToggleButtonGroup } from "../toggle-button-group";
@@ -94,5 +94,5 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
         {children}
       </button>
     );
-  }
+  },
 );

@@ -1,4 +1,4 @@
-import { ReactElement, SyntheticEvent, useState } from "react";
+import { type ReactElement, type SyntheticEvent, useState } from "react";
 import {
   Accordion,
   AccordionGroup,

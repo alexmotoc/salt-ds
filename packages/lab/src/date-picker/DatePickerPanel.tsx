@@ -1,7 +1,7 @@
 import {
-  ComponentPropsWithoutRef,
+  type ComponentPropsWithoutRef,
   forwardRef,
-  SyntheticEvent,
+  type SyntheticEvent,
   useEffect,
   useState,
 } from "react";
@@ -14,7 +14,7 @@ import {
   useFloatingComponent,
   useFormFieldProps,
   FormFieldContext,
-  FormFieldContextValue,
+  type FormFieldContextValue,
 } from "@salt-ds/core";
 import { clsx } from "clsx";
 import { useDatePickerContext } from "./DatePickerContext";
@@ -23,16 +23,20 @@ import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 import {
   Calendar,
-  CalendarProps,
-  UseRangeSelectionCalendarProps,
-  UseSingleSelectionCalendarProps,
+  type CalendarProps,
+  type UseRangeSelectionCalendarProps,
+  type UseSingleSelectionCalendarProps,
 } from "../calendar";
-import { DateValue, endOfMonth, startOfMonth } from "@internationalized/date";
+import {
+  type DateValue,
+  endOfMonth,
+  startOfMonth,
+} from "@internationalized/date";
 
 export interface DatePickerPanelProps extends ComponentPropsWithoutRef<"div"> {
   onSelect?: (
     event: SyntheticEvent,
-    selectedDate?: DateValue | { startDate?: DateValue; endDate?: DateValue }
+    selectedDate?: DateValue | { startDate?: DateValue; endDate?: DateValue },
   ) => void;
   helperText?: string;
   CalendarProps?: Partial<
@@ -97,7 +101,7 @@ export const DatePickerPanel = forwardRef<HTMLDivElement, DatePickerPanelProps>(
       };
     const handleHoveredDateChange: CalendarProps["onHoveredDateChange"] = (
       _,
-      newHoveredDate
+      newHoveredDate,
     ) => {
       setHoveredDate(newHoveredDate);
     };
@@ -185,5 +189,5 @@ export const DatePickerPanel = forwardRef<HTMLDivElement, DatePickerPanelProps>(
         </StackLayout>
       </FloatingComponent>
     );
-  }
+  },
 );

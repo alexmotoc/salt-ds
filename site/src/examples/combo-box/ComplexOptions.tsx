@@ -1,4 +1,4 @@
-import { ChangeEvent, ReactElement, useState } from "react";
+import { type ChangeEvent, type ReactElement, useState } from "react";
 import { Avatar, ComboBox, Option, StackLayout, Text } from "@salt-ds/core";
 
 type Contact = {
@@ -194,7 +194,7 @@ export const ComplexOptions = (): ReactElement => {
         .filter((contact) =>
           contact.displayName
             .toLowerCase()
-            .includes(filter.trim().toLowerCase())
+            .includes(filter.trim().toLowerCase()),
         )
         .map((contact) => (
           <ContactOption value={contact} key={contact.id} />

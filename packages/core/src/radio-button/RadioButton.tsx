@@ -1,11 +1,11 @@
 import { clsx } from "clsx";
 import {
-  ChangeEventHandler,
-  ComponentPropsWithoutRef,
-  FocusEventHandler,
+  type ChangeEventHandler,
+  type ComponentPropsWithoutRef,
+  type FocusEventHandler,
   forwardRef,
-  InputHTMLAttributes,
-  ReactNode,
+  type InputHTMLAttributes,
+  type ReactNode,
 } from "react";
 import { makePrefixer, useControlled } from "../utils";
 import { useRadioGroup } from "./internal/useRadioGroup";
@@ -15,7 +15,7 @@ import radioButtonCss from "./RadioButton.css";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 import { useFormFieldProps } from "../form-field-context";
-import { AdornmentValidationStatus } from "../status-adornment";
+import type { AdornmentValidationStatus } from "../status-adornment";
 
 const withBaseName = makePrefixer("saltRadioButton");
 
@@ -163,7 +163,7 @@ export const RadioButton = forwardRef<HTMLLabelElement, RadioButtonProps>(
             [withBaseName("error")]: error /* **Deprecated** */,
             [withBaseName(validationStatus || "")]: validationStatus,
           },
-          className
+          className,
         )}
         ref={ref}
         {...rest}
@@ -174,7 +174,7 @@ export const RadioButton = forwardRef<HTMLLabelElement, RadioButtonProps>(
               radioGroup == undefined
                 ? formFieldA11yProps?.["aria-describedby"]
                 : undefined,
-              inputDescribedBy
+              inputDescribedBy,
             ) || undefined
           }
           aria-labelledby={
@@ -182,7 +182,7 @@ export const RadioButton = forwardRef<HTMLLabelElement, RadioButtonProps>(
               radioGroup == undefined
                 ? formFieldA11yProps?.["aria-labelledby"]
                 : undefined,
-              inputLabelledBy
+              inputLabelledBy,
             ) || undefined
           }
           className={clsx(withBaseName("input"), inputClassName)}
@@ -207,5 +207,5 @@ export const RadioButton = forwardRef<HTMLLabelElement, RadioButtonProps>(
         {label}
       </label>
     );
-  }
+  },
 );

@@ -1,9 +1,9 @@
-import { ReactElement, ChangeEventHandler, useState } from "react";
+import { type ReactElement, type ChangeEventHandler, useState } from "react";
 import {
   SplitLayout,
   FlowLayout,
   FLEX_ITEM_ALIGNMENTS as flexItemAlignments,
-  flexItemAlignment,
+  type flexItemAlignment,
   FlexItem,
   FormField,
   FormFieldLabel,
@@ -70,7 +70,7 @@ export const FlexItemPosition = (): ReactElement => {
             <RadioButton
               key={alignment}
               label={`${alignment.charAt(0).toUpperCase()}${alignment.slice(
-                1
+                1,
               )}`}
               value={alignment}
             />

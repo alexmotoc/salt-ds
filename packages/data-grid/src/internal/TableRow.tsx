@@ -2,7 +2,7 @@ import {
   Children,
   cloneElement,
   isValidElement,
-  MouseEventHandler,
+  type MouseEventHandler,
 } from "react";
 import { clsx } from "clsx";
 import { useWindow } from "@salt-ds/window";
@@ -10,9 +10,9 @@ import { useComponentCssInjection } from "@salt-ds/styles";
 import { makePrefixer } from "@salt-ds/core";
 
 import { BaseCell } from "../BaseCell";
-import { GridColumnModel, GridRowModel } from "../Grid";
+import type { GridColumnModel, GridRowModel } from "../Grid";
 import { useGridContext } from "../GridContext";
-import { CellValidationState } from "../GridColumn";
+import type { CellValidationState } from "../GridColumn";
 import { RowValidationStatusContext } from "../RowValidationStatus";
 
 import { FakeCell } from "./FakeCell";

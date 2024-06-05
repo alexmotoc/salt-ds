@@ -1,10 +1,10 @@
 import { clsx } from "clsx";
 import React, {
-  ChangeEvent,
-  ForwardedRef,
+  type ChangeEvent,
+  type ForwardedRef,
   forwardRef,
-  KeyboardEvent,
-  ReactElement,
+  type KeyboardEvent,
+  type ReactElement,
   useCallback,
   useRef,
 } from "react";
@@ -28,7 +28,7 @@ export interface EditableLabelProps {
   onExitEditMode: (
     originalLabel: string | undefined,
     editedLabel: string | undefined,
-    allowDeactivation?: boolean
+    allowDeactivation?: boolean,
   ) => void;
   defaultIsEditing?: boolean;
   value?: string;
@@ -45,7 +45,7 @@ export const EditableLabel = forwardRef(function EditableLabel(
     onExitEditMode,
     value: valueProp,
   }: EditableLabelProps,
-  forwardedRef: ForwardedRef<HTMLDivElement>
+  forwardedRef: ForwardedRef<HTMLDivElement>,
 ): ReactElement<EditableLabelProps> {
   const targetWindow = useWindow();
   useComponentCssInjection({

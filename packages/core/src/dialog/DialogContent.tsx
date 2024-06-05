@@ -1,4 +1,9 @@
-import { forwardRef, HTMLAttributes, ReactNode, useState } from "react";
+import {
+  forwardRef,
+  type HTMLAttributes,
+  type ReactNode,
+  useState,
+} from "react";
 import { clsx } from "clsx";
 import { makePrefixer } from "../utils";
 import { useWindow } from "@salt-ds/window";
@@ -44,5 +49,5 @@ export const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
         </div>
       </>
     );
-  }
+  },
 );

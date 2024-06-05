@@ -1,14 +1,14 @@
-import { DatePicker, DatePickerProps } from "@salt-ds/lab";
-import { Meta, StoryFn } from "@storybook/react";
+import { DatePicker, type DatePickerProps } from "@salt-ds/lab";
+import type { Meta, StoryFn } from "@storybook/react";
 import {
   FormField,
   FormFieldHelperText as FormHelperText,
   FormFieldLabel as FormLabel,
 } from "@salt-ds/core";
-import { ChangeEvent, useState } from "react";
+import { type ChangeEvent, useState } from "react";
 import {
   DateFormatter,
-  DateValue,
+  type DateValue,
   getLocalTimeZone,
 } from "@internationalized/date";
 
@@ -63,7 +63,7 @@ export const WithFormField: StoryFn<DatePickerProps> = (args) => {
 export const WithValidation: StoryFn<DatePickerProps> = (args) => {
   const helperText = "Date format DD MMM YYYY (e.g. 09 Jun 2021)";
   const [validationStatus, setValidationStatus] = useState<"error" | undefined>(
-    undefined
+    undefined,
   );
   const [inputValue, setInputValue] = useState<string | undefined>(undefined);
   const [selectedDate, setSelectedDate] = useState<

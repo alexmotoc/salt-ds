@@ -4,7 +4,7 @@ import {
   createSliderMarkLabelStyles,
 } from "./styles";
 import { isLabeledMark } from "./utils";
-import { SliderMark } from "./SliderRailMarks";
+import type { SliderMark } from "./SliderRailMarks";
 import { useMemo } from "react";
 
 import { useWindow } from "@salt-ds/window";
@@ -31,11 +31,11 @@ export function SliderMarkLabels(props: SliderMarkLabelsProps) {
 
   const style = useMemo(
     () => createSliderMarkLabelsStyle(min, max, marks),
-    [min, max, marks]
+    [min, max, marks],
   );
   const labelStyles = useMemo(
     () => createSliderMarkLabelStyles(marks),
-    [marks]
+    [marks],
   );
   return (
     <div className={withBaseName()} style={style}>

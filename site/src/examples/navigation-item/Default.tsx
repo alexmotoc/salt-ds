@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { type ReactElement, useState } from "react";
 import { NavigationItem } from "@salt-ds/core";
 
 export const Default = (): ReactElement => {

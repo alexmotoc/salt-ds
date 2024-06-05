@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { ArrowDownIcon, ArrowUpIcon } from "@salt-ds/icons";
 import { StackLayout } from "@salt-ds/core";
 

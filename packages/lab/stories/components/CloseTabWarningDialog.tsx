@@ -5,7 +5,7 @@ import {
   DialogContent,
   DialogActions,
 } from "@salt-ds/core";
-import { TabDescriptor } from "@salt-ds/lab";
+import type { TabDescriptor } from "@salt-ds/lab";
 
 export const CloseTabWarningDialog = ({
   closedTab,

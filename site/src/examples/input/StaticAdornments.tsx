@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { FlowLayout, Input, Text } from "@salt-ds/core";
 import {
   FilterIcon,

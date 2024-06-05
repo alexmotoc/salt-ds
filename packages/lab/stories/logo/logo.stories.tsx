@@ -1,6 +1,6 @@
 import { Link, StackLayout, Text } from "@salt-ds/core";
 import { Logo, LogoImage, LogoSeparator } from "@salt-ds/lab";
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 
 import PlaceholderLogo from "docs/assets/placeholder.svg";
 import { ChaseLogo } from "./assets/ChaseLogo";

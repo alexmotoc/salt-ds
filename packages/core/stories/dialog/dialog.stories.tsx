@@ -1,7 +1,7 @@
 import {
-  ComponentProps,
-  PropsWithChildren,
-  ReactNode,
+  type ComponentProps,
+  type PropsWithChildren,
+  type ReactNode,
   useEffect,
   useState,
 } from "react";
@@ -13,10 +13,10 @@ import {
   DialogActions,
   DialogContent,
   DialogCloseButton,
-  DialogProps,
-  DialogContentProps,
+  type DialogProps,
+  type DialogContentProps,
 } from "@salt-ds/core";
-import { StoryFn, Meta } from "@storybook/react";
+import type { StoryFn, Meta } from "@storybook/react";
 import "./dialog.stories.css";
 
 export default {

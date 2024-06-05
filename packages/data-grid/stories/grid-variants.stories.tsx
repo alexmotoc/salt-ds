@@ -4,7 +4,7 @@ import {
   NumericColumn,
   RowSelectionCheckboxColumn,
 } from "../src";
-import { ChangeEvent, SyntheticEvent, useState } from "react";
+import { type ChangeEvent, type SyntheticEvent, useState } from "react";
 import {
   Checkbox,
   FlexItem,
@@ -14,8 +14,8 @@ import {
   useDensity,
 } from "@salt-ds/core";
 import "./grid.stories.css";
-import { StoryFn } from "@storybook/react";
-import { DummyRow, dummyRowKeyGetter, rowData } from "./dummyData";
+import type { StoryFn } from "@storybook/react";
+import { type DummyRow, dummyRowKeyGetter, rowData } from "./dummyData";
 import { clsx } from "clsx";
 
 export default {

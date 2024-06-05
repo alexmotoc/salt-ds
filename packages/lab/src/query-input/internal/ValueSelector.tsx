@@ -4,8 +4,8 @@ import {
   useForkRef,
   useIsomorphicLayoutEffect,
 } from "@salt-ds/core";
-import { Dispatch, Ref, SetStateAction, useMemo } from "react";
-import { QueryInputCategory, QueryInputItem } from "../queryInputTypes";
+import { type Dispatch, type Ref, type SetStateAction, useMemo } from "react";
+import type { QueryInputCategory, QueryInputItem } from "../queryInputTypes";
 import { CategoryList } from "./CategoryList";
 import { SearchList } from "./SearchList";
 import { ValueList } from "./ValueList";

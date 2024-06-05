@@ -1,19 +1,24 @@
 import { makePrefixer, useForkRef, useIdMemo } from "@salt-ds/core";
 import { clsx } from "clsx";
-import { ForwardedRef, forwardRef, ReactElement, useRef } from "react";
 import {
-  CollectionIndexer,
+  type ForwardedRef,
+  forwardRef,
+  type ReactElement,
+  useRef,
+} from "react";
+import {
+  type CollectionIndexer,
   isSelected,
-  SelectionStrategy,
+  type SelectionStrategy,
   useCollectionItems,
   useImperativeScrollingAPI,
 } from "../common-hooks";
 import { useListHeight } from "./useListHeight";
 
 import { ListItem, ListItemProxy } from "./ListItem";
-import { ListProps } from "./listTypes";
+import type { ListProps } from "./listTypes";
 import { useList } from "./useList";
-import { Row, useVirtualization } from "./useVirtualization";
+import { type Row, useVirtualization } from "./useVirtualization";
 
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -25,7 +30,7 @@ const withBaseName = makePrefixer("saltList");
 
 export const VirtualizedList = forwardRef(function List<
   Item,
-  Selection extends SelectionStrategy = "default"
+  Selection extends SelectionStrategy = "default",
 >(
   {
     borderless,
@@ -69,7 +74,7 @@ export const VirtualizedList = forwardRef(function List<
     width,
     ...htmlAttributes
   }: ListProps<Item, Selection>,
-  forwardedRef?: ForwardedRef<HTMLDivElement>
+  forwardedRef?: ForwardedRef<HTMLDivElement>,
 ) {
   const targetWindow = useWindow();
   useComponentCssInjection({
@@ -160,7 +165,7 @@ export const VirtualizedList = forwardRef(function List<
   function addItem(
     list: ReactElement[],
     row: Row<Item>,
-    idx: { value: number }
+    idx: { value: number },
   ) {
     const [key, offset, pos, item] = row;
     const index = pos - 1;
@@ -183,7 +188,7 @@ export const VirtualizedList = forwardRef(function List<
         }}
       >
         {item.label}
-      </ListItem>
+      </ListItem>,
     );
     idx.value += 1;
   }
@@ -191,7 +196,7 @@ export const VirtualizedList = forwardRef(function List<
   function renderItems(
     data: Row<Item>[],
     idx: CollectionIndexer = { value: 0 },
-    end = data.length
+    end = data.length,
   ) {
     const listItems: ReactElement[] = [];
     while (idx.value < end) {
@@ -255,5 +260,5 @@ export const VirtualizedList = forwardRef(function List<
 }) as <Item = string, Selection extends SelectionStrategy = "default">(
   props: ListProps<Item, Selection> & {
     ref?: ForwardedRef<HTMLDivElement>;
-  }
+  },
 ) => ReactElement<ListProps<Item, Selection>>;

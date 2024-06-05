@@ -1,4 +1,4 @@
-import { useState, MouseEvent } from "react";
+import { useState, type MouseEvent } from "react";
 import { FormField, Input, LayerLayout, LAYER_POSITIONS } from "@salt-ds/lab";
 import {
   Button,
@@ -10,7 +10,7 @@ import {
   Text,
 } from "@salt-ds/core";
 
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import "../layout/layout.stories.css";
 
 export default {
@@ -175,7 +175,7 @@ Bottom.args = {
 };
 
 const CustomFullScreenAnimationTemplate: StoryFn<typeof LayerLayout> = (
-  args
+  args,
 ) => {
   const [open, setOpen] = useState(false);
 
@@ -219,7 +219,7 @@ const CustomFullScreenAnimationTemplate: StoryFn<typeof LayerLayout> = (
 };
 
 export const CustomFullScreenAnimation = CustomFullScreenAnimationTemplate.bind(
-  {}
+  {},
 );
 
 CustomFullScreenAnimation.args = {

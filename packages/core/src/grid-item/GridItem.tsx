@@ -1,11 +1,11 @@
-import { forwardRef, ElementType, ReactElement } from "react";
+import { forwardRef, type ElementType, type ReactElement } from "react";
 import { clsx } from "clsx";
 
 import {
   makePrefixer,
-  ResponsiveProp,
-  PolymorphicRef,
-  PolymorphicComponentPropWithRef,
+  type ResponsiveProp,
+  type PolymorphicRef,
+  type PolymorphicComponentPropWithRef,
   resolveResponsiveValue,
 } from "../utils";
 import gridItemCss from "./GridItem.css";
@@ -54,7 +54,7 @@ const rowStart = "auto";
 const rowEnd = "auto";
 
 type GridItemComponent = <T extends ElementType = "div">(
-  props: GridItemProps<T>
+  props: GridItemProps<T>,
 ) => ReactElement | null;
 
 export const GridItem: GridItemComponent = forwardRef(
@@ -70,7 +70,7 @@ export const GridItem: GridItemComponent = forwardRef(
       style,
       ...rest
     }: GridItemProps<T>,
-    ref?: PolymorphicRef<T>
+    ref?: PolymorphicRef<T>,
   ) => {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -116,5 +116,5 @@ export const GridItem: GridItemComponent = forwardRef(
         {children}
       </Component>
     );
-  }
+  },
 );

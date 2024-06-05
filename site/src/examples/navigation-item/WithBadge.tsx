@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { type ReactElement, useState } from "react";
 import { Badge, FlexLayout, NavigationItem } from "@salt-ds/core";
 
 export const WithBadge = (): ReactElement => {

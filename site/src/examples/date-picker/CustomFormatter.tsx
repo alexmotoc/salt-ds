@@ -1,8 +1,8 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { DatePicker } from "@salt-ds/lab";
 import {
   DateFormatter,
-  DateValue,
+  type DateValue,
   getLocalTimeZone,
 } from "@internationalized/date";
 

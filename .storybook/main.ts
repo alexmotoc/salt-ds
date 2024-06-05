@@ -1,4 +1,4 @@
-import { dirname, join } from "path";
+import { dirname, join } from "node:path";
 import type { StorybookConfig } from "@storybook/react-vite";
 import type { UserConfig } from "vite";
 import { cssVariableDocgen } from "css-variable-docgen-plugin";
@@ -36,9 +36,9 @@ const config: StorybookConfig = {
       plugins: [cssInline(), cssVariableDocgen()],
     };
 
-    if (configType === "PRODUCTION") {
-      customConfig.plugins!.push(
-        typescriptTurbosnap({ rootDir: config.root! })
+    if (configType === "PRODUCTION" && customConfig.plugins && config.root !== undefined) {
+      customConfig.plugins.push(
+        typescriptTurbosnap({ rootDir: config.root }),
       );
     }
 
@@ -48,6 +48,6 @@ const config: StorybookConfig = {
 
 module.exports = config;
 
-function getAbsolutePath(value: string): any {
-  return dirname(require.resolve(join(value, "package.json")));
+function getAbsolutePath<I extends string>(value: I): I {
+  return dirname(require.resolve(join(value, "package.json"))) as any;
 }

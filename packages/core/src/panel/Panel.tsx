@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { forwardRef, HTMLAttributes } from "react";
+import { forwardRef, type HTMLAttributes } from "react";
 import { makePrefixer } from "../utils";
 
 import panelCss from "./Panel.css";
@@ -29,7 +29,7 @@ const withBaseName = makePrefixer("saltPanel");
 
 export const Panel = forwardRef<HTMLDivElement, PanelProps>(function Panel(
   { className, children, variant = "primary", ...restProps },
-  ref
+  ref,
 ) {
   const targetWindow = useWindow();
   useComponentCssInjection({

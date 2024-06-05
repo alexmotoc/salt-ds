@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { StackLayout, Link } from "@salt-ds/core";
 import { GithubIcon } from "@salt-ds/icons";
 import styles from "./index.module.css";

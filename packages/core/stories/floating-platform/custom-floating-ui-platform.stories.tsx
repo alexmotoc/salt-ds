@@ -1,25 +1,26 @@
-import { Meta, StoryFn } from "@storybook/react";
-import React, {
+import type { Meta, StoryFn } from "@storybook/react";
+import type React from "react";
+import {
   forwardRef,
   useMemo,
-  ComponentPropsWithoutRef,
+  type ComponentPropsWithoutRef,
   useState,
-  Ref,
+  type Ref,
 } from "react";
 import { createPortal } from "react-dom";
 import { platform, offset } from "@floating-ui/dom";
-import { Platform } from "@floating-ui/react";
+import type { Platform } from "@floating-ui/react";
 
 import {
   Button,
   FloatingPlatformProvider,
   Tooltip,
-  TooltipProps,
+  type TooltipProps,
   StackLayout,
   Text,
   H3,
   FloatingComponentProvider,
-  FloatingComponentProps,
+  type FloatingComponentProps,
   ComboBox,
   Dropdown,
   Option,
@@ -110,7 +111,7 @@ const NewWindowTest = (props: NewWindowTestProps) => {
       getDimensions: platform.getDimensions,
       getClippingRect: () => window.document.body.getBoundingClientRect(),
     }),
-    [iframe]
+    [iframe],
   );
 
   const FloatingUIComponent = useMemo(
@@ -128,7 +129,7 @@ const NewWindowTest = (props: NewWindowTestProps) => {
             position,
             ...rest
           },
-          ref
+          ref,
         ) {
           const FloatingRoot = (
             /* In thise case to avoid Flash of Unstyled Text (FOUT) in the tooltip, due to being in an iframe, we are always rendering the tooltip.
@@ -160,9 +161,9 @@ const NewWindowTest = (props: NewWindowTestProps) => {
 
           // In this case tooltip is portalled back to the root document this may not be the case if tooltips were opened as new windows
           return rootBody ? createPortal(FloatingRoot, rootBody) : null;
-        }
+        },
       ),
-    [rootBody]
+    [rootBody],
   );
 
   const [value, setValue] = useState("");
@@ -192,7 +193,7 @@ const NewWindowTest = (props: NewWindowTestProps) => {
               <ComboBox disabled={false} onChange={handleChange}>
                 {source
                   .filter((item) =>
-                    item.toLowerCase().includes(value.trim().toLowerCase())
+                    item.toLowerCase().includes(value.trim().toLowerCase()),
                   )
                   .map((item) => (
                     <Option key={item} value={item}>

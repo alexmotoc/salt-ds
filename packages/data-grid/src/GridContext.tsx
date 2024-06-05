@@ -11,7 +11,7 @@ export interface GridContext<T> {
   onColumnGroupAdded: (colGroupProps: ColumnGroupProps) => void;
   onColumnGroupRemoved: (
     index: number,
-    colGroupProps: ColumnGroupProps
+    colGroupProps: ColumnGroupProps,
   ) => void;
 
   onEditorAdded: (editorInfo: CellEditorInfo<T>) => void;
@@ -21,7 +21,7 @@ export interface GridContext<T> {
 }
 
 export const GridContext = createContext<GridContext<any> | undefined>(
-  undefined
+  undefined,
 );
 
 export const useGridContext = () => {

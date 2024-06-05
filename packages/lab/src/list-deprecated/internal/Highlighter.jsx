@@ -28,7 +28,7 @@ export const Highlighter = (props) => {
           </strong>
         ) : (
           part
-        )
+        ),
       )}
     </>
   );

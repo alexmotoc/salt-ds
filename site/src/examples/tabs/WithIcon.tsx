@@ -1,4 +1,4 @@
-import { ReactElement, ComponentType } from "react";
+import type { ReactElement, ComponentType } from "react";
 import { TabstripNext, TabNext } from "@salt-ds/lab";
 import {
   BankCheckIcon,

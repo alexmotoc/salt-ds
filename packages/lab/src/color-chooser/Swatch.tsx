@@ -1,4 +1,4 @@
-import { ChangeEvent, KeyboardEvent } from "react";
+import type { ChangeEvent, KeyboardEvent } from "react";
 import { clsx } from "clsx";
 import { makePrefixer } from "@salt-ds/core";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -18,7 +18,7 @@ interface SwatchProps {
   onClick: (
     color: Color | undefined,
     finalSelection: boolean,
-    e?: ChangeEvent
+    e?: ChangeEvent,
   ) => void;
   onDialogClosed: () => void;
   transparent?: boolean;

@@ -1,5 +1,5 @@
-import { DateInput, DateInputProps } from "@salt-ds/lab";
-import { Meta, StoryFn } from "@storybook/react";
+import { DateInput, type DateInputProps } from "@salt-ds/lab";
+import type { Meta, StoryFn } from "@storybook/react";
 
 export default {
   title: "Lab/Date Input",

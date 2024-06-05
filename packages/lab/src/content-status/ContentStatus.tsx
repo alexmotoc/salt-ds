@@ -6,11 +6,17 @@ import {
   useId,
 } from "@salt-ds/core";
 import { clsx } from "clsx";
-import { forwardRef, HTMLAttributes, MouseEvent, Ref, useEffect } from "react";
+import {
+  forwardRef,
+  type HTMLAttributes,
+  type MouseEvent,
+  type Ref,
+  useEffect,
+} from "react";
 
 import {
   StatusIndicator,
-  StatusIndicatorProps,
+  type StatusIndicatorProps,
 } from "./internal/StatusIndicator";
 
 import { useWindow } from "@salt-ds/window";
@@ -45,7 +51,7 @@ export const ContentStatus = forwardRef<HTMLDivElement, ContentStatusProps>(
       value,
       ...rest
     },
-    ref
+    ref,
   ) {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -121,5 +127,5 @@ export const ContentStatus = forwardRef<HTMLDivElement, ContentStatusProps>(
         )}
       </div>
     );
-  }
+  },
 );

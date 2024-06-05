@@ -1,7 +1,7 @@
-import { RefObject, useCallback, useRef, useState } from "react";
+import { type RefObject, useCallback, useRef, useState } from "react";
 import { useIsomorphicLayoutEffect } from "@salt-ds/core";
 import {
-  ResizeHandler,
+  type ResizeHandler,
   useResizeObserver,
   WidthOnly,
 } from "./useResizeObserver";
@@ -9,7 +9,7 @@ import {
 const NONE: string[] = [];
 
 export function useWidth<Element extends HTMLElement>(
-  responsive: boolean
+  responsive: boolean,
 ): [RefObject<Element>, number] {
   const [width, setWidth] = useState<number>();
   const ref = useRef<HTMLElement>(null);

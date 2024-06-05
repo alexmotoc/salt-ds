@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { Button, Link, Text, Toast, ToastContent } from "@salt-ds/core";
 import { CloseIcon } from "@salt-ds/icons";
 

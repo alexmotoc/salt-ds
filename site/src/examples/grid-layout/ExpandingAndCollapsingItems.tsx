@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { type ReactElement, useState } from "react";
 import { GridLayout, GridItem, Button } from "@salt-ds/core";
 import { ExpandIcon, MinimizeIcon } from "@salt-ds/icons";
 import clsx from "clsx";

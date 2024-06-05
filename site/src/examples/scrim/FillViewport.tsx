@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { type ReactElement, useState } from "react";
 import { Button, Scrim, Text } from "@salt-ds/core";
 
 export const FillViewport = (): ReactElement => {

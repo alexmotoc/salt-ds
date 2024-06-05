@@ -1,6 +1,6 @@
 import {
-  ComponentPropsWithoutRef,
-  ReactElement,
+  type ComponentPropsWithoutRef,
+  type ReactElement,
   ReactNode,
   useEffect,
   useState,

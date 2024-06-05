@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import {
   FormField,
   Checkbox,
@@ -6,7 +6,7 @@ import {
   FormFieldLabel,
   FormFieldHelperText,
   Input,
-  InputProps,
+  type InputProps,
 } from "@salt-ds/core";
 
 export const GroupedWithVariant = (): ReactElement => {

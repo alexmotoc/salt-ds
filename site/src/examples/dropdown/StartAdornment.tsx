@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { Dropdown, Option } from "@salt-ds/core";
 import { largestCities } from "./exampleData";
 import { LocationIcon } from "@salt-ds/icons";

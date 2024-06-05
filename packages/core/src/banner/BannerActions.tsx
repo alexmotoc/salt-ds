@@ -1,4 +1,8 @@
-import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react";
+import {
+  type ComponentPropsWithoutRef,
+  forwardRef,
+  type ReactNode,
+} from "react";
 import { clsx } from "clsx";
 import { makePrefixer } from "../utils";
 
@@ -29,5 +33,5 @@ export const BannerActions = forwardRef<HTMLDivElement, BannerActionsProps>(
     return (
       <div className={clsx(withBaseName(), className)} {...rest} ref={ref} />
     );
-  }
+  },
 );

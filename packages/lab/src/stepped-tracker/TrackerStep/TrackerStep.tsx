@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef, useEffect } from "react";
+import { type ComponentPropsWithoutRef, forwardRef, useEffect } from "react";
 import { clsx } from "clsx";
 import { useComponentCssInjection } from "@salt-ds/styles";
 import { useWindow } from "@salt-ds/window";
@@ -66,7 +66,7 @@ const useCheckWithinSteppedTracker = (isWithinSteppedTracker: boolean) => {
     if (process.env.NODE_ENV !== "production") {
       if (!isWithinSteppedTracker) {
         console.error(
-          "The TrackerStep component must be placed within a SteppedTracker component"
+          "The TrackerStep component must be placed within a SteppedTracker component",
         );
       }
     }
@@ -121,5 +121,5 @@ export const TrackerStep = forwardRef<HTMLLIElement, TrackerStepProps>(
         <div className={withBaseName("body")}>{children}</div>
       </li>
     );
-  }
+  },
 );

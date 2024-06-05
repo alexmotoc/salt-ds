@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { forwardRef, HTMLAttributes, MouseEventHandler } from "react";
+import { forwardRef, type HTMLAttributes, type MouseEventHandler } from "react";
 import { Button } from "../button";
 import { makePrefixer } from "../utils";
 import { ChevronLeftIcon, ChevronRightIcon } from "@salt-ds/icons";
@@ -27,7 +27,7 @@ export interface PaginatorProps extends HTMLAttributes<HTMLDivElement> {
 export const Paginator = forwardRef<HTMLDivElement, PaginatorProps>(
   function Paginator(
     { className, boundaryCount, siblingCount, ...restProps },
-    ref
+    ref,
   ) {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -72,5 +72,5 @@ export const Paginator = forwardRef<HTMLDivElement, PaginatorProps>(
         </Button>
       </div>
     );
-  }
+  },
 );

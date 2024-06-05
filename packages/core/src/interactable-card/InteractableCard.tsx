@@ -1,8 +1,8 @@
 import {
   forwardRef,
-  MouseEvent,
-  ComponentPropsWithoutRef,
-  SyntheticEvent,
+  type MouseEvent,
+  type ComponentPropsWithoutRef,
+  type SyntheticEvent,
   useRef,
 } from "react";
 import { clsx } from "clsx";
@@ -12,7 +12,7 @@ import { capitalize, makePrefixer, useControlled, useForkRef } from "../utils";
 import { useInteractableCard } from "./useInteractableCard";
 import interactableCardCss from "./InteractableCard.css";
 import {
-  InteractableCardValue,
+  type InteractableCardValue,
   useInteractableCardGroup,
 } from "./InteractableCardGroupContext";
 
@@ -159,7 +159,7 @@ export const InteractableCard = forwardRef<
           [withBaseName("disabled")]: disabled,
           [withBaseName("selected")]: selected,
         },
-        className
+        className,
       )}
       {...rest}
       onClick={handleClick}

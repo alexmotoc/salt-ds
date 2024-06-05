@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import {
   H3,
   Text,
@@ -8,7 +8,7 @@ import {
   RadioButtonGroup,
   Label,
   LinkCard,
-  LinkCardProps,
+  type LinkCardProps,
 } from "@salt-ds/core";
 
 export default {

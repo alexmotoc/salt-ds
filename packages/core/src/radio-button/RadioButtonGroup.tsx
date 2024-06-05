@@ -1,7 +1,7 @@
 import { clsx } from "clsx";
 import {
-  ChangeEventHandler,
-  ComponentPropsWithoutRef,
+  type ChangeEventHandler,
+  type ComponentPropsWithoutRef,
   forwardRef,
 } from "react";
 import { makePrefixer, useControlled, useId } from "../utils";
@@ -123,7 +123,7 @@ export const RadioButtonGroup = forwardRef<
         {
           [withBaseName("noWrap")]: !wrap,
         },
-        className
+        className,
       )}
       data-testid="radio-button-group"
       ref={ref}

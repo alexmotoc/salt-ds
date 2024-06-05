@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { Card } from "@salt-ds/core";
 
 export const Default = (): ReactElement => {

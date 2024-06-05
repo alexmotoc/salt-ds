@@ -1,5 +1,5 @@
-import { ReactElement } from "react";
-import { LayoutProps as MosaicLayoutProps } from "@jpmorganchase/mosaic-layouts/dist/types";
+import type { ReactElement } from "react";
+import type { LayoutProps as MosaicLayoutProps } from "@jpmorganchase/mosaic-layouts/dist/types";
 
 export interface LayoutProps extends MosaicLayoutProps {
   sidebar?: ReactElement;

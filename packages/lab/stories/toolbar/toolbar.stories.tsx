@@ -30,14 +30,14 @@ import {
   Toolbar,
   ToolbarButton,
   ToolbarField,
-  ToolbarProps,
+  type ToolbarProps,
   Tooltray,
   Input,
   StaticInputAdornment,
 } from "@salt-ds/lab";
-import { CSSProperties, MouseEvent, useState } from "react";
+import { type CSSProperties, type MouseEvent, useState } from "react";
 
-import { AdjustableFlexbox, AdjustableFlexboxProps } from "../components";
+import { AdjustableFlexbox, type AdjustableFlexboxProps } from "../components";
 
 import "./toolbar.stories.css";
 

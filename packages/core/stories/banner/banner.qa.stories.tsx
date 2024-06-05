@@ -1,7 +1,7 @@
-import { FC } from "react";
+import type { FC } from "react";
 import {
   Banner,
-  BannerProps,
+  type BannerProps,
   BannerContent,
   BannerActions,
   Button,
@@ -9,12 +9,12 @@ import {
   StackLayout,
   SaltProvider,
 } from "@salt-ds/core";
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import { CloseIcon } from "@salt-ds/icons";
 import {
   QAContainer,
   QAContainerNoStyleInjection,
-  QAContainerNoStyleInjectionProps,
+  type QAContainerNoStyleInjectionProps,
 } from "docs/components";
 
 export default {
@@ -56,7 +56,7 @@ ExamplesGrid.parameters = {
 };
 
 export const NoStyleInjectionGrid: StoryFn<QAContainerNoStyleInjectionProps> = (
-  props
+  props,
 ) => (
   <QAContainerNoStyleInjection
     cols={1}

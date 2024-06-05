@@ -1,5 +1,5 @@
-import { ChangeEvent, useState } from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { type ChangeEvent, useState } from "react";
+import type { Meta, StoryFn } from "@storybook/react";
 import {
   H3,
   Text,
@@ -9,8 +9,8 @@ import {
   Label,
   InteractableCard,
   InteractableCardGroup,
-  InteractableCardProps,
-  InteractableCardValue,
+  type InteractableCardProps,
+  type InteractableCardValue,
   Avatar,
   CheckboxIcon,
   RadioButtonIcon,
@@ -193,7 +193,7 @@ export const InteractableCardGroupMultiSelect: StoryFn<
 );
 
 export const InteractableCardGroupRadio: StoryFn<typeof InteractableCard> = (
-  args
+  args,
 ) => {
   const [selected, setSelected] = useState<InteractableCardValue>();
 
@@ -250,7 +250,7 @@ export const InteractableCardGroupRadio: StoryFn<typeof InteractableCard> = (
 };
 
 export const InteractableCardGroupCheckbox: StoryFn<typeof InteractableCard> = (
-  args
+  args,
 ) => {
   const [selected, setSelected] = useState<InteractableCardValue>();
 

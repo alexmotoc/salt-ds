@@ -1,8 +1,8 @@
 import {
-  ComponentPropsWithoutRef,
+  type ComponentPropsWithoutRef,
   forwardRef,
-  MouseEvent,
-  ReactNode,
+  type MouseEvent,
+  type ReactNode,
 } from "react";
 import { clsx } from "clsx";
 import { StatusIndicator } from "../status-indicator";
@@ -50,7 +50,7 @@ export const AccordionHeader = forwardRef<
       className={clsx(
         withBaseName(),
         { [withBaseName(status ?? "")]: status },
-        className
+        className,
       )}
       disabled={disabled}
       onClick={handleClick}

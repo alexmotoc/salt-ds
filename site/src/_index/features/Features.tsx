@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from "react";
+import type { ComponentPropsWithoutRef } from "react";
 import { SuccessIcon } from "@salt-ds/icons";
 import splitArray from "src/utils/splitArray";
 import styles from "./Features.module.css";

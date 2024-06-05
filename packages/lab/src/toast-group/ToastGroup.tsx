@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { makePrefixer } from "@salt-ds/core";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -31,5 +31,5 @@ export const ToastGroup = forwardRef<HTMLDivElement, ToastGroupProps>(
         {children}
       </div>
     );
-  }
+  },
 );

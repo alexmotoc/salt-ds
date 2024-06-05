@@ -5,9 +5,9 @@ import {
   makePrefixer,
   Text,
 } from "@salt-ds/core";
-import { ArrowDownIcon, ArrowUpIcon, IconProps } from "@salt-ds/icons";
+import { ArrowDownIcon, ArrowUpIcon, type IconProps } from "@salt-ds/icons";
 import { clsx } from "clsx";
-import { ComponentType, forwardRef, HTMLAttributes } from "react";
+import { type ComponentType, forwardRef, type HTMLAttributes } from "react";
 import { useMetricContext } from "./internal";
 
 import { useWindow } from "@salt-ds/window";
@@ -55,7 +55,7 @@ export const MetricContent = forwardRef<HTMLDivElement, MetricContentProps>(
       subvalue,
       ...restProps
     },
-    ref
+    ref,
   ) {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -126,5 +126,5 @@ export const MetricContent = forwardRef<HTMLDivElement, MetricContentProps>(
         )}
       </div>
     );
-  }
+  },
 );

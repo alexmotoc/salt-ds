@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLAttributes } from "react";
+import React, { forwardRef, type HTMLAttributes } from "react";
 import { clsx } from "clsx";
 import { makePrefixer } from "@salt-ds/core";
 import { StarIcon } from "./StarIcon";
@@ -34,7 +34,7 @@ export const StarIconContainer = forwardRef<
         {
           [withBaseName("focusVisible")]: isFocusVisible,
         },
-        className
+        className,
       )}
       {...other}
       ref={ref}

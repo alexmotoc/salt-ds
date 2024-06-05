@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { Icon } from "@salt-ds/icons";
 
 export const CustomIcon = (): ReactElement => {

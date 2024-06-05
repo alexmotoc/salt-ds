@@ -101,7 +101,7 @@ describe("A combo box", () => {
           cy.get("@changeSpy").should(
             "have.been.calledWith",
             Cypress.sinon.match.any,
-            "Alabama"
+            "Alabama",
           );
         });
       });
@@ -118,7 +118,7 @@ describe("A combo box", () => {
         // input value updated
         cy.findByRole("combobox").should(
           "have.value",
-          Default.args!.source?.[0]
+          Default.args!.source?.[0],
         );
 
         // list is closed
@@ -128,7 +128,7 @@ describe("A combo box", () => {
         cy.get("@changeSpy").should(
           "have.been.calledWith",
           Cypress.sinon.match.any,
-          Default.args!.source?.[0]
+          Default.args!.source?.[0],
         );
       });
     });
@@ -270,7 +270,7 @@ describe("A combo box that allows free text", () => {
       cy.get("@changeSpy").should(
         "have.been.calledWith",
         Cypress.sinon.match.any,
-        "Baby blue"
+        "Baby blue",
       );
     });
 

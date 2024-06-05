@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { DatePicker } from "@salt-ds/lab";
-import { DateValue, getDayOfWeek } from "@internationalized/date";
+import { type DateValue, getDayOfWeek } from "@internationalized/date";
 
 const currentLocale = navigator.languages[0];
 const isDayDisabled = (date: DateValue) =>

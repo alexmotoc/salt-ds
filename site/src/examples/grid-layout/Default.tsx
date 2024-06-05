@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { GridLayout, GridItem } from "@salt-ds/core";
 import clsx from "clsx";
 import styles from "./index.module.css";

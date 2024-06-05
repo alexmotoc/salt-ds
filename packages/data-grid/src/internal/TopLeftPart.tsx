@@ -3,7 +3,7 @@ import { makePrefixer } from "@salt-ds/core";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 
-import { GridColumnGroupModel, GridColumnModel } from "../Grid";
+import type { GridColumnGroupModel, GridColumnModel } from "../Grid";
 
 import { GroupHeaderRow } from "./GroupHeaderRow";
 import { TableColGroup } from "./TableColGroup";

@@ -1,17 +1,17 @@
 import {
-  ComponentPropsWithoutRef,
+  type ComponentPropsWithoutRef,
   forwardRef,
-  ReactNode,
-  KeyboardEvent,
+  type ReactNode,
+  type KeyboardEvent,
   useEffect,
-  FocusEvent,
+  type FocusEvent,
   useRef,
-  ForwardedRef,
-  Ref,
+  type ForwardedRef,
+  type Ref,
 } from "react";
 import { ChevronDownIcon, ChevronUpIcon } from "@salt-ds/icons";
 import {
-  ListControlProps,
+  type ListControlProps,
   useListControl,
   defaultValueToString,
 } from "../list-control/ListControlState";
@@ -19,12 +19,12 @@ import {
   makePrefixer,
   useFloatingComponent,
   useFloatingUI,
-  UseFloatingUIProps,
+  type UseFloatingUIProps,
   useForkRef,
   useId,
 } from "../utils";
 import { StatusAdornment } from "../status-adornment";
-import { ValidationStatus } from "../status-indicator";
+import type { ValidationStatus } from "../status-indicator";
 import { useFormFieldProps } from "../form-field-context";
 import {
   flip,
@@ -98,7 +98,7 @@ const withBaseName = makePrefixer("saltDropdown");
 
 export const Dropdown = forwardRef(function Dropdown<Item>(
   props: DropdownProps<Item>,
-  ref: ForwardedRef<HTMLButtonElement>
+  ref: ForwardedRef<HTMLButtonElement>,
 ) {
   const {
     "aria-labelledby": ariaLabelledBy,
@@ -195,7 +195,7 @@ export const Dropdown = forwardRef(function Dropdown<Item>(
   const handleOpenChange: UseFloatingUIProps["onOpenChange"] = (
     newOpen,
     _event,
-    reason
+    reason,
   ) => {
     const focusNotBlur = reason === "focus" && newOpen;
     if (readOnly || focusNotBlur) return;
@@ -375,7 +375,7 @@ export const Dropdown = forwardRef(function Dropdown<Item>(
     // If we have selected an item, we should make that the active item
     if (selectedState.length > 0) {
       newActive = getOptionsMatching(
-        (option) => option.value === selectedState[0]
+        (option) => option.value === selectedState[0],
       ).pop();
     }
 
@@ -411,7 +411,7 @@ export const Dropdown = forwardRef(function Dropdown<Item>(
             [withBaseName("disabled")]: disabled,
             [withBaseName(validationStatus ?? "")]: validationStatus,
           },
-          className
+          className,
         )}
         ref={handleButtonRef}
         role="combobox"
@@ -466,5 +466,5 @@ export const Dropdown = forwardRef(function Dropdown<Item>(
     </ListControlContext.Provider>
   );
 }) as <Item = string>(
-  props: DropdownProps<Item> & { ref?: Ref<HTMLButtonElement> }
+  props: DropdownProps<Item> & { ref?: Ref<HTMLButtonElement> },
 ) => JSX.Element;

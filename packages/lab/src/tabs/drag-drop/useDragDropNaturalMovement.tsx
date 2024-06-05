@@ -1,12 +1,12 @@
-import { MouseEventHandler, useCallback, useRef, useState } from "react";
+import { type MouseEventHandler, useCallback, useRef, useState } from "react";
 
-import { DragDropHook, Direction } from "./dragDropTypes";
+import type { DragDropHook, Direction } from "./dragDropTypes";
 import { useDragSpacers } from "./useDragSpacers";
 
 import {
   dimensions,
   isDraggedElement,
-  MeasuredDropTarget,
+  type MeasuredDropTarget,
   measureDropTargets,
   moveDragItem,
   getDraggedItem,
@@ -55,7 +55,7 @@ export const useDragDropNaturalMovement: DragDropHook = ({
         const pos = startPos.current - mouseOffset.current + moveDistance;
         const renderPos = Math.max(
           dragLimits.current.start,
-          Math.min(dragLimits.current.end, pos)
+          Math.min(dragLimits.current.end, pos),
         );
 
         if (draggableRef.current && containerRef.current) {
@@ -71,7 +71,7 @@ export const useDragDropNaturalMovement: DragDropHook = ({
           const nextDropTarget = getNextDropTarget(
             measuredDropTargets.current,
             leadingEdge,
-            direction
+            direction,
           );
 
           if (
@@ -93,7 +93,7 @@ export const useDragDropNaturalMovement: DragDropHook = ({
                   nextDisplacedItem,
                   draggedItem.size,
                   true,
-                  direction
+                  direction,
                 );
               } else {
                 const displacedItem =
@@ -110,7 +110,7 @@ export const useDragDropNaturalMovement: DragDropHook = ({
         }
       }
     },
-    [containerRef, displaceItem, displaceLastItem, orientation]
+    [containerRef, displaceItem, displaceLastItem, orientation],
   );
 
   const dragMouseUpHandler = useCallback(() => {
@@ -152,7 +152,7 @@ export const useDragDropNaturalMovement: DragDropHook = ({
           containerRef.current as HTMLElement,
           orientation,
           dragElement,
-          query
+          query,
         );
 
         const draggedItem = dropTargets.find(isDraggedElement);
@@ -179,7 +179,7 @@ export const useDragDropNaturalMovement: DragDropHook = ({
               ref={draggableRef}
               rect={draggableRect}
               element={dragElement.cloneNode(true) as HTMLElement}
-            />
+            />,
           );
 
           if (draggedItem !== lastItem) {
@@ -206,7 +206,7 @@ export const useDragDropNaturalMovement: DragDropHook = ({
       itemQuery,
       orientation,
       setIsDragging,
-    ]
+    ],
   );
 
   const preDragMouseMoveHandler = useCallback(
@@ -222,14 +222,14 @@ export const useDragDropNaturalMovement: DragDropHook = ({
         document.removeEventListener(
           "mousemove",
           preDragMouseMoveHandler,
-          false
+          false,
         );
         document.removeEventListener("mouseup", preDragMouseUpHandler, false);
 
         enterDraggingState(evt);
       }
     },
-    [containerRef, enterDraggingState, orientation]
+    [containerRef, enterDraggingState, orientation],
   );
 
   const preDragMouseUpHandler = useCallback(() => {
@@ -258,7 +258,7 @@ export const useDragDropNaturalMovement: DragDropHook = ({
           document.removeEventListener(
             "mousemove",
             preDragMouseMoveHandler,
-            false
+            false,
           );
           document.removeEventListener("mouseup", preDragMouseUpHandler, false);
 
@@ -272,7 +272,7 @@ export const useDragDropNaturalMovement: DragDropHook = ({
       orientation,
       preDragMouseMoveHandler,
       preDragMouseUpHandler,
-    ]
+    ],
   );
 
   const draggedItemIndex = isDragging

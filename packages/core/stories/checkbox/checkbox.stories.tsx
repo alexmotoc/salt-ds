@@ -1,5 +1,5 @@
-import { ChangeEvent, useState } from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { type ChangeEvent, useState } from "react";
+import type { Meta, StoryFn } from "@storybook/react";
 import {
   Button,
   Checkbox,
@@ -292,8 +292,8 @@ export const ControlledGroup: StoryFn<typeof CheckboxGroup> = (args) => {
     } else {
       setControlledValues((prevControlledValues) =>
         prevControlledValues.filter(
-          (controlledValue) => controlledValue !== value
-        )
+          (controlledValue) => controlledValue !== value,
+        ),
       );
     }
   };

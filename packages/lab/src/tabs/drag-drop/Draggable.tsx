@@ -1,7 +1,7 @@
 import { useForkRef } from "@salt-ds/core";
 import { clsx } from "clsx";
-import { forwardRef, MutableRefObject, useCallback } from "react";
-import { Rect } from "./dragDropTypes";
+import { forwardRef, type MutableRefObject, useCallback } from "react";
+import type { Rect } from "./dragDropTypes";
 import { Portal } from "../../portal";
 
 import draggableCss from "./Draggable.css";
@@ -15,7 +15,7 @@ export const Draggable = forwardRef<
   { wrapperClassName: string; element: HTMLElement; rect: Rect; scale?: number }
 >(function Draggable(
   { wrapperClassName, element, rect, scale = 1 },
-  forwardedRef
+  forwardedRef,
 ) {
   const targetWindow = useWindow();
   useComponentCssInjection({
@@ -34,7 +34,7 @@ export const Draggable = forwardRef<
         }
       }
     },
-    [element, scale]
+    [element, scale],
   );
   const forkedRef = useForkRef<HTMLDivElement>(forwardedRef, callbackRef);
 
@@ -52,7 +52,7 @@ export const Draggable = forwardRef<
 });
 
 export const createDragSpacer = (
-  transitioning?: MutableRefObject<boolean>
+  transitioning?: MutableRefObject<boolean>,
 ): HTMLElement => {
   const spacer = document.createElement("div");
   spacer.className = "saltDraggable-spacer";

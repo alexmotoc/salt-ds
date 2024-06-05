@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { Card, SaltProvider, useDensity, useTheme } from "@salt-ds/core";
 import styles from "./NestedProviders.module.css";
 

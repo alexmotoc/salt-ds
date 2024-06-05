@@ -1,14 +1,14 @@
-import { StoryFn } from "@storybook/react";
+import type { StoryFn } from "@storybook/react";
 import {
   Grid,
   GridColumn,
-  GridRowSelectionMode,
+  type GridRowSelectionMode,
   NumericColumn,
   RowSelectionCheckboxColumn,
   RowSelectionRadioColumn,
 } from "../src";
-import { DummyRow, dummyRowKeyGetter, rowData } from "./dummyData";
-import { SyntheticEvent, useState } from "react";
+import { type DummyRow, dummyRowKeyGetter, rowData } from "./dummyData";
+import { type SyntheticEvent, useState } from "react";
 import {
   FlexItem,
   FlexLayout,

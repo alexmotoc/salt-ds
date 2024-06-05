@@ -1,7 +1,7 @@
-import { ReactElement, useState, ChangeEventHandler } from "react";
+import { type ReactElement, useState, type ChangeEventHandler } from "react";
 import {
   FlowLayout,
-  FlexContentAlignment,
+  type FlexContentAlignment,
   FlexItem,
   FLEX_ALIGNMENT_BASE as flexAlignment,
   FLEX_CONTENT_ALIGNMENT_BASE as flexContentAlignment,
@@ -60,7 +60,7 @@ export const LayoutPosition = (): ReactElement => {
               <RadioButton
                 key={alignment}
                 label={`${alignment.charAt(0).toUpperCase()}${alignment.slice(
-                  1
+                  1,
                 )}`}
                 value={alignment}
               />
@@ -81,7 +81,7 @@ export const LayoutPosition = (): ReactElement => {
               <RadioButton
                 key={alignment}
                 label={`${alignment.charAt(0).toUpperCase()}${alignment.slice(
-                  1
+                  1,
                 )}`}
                 value={alignment}
               />

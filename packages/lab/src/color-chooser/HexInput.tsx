@@ -30,7 +30,7 @@ export const HexInput = ({
   });
 
   const [hexInputValue, setHexInputValue] = useState<string | undefined>(
-    hexValue
+    hexValue,
   );
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export const HexInput = ({
 
   const handleHexInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
-    value: string
+    value: string,
   ): void => {
     if (disableAlphaChooser && value.length < 7) {
       setHexInputValue("#" + value);

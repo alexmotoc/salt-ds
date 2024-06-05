@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import { useId } from "@salt-ds/core";
 import { clsx } from "clsx";
 
-import { CountrySymbol, CountrySymbolProps } from "../country-symbol";
+import { CountrySymbol, type CountrySymbolProps } from "../country-symbol";
 
 export type GB_SCT_SharpProps = CountrySymbolProps;
 
@@ -38,7 +38,7 @@ const GB_SCT_Sharp = forwardRef<SVGSVGElement, GB_SCT_SharpProps>(
         </g>
       </CountrySymbol>
     );
-  }
+  },
 );
 
 export default GB_SCT_Sharp;

@@ -6,7 +6,7 @@ import {
   Button,
   StackLayout,
 } from "@salt-ds/core";
-import { Platform } from "@floating-ui/react";
+import type { Platform } from "@floating-ui/react";
 import { platform } from "@floating-ui/dom";
 
 import { CustomFloatingComponentProvider, FLOATING_TEST_ID } from "../common";

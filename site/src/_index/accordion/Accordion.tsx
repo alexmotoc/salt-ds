@@ -4,7 +4,7 @@ import clsx from "clsx";
 import PageIllustration from "./PageIllustration";
 import useOnScreen from "../../utils/useOnScreen";
 import Accordion, {
-  AccordionBaseProps,
+  type AccordionBaseProps,
 } from "../../components/accordion/Accordion";
 import styles from "./Accordion.module.css";
 

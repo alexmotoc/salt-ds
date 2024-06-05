@@ -12,7 +12,7 @@ describe("Given a Toast", () => {
     cy.mount(
       <Toast>
         <ToastContent>Toast content</ToastContent>
-      </Toast>
+      </Toast>,
     );
     cy.findByRole("img").should("not.exist");
   });
@@ -21,7 +21,7 @@ describe("Given a Toast", () => {
     cy.mount(
       <Toast status="info">
         <ToastContent>Toast content</ToastContent>
-      </Toast>
+      </Toast>,
     );
     cy.findByRole("img", { name: "info" }).should("exist");
   });
@@ -30,7 +30,7 @@ describe("Given a Toast", () => {
     cy.mount(
       <Toast status="error">
         <ToastContent>Toast content</ToastContent>
-      </Toast>
+      </Toast>,
     );
     cy.findByRole("img", { name: "error" }).should("exist");
   });
@@ -39,7 +39,7 @@ describe("Given a Toast", () => {
     cy.mount(
       <Toast status="warning">
         <ToastContent>Toast content</ToastContent>
-      </Toast>
+      </Toast>,
     );
     cy.findByRole("img", { name: "warning" }).should("exist");
   });
@@ -48,7 +48,7 @@ describe("Given a Toast", () => {
     cy.mount(
       <Toast status="success">
         <ToastContent>Toast content</ToastContent>
-      </Toast>
+      </Toast>,
     );
     cy.findByRole("img", { name: "success" }).should("exist");
   });

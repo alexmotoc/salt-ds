@@ -1,14 +1,14 @@
 import { useEventCallback } from "../../utils";
 import { stateChangeTypes } from "../stateChangeTypes";
 import { CascadingMenuAction } from "./CascadingMenuAction";
-import { CascadingMenuProps } from "../CascadingMenuProps";
-import { menuState } from "./stateUtils";
-import { stateItem } from "./useStateReducer";
+import type { CascadingMenuProps } from "../CascadingMenuProps";
+import type { menuState } from "./stateUtils";
+import type { stateItem } from "./useStateReducer";
 import {
-  HTMLAttributes,
+  type HTMLAttributes,
   isValidElement,
-  MouseEvent,
-  KeyboardEvent,
+  type MouseEvent,
+  type KeyboardEvent,
 } from "react";
 
 interface useMenuTriggerHandlersProps {
@@ -103,7 +103,7 @@ export function useMenuTriggerHandlers({
         const childrenProps = children.props as HTMLAttributes<HTMLElement>;
         childrenProps.onKeyDown?.(event);
       }
-    }
+    },
   );
 
   return [handleOnClick, handleOnKeydown] as const;

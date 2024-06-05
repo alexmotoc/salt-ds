@@ -15,7 +15,7 @@ import { db, Investor } from "@stories/dummyData";
 const { GridVariants } = composeStories(variantsStories);
 const { CellCustomization } = composeStories(cellCustomizationStories);
 const { RowSelectionControlled } = composeStories(
-  rowSelectionControlledStories
+  rowSelectionControlledStories,
 );
 const { GridPagination } = composeStories(gridPaginationStories);
 const { RowSelectionModes } = composeStories(rowSelectionModesStories);
@@ -37,7 +37,7 @@ const findCell = (row: number, col: number) => {
 
 function checkAriaDescription(
   cell: Cypress.Chainable<JQuery<HTMLElement>>,
-  desc: string
+  desc: string,
 ) {
   cell.then(($el) => {
     cy.get(`#${$el.attr("aria-describedby")!}`).should("have.text", desc);
@@ -818,7 +818,7 @@ describe("Grid", () => {
           data-testid="scroll-past"
           style={{ height: "10px", width: "10px", background: "red" }}
         />
-      </div>
+      </div>,
     );
     assertGridReady();
 

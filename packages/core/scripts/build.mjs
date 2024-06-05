@@ -31,9 +31,9 @@ function createCssEntryFile(callback) {
     writeLine(
       `@import "${path.posix.relative(
         path.posix.dirname(entryFile),
-        cssFile
+        cssFile,
       )}";`,
-      index
+      index,
     );
   });
 
@@ -62,7 +62,7 @@ function runBuild() {
       fs.mkdirSync(cssFolder, { recursive: true });
       fs.copyFileSync(
         path.join(buildFolder, outfileName),
-        path.join(cssFolder, outfileName)
+        path.join(cssFolder, outfileName),
       );
     })
     .finally(() => {

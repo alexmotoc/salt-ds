@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Image } from "@jpmorganchase/mosaic-site-components";
 
 import styles from "./DesignCards.module.css";

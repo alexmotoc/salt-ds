@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { clsx } from "clsx";
 import { makePrefixer } from "../utils";
 import { useWindow } from "@salt-ds/window";
@@ -29,5 +29,5 @@ export const OptionListBase = forwardRef<HTMLDivElement, OptionListBaseProps>(
         {children}
       </div>
     );
-  }
+  },
 );

@@ -1,6 +1,12 @@
 import { makePrefixer, Tooltip, useForkRef } from "@salt-ds/core";
 import { clsx } from "clsx";
-import { ForwardedRef, forwardRef, HTMLAttributes, memo, useRef } from "react";
+import {
+  type ForwardedRef,
+  forwardRef,
+  type HTMLAttributes,
+  memo,
+  useRef,
+} from "react";
 
 import { useOverflowDetection } from "../utils";
 import { Highlighter } from "./internal/Highlighter";
@@ -28,7 +34,7 @@ const withBaseName = makePrefixer("saltListItemDeprecated");
 export const ListItemBase = memo(
   forwardRef(function ListItemBase(
     props: ListItemBaseProps,
-    ref: ForwardedRef<HTMLDivElement>
+    ref: ForwardedRef<HTMLDivElement>,
   ) {
     const {
       className,
@@ -70,7 +76,7 @@ export const ListItemBase = memo(
               [withBaseName("focusVisible")]: focusVisible,
               [withBaseName("disabled")]: disabled,
             },
-            className
+            className,
           )}
         >
           {detectTruncation ? (
@@ -90,5 +96,5 @@ export const ListItemBase = memo(
         </div>
       </Tooltip>
     );
-  })
+  }),
 );

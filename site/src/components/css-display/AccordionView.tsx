@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import type React from "react";
+import { useEffect, useState } from "react";
 import {
   Accordion,
   AccordionHeader,
@@ -36,7 +37,7 @@ const color: string[] = new Array(
   "palette",
   "borderColor",
   "outlineColor",
-  "indicator"
+  "indicator",
 );
 
 const fontSize: string[] = new Array("fontSize", "minHeight");
@@ -47,7 +48,7 @@ const border: string[] = new Array(
   "borderStyle",
   "borderWidth",
   "outlineWidth",
-  "outlineStyle"
+  "outlineStyle",
 );
 const text: string[] = new Array("fontStyle");
 const outline: string[] = new Array("outline");

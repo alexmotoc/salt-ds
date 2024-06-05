@@ -1,6 +1,11 @@
-import { useState, useCallback, SyntheticEvent, DragEvent } from "react";
+import {
+  useState,
+  useCallback,
+  type SyntheticEvent,
+  type DragEvent,
+} from "react";
 
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import {
   Banner,
   BannerContent,
@@ -10,16 +15,16 @@ import {
   Tooltip,
   FileDropZone,
   FileDropZoneIcon,
-  FileDropZoneIconProps,
-  FileDropZoneProps,
+  type FileDropZoneIconProps,
+  type FileDropZoneProps,
   FileDropZoneTrigger,
-  FileDropZoneTriggerProps,
+  type FileDropZoneTriggerProps,
 } from "@salt-ds/core";
 
 import {
   createFileTypeValidator,
   createTotalSizeValidator,
-  FilesValidator,
+  type FilesValidator,
   validateFiles,
 } from "./utils";
 
@@ -43,7 +48,7 @@ const FileDropzoneTemplate: StoryFn<
     errors?: readonly string[];
   }>();
   const [status, setStatus] = useState<"success" | "error" | undefined>(
-    undefined
+    undefined,
   );
 
   const handleFilesAccepted = (files: File[], event: SyntheticEvent) => {
@@ -185,7 +190,7 @@ const Results = ({ result }: ResultCardProps) => {
           );
         })
       ),
-    []
+    [],
   );
 
   const renderErrors = useCallback(
@@ -203,7 +208,7 @@ const Results = ({ result }: ResultCardProps) => {
           </Banner>
         );
       }),
-    []
+    [],
   );
   return (
     <div style={{ height: 500, maxHeight: 500, overflow: "hidden" }}>

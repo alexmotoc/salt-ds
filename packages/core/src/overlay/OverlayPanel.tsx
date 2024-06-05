@@ -1,4 +1,8 @@
-import { forwardRef, ComponentPropsWithoutRef, ReactNode } from "react";
+import {
+  forwardRef,
+  type ComponentPropsWithoutRef,
+  type ReactNode,
+} from "react";
 import { makePrefixer, useFloatingComponent, useForkRef } from "../utils";
 import { clsx } from "clsx";
 import { useOverlayContext } from "./OverlayContext";
@@ -74,5 +78,5 @@ export const OverlayPanel = forwardRef<HTMLDivElement, OverlayPanelProps>(
         />
       </FloatingComponent>
     );
-  }
+  },
 );

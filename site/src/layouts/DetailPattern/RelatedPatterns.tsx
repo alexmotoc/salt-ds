@@ -1,4 +1,4 @@
-import { SiteState, useStore } from "@jpmorganchase/mosaic-store";
+import { type SiteState, useStore } from "@jpmorganchase/mosaic-store";
 import styles from "./RelatedPatterns.module.css";
 import { LinkList } from "../../components/link-list/LinkList";
 

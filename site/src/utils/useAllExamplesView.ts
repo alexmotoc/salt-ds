@@ -1,4 +1,9 @@
-import { useContext, createContext, Dispatch, SetStateAction } from "react";
+import {
+  useContext,
+  createContext,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
 
 export type AllExamplesViewContextType = {
   allExamplesView?: boolean;
@@ -6,7 +11,7 @@ export type AllExamplesViewContextType = {
 };
 
 export const AllExamplesViewContext = createContext<AllExamplesViewContextType>(
-  { allExamplesView: false, setAllExamplesView: () => {} }
+  { allExamplesView: false, setAllExamplesView: () => {} },
 );
 
 export const useAllExamplesView = (): AllExamplesViewContextType => {

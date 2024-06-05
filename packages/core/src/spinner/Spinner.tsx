@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { forwardRef, HTMLAttributes, useEffect } from "react";
+import { forwardRef, type HTMLAttributes, useEffect } from "react";
 import { useAriaAnnouncer } from "../aria-announcer";
 import { makePrefixer, useId } from "../utils";
 import { SpinnerSVG } from "./svgSpinners/SpinnerSVG";
@@ -81,7 +81,7 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
       id: idProp,
       ...rest
     },
-    ref
+    ref,
   ) {
     const id = useId(idProp);
     const targetWindow = useWindow();
@@ -109,7 +109,7 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
           if (new Date().getTime() - startTime > announcerTimeout) {
             // The announcer will stop after `announcerTimeout` time
             announce(
-              `${ariaLabel} is still in progress, but will no longer announce.`
+              `${ariaLabel} is still in progress, but will no longer announce.`,
             );
             interval && clearInterval(interval);
             return;
@@ -145,5 +145,5 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
         <SpinnerSVG size={size} density={density} id={id} />
       </div>
     );
-  }
+  },
 );

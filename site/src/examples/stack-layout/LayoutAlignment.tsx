@@ -1,4 +1,4 @@
-import { ReactElement, useState, ChangeEventHandler } from "react";
+import { type ReactElement, useState, type ChangeEventHandler } from "react";
 import {
   StackLayout,
   FlexItem,
@@ -47,7 +47,7 @@ export const LayoutAlignment = (): ReactElement => {
             <RadioButton
               key={alignment}
               label={`${alignment.charAt(0).toUpperCase()}${alignment.slice(
-                1
+                1,
               )}`}
               value={alignment}
             />

@@ -1,11 +1,11 @@
 import {
-  FC,
-  ChangeEvent,
+  type FC,
+  type ChangeEvent,
   useState,
-  ReactNode,
-  ReactElement,
+  type ReactNode,
+  type ReactElement,
   useEffect,
-  ElementType,
+  type ElementType,
 } from "react";
 import clsx from "clsx";
 import { Switch } from "@salt-ds/core";

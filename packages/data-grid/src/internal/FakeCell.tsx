@@ -1,7 +1,7 @@
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 
-import { GridCellProps } from "../GridColumn";
+import type { GridCellProps } from "../GridColumn";
 
 import { Cell } from "./Cell";
 

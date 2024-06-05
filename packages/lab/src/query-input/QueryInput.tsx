@@ -1,9 +1,9 @@
 import { makePrefixer } from "@salt-ds/core";
 import { clsx } from "clsx";
-import { forwardRef, HTMLAttributes } from "react";
+import { forwardRef, type HTMLAttributes } from "react";
 import { QueryInputBody, ValueSelector } from "./internal";
-import { QueryInputCategory, QueryInputItem } from "./queryInputTypes";
-import { BooleanOperator, useQueryInput } from "./useQueryInput";
+import type { QueryInputCategory, QueryInputItem } from "./queryInputTypes";
+import { type BooleanOperator, useQueryInput } from "./useQueryInput";
 
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -75,5 +75,5 @@ export const QueryInput = forwardRef<HTMLDivElement, QueryInputProps>(
         <ValueSelector {...valueSelectorProps} />
       </div>
     );
-  }
+  },
 );

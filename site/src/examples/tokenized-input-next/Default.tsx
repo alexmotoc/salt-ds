@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { TokenizedInputNext } from "@salt-ds/lab";
 
 const handleChange = (selectedItems: unknown) => {

@@ -1,5 +1,5 @@
-import { Meta, StoryFn } from "@storybook/react";
-import { QAContainer, QAContainerProps } from "docs/components";
+import type { Meta, StoryFn } from "@storybook/react";
+import { QAContainer, type QAContainerProps } from "docs/components";
 import { FlexLayout, NavigationItem } from "@salt-ds/core";
 import { NotificationIcon } from "@salt-ds/icons";
 
@@ -105,7 +105,7 @@ export const AllExamples: StoryFn<QAContainerProps> = () => (
                     </ul>
                   )}
                 </li>
-              )
+              ),
             )}
           </ul>
         </nav>

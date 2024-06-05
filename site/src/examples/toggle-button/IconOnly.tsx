@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { ToggleButton, Tooltip } from "@salt-ds/core";
 import { FavoriteSolidIcon } from "@salt-ds/icons";
 

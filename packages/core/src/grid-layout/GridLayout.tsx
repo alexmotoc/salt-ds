@@ -1,11 +1,11 @@
-import { forwardRef, ReactElement, ElementType } from "react";
+import { forwardRef, type ReactElement, type ElementType } from "react";
 import { clsx } from "clsx";
 
 import {
   makePrefixer,
-  ResponsiveProp,
-  PolymorphicComponentPropWithRef,
-  PolymorphicRef,
+  type ResponsiveProp,
+  type PolymorphicComponentPropWithRef,
+  type PolymorphicRef,
   resolveResponsiveValue,
 } from "../utils";
 
@@ -42,7 +42,7 @@ export type GridLayoutProps<T extends ElementType> =
   >;
 
 type GridLayoutComponent = <T extends ElementType = "div">(
-  props: GridLayoutProps<T>
+  props: GridLayoutProps<T>,
 ) => ReactElement | null;
 
 const withBaseName = makePrefixer("saltGridLayout");
@@ -77,7 +77,7 @@ export const GridLayout: GridLayoutComponent = forwardRef(
       style,
       ...rest
     }: GridLayoutProps<T>,
-    ref?: PolymorphicRef<T>
+    ref?: PolymorphicRef<T>,
   ) => {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -117,5 +117,5 @@ export const GridLayout: GridLayoutComponent = forwardRef(
         {children}
       </Component>
     );
-  }
+  },
 );

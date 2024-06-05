@@ -1,5 +1,5 @@
 import { clsx } from "clsx";
-import { ComponentPropsWithoutRef, forwardRef } from "react";
+import { type ComponentPropsWithoutRef, forwardRef } from "react";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 
@@ -47,7 +47,7 @@ export const LinkCard = forwardRef<HTMLAnchorElement, LinkCardProps>(
             [withBaseName("accent")]: accent,
             [withBaseName(`accent${capitalize(accent ?? "")}`)]: accent,
           },
-          className
+          className,
         )}
         href={href}
         {...rest}
@@ -56,5 +56,5 @@ export const LinkCard = forwardRef<HTMLAnchorElement, LinkCardProps>(
         {children}
       </a>
     );
-  }
+  },
 );

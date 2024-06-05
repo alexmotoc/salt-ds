@@ -1,4 +1,4 @@
-import { ReactElement, useState, CSSProperties } from "react";
+import { type ReactElement, useState, type CSSProperties } from "react";
 import {
   H3,
   Text,

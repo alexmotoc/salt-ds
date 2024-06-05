@@ -8,12 +8,12 @@ import {
   FormFieldLabel as FormLabel,
   Input,
 } from "@salt-ds/core";
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import {
   QAContainer,
-  QAContainerProps,
+  type QAContainerProps,
   QAContainerNoStyleInjection,
-  QAContainerNoStyleInjectionProps,
+  type QAContainerNoStyleInjectionProps,
 } from "docs/components";
 
 export default {
@@ -137,7 +137,7 @@ AllVariantsGrid.parameters = {
 };
 
 export const NoStyleInjectionGrid: StoryFn<QAContainerNoStyleInjectionProps> = (
-  props
+  props,
 ) => (
   <QAContainerNoStyleInjection height={500} width={1000} {...props}>
     <UI />

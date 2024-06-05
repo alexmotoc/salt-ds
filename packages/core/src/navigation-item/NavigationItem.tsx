@@ -1,4 +1,8 @@
-import { ComponentPropsWithoutRef, forwardRef, MouseEventHandler } from "react";
+import {
+  type ComponentPropsWithoutRef,
+  forwardRef,
+  type MouseEventHandler,
+} from "react";
 import { makePrefixer } from "../utils";
 import { clsx } from "clsx";
 import { ExpansionIcon } from "./ExpansionIcon";
@@ -90,7 +94,7 @@ export const NavigationItem = forwardRef<HTMLDivElement, NavigationItemProps>(
               [withBaseName("blurActive")]: blurActive,
               [withBaseName("rootItem")]: level === 0,
             },
-            withBaseName(orientation)
+            withBaseName(orientation),
           )}
           parent={parent}
           expanded={expanded}
@@ -105,5 +109,5 @@ export const NavigationItem = forwardRef<HTMLDivElement, NavigationItemProps>(
         </ConditionalWrapper>
       </div>
     );
-  }
+  },
 );

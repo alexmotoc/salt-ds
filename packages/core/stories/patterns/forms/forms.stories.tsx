@@ -1,4 +1,10 @@
-import { ChangeEvent, FC, HTMLAttributes, ReactNode, useState } from "react";
+import {
+  type ChangeEvent,
+  FC,
+  HTMLAttributes,
+  ReactNode,
+  useState,
+} from "react";
 import {
   Button,
   FlexItem,
@@ -31,7 +37,7 @@ import {
   MenuIcon,
   CloseIcon,
 } from "@salt-ds/icons";
-import { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 
 export default {
   title: "Patterns/Forms",

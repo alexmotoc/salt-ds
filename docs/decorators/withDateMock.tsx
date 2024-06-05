@@ -1,4 +1,4 @@
-import { Decorator } from "@storybook/react";
+import type { Decorator } from "@storybook/react";
 import { useIsomorphicLayoutEffect } from "@salt-ds/core";
 import MockDate from "mockdate";
 

@@ -15,7 +15,7 @@ import {
   DeleteIcon,
   SettingsIcon,
 } from "@salt-ds/icons";
-import { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 
 export default {
   title: "Patterns/Menu Button",

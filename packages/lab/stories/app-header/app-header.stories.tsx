@@ -6,7 +6,7 @@ import {
   LogoImage,
   Tab,
   Tabstrip,
-  TabstripProps,
+  type TabstripProps,
   Tooltray /*, Toolbar */,
 } from "@salt-ds/lab";
 import { Badge, Button, Text } from "@salt-ds/core";
@@ -22,7 +22,7 @@ import PlaceholderLogo from "docs/assets/placeholder.svg";
 
 import "docs/story.css";
 import "./Flexbox.css";
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 
 export default {
   title: "Lab/App Header",

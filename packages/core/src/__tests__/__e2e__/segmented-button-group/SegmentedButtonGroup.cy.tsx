@@ -12,7 +12,7 @@ describe("GIVEN a SegmentedButton", () => {
 
       cy.get(".saltSegmentedButtonGroup").should(
         "have.class",
-        "saltSegmentedButtonGroup"
+        "saltSegmentedButtonGroup",
       );
     });
   });

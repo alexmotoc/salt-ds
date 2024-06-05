@@ -3,15 +3,15 @@ import { clsx } from "clsx";
 import { makePrefixer } from "@salt-ds/core";
 import {
   CalendarNavigation,
-  CalendarNavigationProps,
+  type CalendarNavigationProps,
 } from "./internal/CalendarNavigation";
 import { CalendarWeekHeader } from "./internal/CalendarWeekHeader";
 import {
   CalendarCarousel,
-  CalendarCarouselProps,
+  type CalendarCarouselProps,
 } from "./internal/CalendarCarousel";
 import { CalendarContext } from "./internal/CalendarContext";
-import { useCalendar, useCalendarProps } from "./useCalendar";
+import { useCalendar, type useCalendarProps } from "./useCalendar";
 
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -87,5 +87,5 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
         </div>
       </CalendarContext.Provider>
     );
-  }
+  },
 );

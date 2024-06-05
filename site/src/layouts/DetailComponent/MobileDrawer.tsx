@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import type { FC, ReactElement } from "react";
 import clsx from "clsx";
 import { SaltProvider } from "@salt-ds/core";
 

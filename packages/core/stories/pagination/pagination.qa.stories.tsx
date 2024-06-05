@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/react";
 import {
   FlexLayout,
   GoToInput,
@@ -6,10 +6,10 @@ import {
   CompactPaginator,
   Pagination,
   Paginator,
-  PaginationProps,
-  PaginatorProps,
+  type PaginationProps,
+  type PaginatorProps,
 } from "@salt-ds/core";
-import { QAContainer, QAContainerProps } from "docs/components";
+import { QAContainer, type QAContainerProps } from "docs/components";
 
 export default {
   title: "Core/Pagination/Pagination QA",

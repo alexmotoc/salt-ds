@@ -3,8 +3,8 @@ import { makePrefixer } from "@salt-ds/core";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 
-import { GridCellProps } from "./GridColumn";
-import { GridColumnModel } from "./Grid";
+import type { GridCellProps } from "./GridColumn";
+import type { GridColumnModel } from "./Grid";
 import { Cell, Cursor, useFocusableContent } from "./internal";
 import { CornerTag } from "./CornerTag";
 import {

@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import type { ChangeEvent } from "react";
 import {
   Button,
   CheckboxGroup,
@@ -65,8 +65,8 @@ const WithActionsContent = ({ id, onClose }: WithActionsContentProps) => {
     } else {
       setControlledValues((prevControlledValues) =>
         prevControlledValues.filter(
-          (controlledValue) => controlledValue !== value
-        )
+          (controlledValue) => controlledValue !== value,
+        ),
       );
     }
   };

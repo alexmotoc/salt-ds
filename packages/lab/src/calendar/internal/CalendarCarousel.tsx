@@ -1,6 +1,6 @@
 import { forwardRef, useEffect, useRef, useState } from "react";
-import { DateValue, isSameMonth } from "@internationalized/date";
-import { CalendarMonth, CalendarMonthProps } from "./CalendarMonth";
+import { type DateValue, isSameMonth } from "@internationalized/date";
+import { CalendarMonth, type CalendarMonthProps } from "./CalendarMonth";
 import { makePrefixer, useIsomorphicLayoutEffect } from "@salt-ds/core";
 import { useCalendarContext } from "./CalendarContext";
 

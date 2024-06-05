@@ -1,6 +1,6 @@
 import {
-  FC,
-  ReactElement,
+  type FC,
+  type ReactElement,
   useState,
   Children,
   useEffect,
@@ -8,7 +8,7 @@ import {
 } from "react";
 import {
   List,
-  SelectionChangeHandler,
+  type SelectionChangeHandler,
   FormField,
   Dropdown,
 } from "@salt-ds/lab";
@@ -31,9 +31,9 @@ const ExamplesListView: FC<ExamplesListViewProps> = ({ examples }) => {
   const examplesList: string[] = useMemo(
     () =>
       Children.map(examples, ({ props }) =>
-        formatComponentExampleName(props.exampleName, props.displayName)
+        formatComponentExampleName(props.exampleName, props.displayName),
       ),
-    [examples]
+    [examples],
   );
 
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -42,7 +42,7 @@ const ExamplesListView: FC<ExamplesListViewProps> = ({ examples }) => {
     // window.location.hash could be #hash?query=string and we only want the #hash part.
     const hash = window.location.hash.substring(1).split("?")[0];
     const exampleInHash = examplesList.find(
-      (example) => exampleNameToHash(example) === hash
+      (example) => exampleNameToHash(example) === hash,
     );
     setSelectedItem(exampleInHash ?? examplesList[0]);
   }, [examplesList, params]);
@@ -67,7 +67,7 @@ const ExamplesListView: FC<ExamplesListViewProps> = ({ examples }) => {
     examplesArray.find(
       ({ props }) =>
         formatComponentExampleName(props.exampleName, props.displayName) ===
-        selectedItem
+        selectedItem,
     ) || examplesArray[0];
 
   const {

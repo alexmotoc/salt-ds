@@ -1,8 +1,8 @@
 import {
-  ComponentPropsWithoutRef,
+  type ComponentPropsWithoutRef,
   forwardRef,
-  KeyboardEvent,
-  SyntheticEvent,
+  type KeyboardEvent,
+  type SyntheticEvent,
   useCallback,
   useMemo,
   useRef,
@@ -13,7 +13,10 @@ import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 
 import { makePrefixer, useControlled, useForkRef } from "../utils";
-import { ToggleButtonGroupContext, Value } from "./ToggleButtonGroupContext";
+import {
+  ToggleButtonGroupContext,
+  type Value,
+} from "./ToggleButtonGroupContext";
 import toggleButtonGroupCss from "./ToggleButtonGroup.css";
 
 export interface ToggleButtonGroupProps
@@ -85,14 +88,14 @@ export const ToggleButtonGroup = forwardRef<
         onChange?.(event);
       }
     },
-    [onChange, value, setValue]
+    [onChange, value, setValue],
   );
 
   const isSelected = useCallback(
     (id: Value) => {
       return value === id;
     },
-    [value]
+    [value],
   );
 
   const focus = (id: Value) => {
@@ -103,7 +106,7 @@ export const ToggleButtonGroup = forwardRef<
     (id: Value) => {
       return focused === id || !focused;
     },
-    [focused]
+    [focused],
   );
 
   const contextValue = useMemo(
@@ -115,15 +118,15 @@ export const ToggleButtonGroup = forwardRef<
       disabled,
       orientation,
     }),
-    [select, isSelected, isFocused, disabled, orientation]
+    [select, isSelected, isFocused, disabled, orientation],
   );
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     const elements: HTMLElement[] = Array.from(
-      groupRef.current?.querySelectorAll("button:not([disabled])") ?? []
+      groupRef.current?.querySelectorAll("button:not([disabled])") ?? [],
     );
     const currentIndex = elements.findIndex(
-      (element) => element === document.activeElement
+      (element) => element === document.activeElement,
     );
     switch (event.key) {
       case "ArrowDown":

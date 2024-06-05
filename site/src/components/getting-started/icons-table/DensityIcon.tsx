@@ -1,5 +1,5 @@
-import { ReactElement } from "react";
-import { SaltProvider, Density } from "@salt-ds/core";
+import type { ReactElement } from "react";
+import { SaltProvider, type Density } from "@salt-ds/core";
 import { PrintIcon } from "@salt-ds/icons";
 import styles from "./IconsTable.module.css";
 

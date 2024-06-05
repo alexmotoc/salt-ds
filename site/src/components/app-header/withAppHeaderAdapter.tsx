@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import type {
   TabsLinkItem,
   TabsMenu,
@@ -12,10 +12,10 @@ import type {
 } from "@jpmorganchase/mosaic-store";
 import {
   useAppHeader,
-  AppHeaderMenu,
+  type AppHeaderMenu,
   MenuItemType,
 } from "@jpmorganchase/mosaic-store";
-import { AppHeaderProps } from "./AppHeader";
+import type { AppHeaderProps } from "./AppHeader";
 
 function createTabsMenu(menu: AppHeaderMenu): TabsMenu {
   const tabsMenu = menu.reduce<(TabsMenuButtonItem | TabsLinkItem)[]>(
@@ -44,11 +44,11 @@ function createTabsMenu(menu: AppHeaderMenu): TabsMenu {
       }
       console.error(
         "Unknown Menu item passed to createTabsMenu, ignoring",
-        menu
+        menu,
       );
       return result;
     },
-    []
+    [],
   );
   return tabsMenu;
 }

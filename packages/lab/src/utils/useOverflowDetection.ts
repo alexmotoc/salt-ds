@@ -1,4 +1,10 @@
-import { useState, useRef, Ref, DependencyList, useCallback } from "react";
+import {
+  useState,
+  useRef,
+  type Ref,
+  type DependencyList,
+  useCallback,
+} from "react";
 import {
   debounce,
   ownerWindow,
@@ -6,7 +12,7 @@ import {
 } from "@salt-ds/core";
 
 export function useOverflowDetection<Element extends HTMLElement>(
-  dependencies: DependencyList = []
+  dependencies: DependencyList = [],
 ): [Ref<Element>, boolean] {
   const targetRef = useRef<Element>(null);
   const [isOverflowed, setOverflowed] = useState(false);
@@ -23,7 +29,7 @@ export function useOverflowDetection<Element extends HTMLElement>(
 
       setOverflowed(current.offsetWidth < current.scrollWidth);
     }),
-    [targetRef, isOverflowed]
+    [targetRef, isOverflowed],
   );
 
   // check on resizing

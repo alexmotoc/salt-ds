@@ -1,5 +1,3 @@
-"use strict";
-
 const valueParser = require("postcss-value-parser");
 const stylelint = require("stylelint");
 const glob = require("fast-glob");
@@ -47,11 +45,11 @@ const deprecatedTokensSet = new Set(
         .findAll(
           ast,
           (node, item, list) =>
-            node.type === "Declaration" && node.property.startsWith("--salt")
+            node.type === "Declaration" && node.property.startsWith("--salt"),
         )
         .map((decl) => decl.property);
     })
-    .filter(Boolean)
+    .filter(Boolean),
 );
 
 // ---- Start of plugin ----
@@ -77,9 +75,7 @@ const meta = {
  * - `--salt-xyz` from theme
  * - `--saltAbc` from a component
  */
-const isSaltThemeCustomProperty = function (property) {
-  return property.startsWith("--salt-");
-};
+const isSaltThemeCustomProperty = (property) => property.startsWith("--salt-");
 
 const allAllowedKeys = [
   // characteristics
@@ -121,7 +117,7 @@ const allAllowedKeys = [
 const varEndDetector = "(?![\\w-])";
 
 const allowedKeyRegexpPattern = new RegExp(
-  `--salt(w+)?-(${allAllowedKeys.join("|")}).*${varEndDetector}`
+  `--salt(w+)?-(${allAllowedKeys.join("|")}).*${varEndDetector}`,
 );
 
 function isAllowedKeys(property, verboseLog) {
@@ -167,7 +163,7 @@ module.exports = stylelint.createPlugin(
               declarationValueIndex(decl) + firstNode.sourceIndex,
               firstNode.value.length,
               decl,
-              firstNode.value
+              firstNode.value,
             );
           }
 
@@ -176,7 +172,7 @@ module.exports = stylelint.createPlugin(
               declarationValueIndex(decl) + firstNode.sourceIndex,
               firstNode.value.length,
               decl,
-              firstNode.value
+              firstNode.value,
             );
           }
 
@@ -200,7 +196,7 @@ module.exports = stylelint.createPlugin(
         index,
         length,
         decl,
-        propertyChecked
+        propertyChecked,
       ) {
         report({
           result,
@@ -216,7 +212,7 @@ module.exports = stylelint.createPlugin(
         index,
         length,
         decl,
-        propertyChecked
+        propertyChecked,
       ) {
         report({
           result,
@@ -229,7 +225,7 @@ module.exports = stylelint.createPlugin(
         });
       }
     };
-  }
+  },
 );
 
 module.exports.ruleName = ruleName;

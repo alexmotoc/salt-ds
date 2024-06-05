@@ -10,7 +10,7 @@
     "ignore": [".next", "mockServiceWorker.js"]
   },
   "organizeImports": {
-    "enabled": true
+    "enabled": false
   },
   "formatter": {
     "enabled": true,

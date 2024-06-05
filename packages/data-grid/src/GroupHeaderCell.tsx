@@ -1,10 +1,10 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { clsx } from "clsx";
 import { makePrefixer } from "@salt-ds/core";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
 
-import { GridColumnGroupModel } from "./Grid";
+import type { GridColumnGroupModel } from "./Grid";
 import { useColumnDataContext } from "./ColumnDataContext";
 
 import groupHeaderCellCss from "./GroupHeaderCell.css";

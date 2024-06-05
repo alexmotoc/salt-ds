@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { Calendar } from "@salt-ds/lab";
 
 const isDayUnselectable = (day: { day: number }) => {

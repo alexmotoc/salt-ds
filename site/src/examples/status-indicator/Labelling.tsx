@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { FlowLayout, StackLayout, StatusIndicator, Label } from "@salt-ds/core";
 
 export const Labelling = (): ReactElement => (

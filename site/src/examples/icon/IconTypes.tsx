@@ -1,4 +1,4 @@
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 import { AddDocumentIcon, AddDocumentSolidIcon } from "@salt-ds/icons";
 import { FlowLayout } from "@salt-ds/core";
 

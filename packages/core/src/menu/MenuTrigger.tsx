@@ -1,4 +1,4 @@
-import { cloneElement, isValidElement, ReactNode } from "react";
+import { cloneElement, isValidElement, type ReactNode } from "react";
 import { useMenuContext } from "./MenuContext";
 import { MenuTriggerContext } from "./MenuTriggerContext";
 import { useMenuPanelContext } from "./MenuPanelContext";
@@ -21,7 +21,7 @@ export function MenuTrigger(props: MenuTriggerProps) {
   const handleRef = useForkRef(
     // @ts-expect-error error TS2339 missing property ref
     isValidElement(children) ? children.ref : null,
-    refs?.setReference
+    refs?.setReference,
   );
 
   if (!children || !isValidElement(children)) {
@@ -41,7 +41,7 @@ export function MenuTrigger(props: MenuTriggerProps) {
               setFocusInside(false);
             },
           }),
-          children.props
+          children.props,
         ),
         ref: handleRef,
       })}

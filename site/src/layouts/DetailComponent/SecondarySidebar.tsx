@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import React, { type FC, type ReactNode } from "react";
 import { useRoute } from "@jpmorganchase/mosaic-store";
 
 import { Heading4 } from "../../components/mdx/h4";
@@ -6,7 +6,7 @@ import { useAllExamplesView } from "../../utils/useAllExamplesView";
 import { LinkList } from "../../components/link-list/LinkList";
 import { getHrefFromComponent } from "../../utils/getHrefFromComponent";
 
-import { Data, Relationship } from "./DetailComponent";
+import type { Data, Relationship } from "./DetailComponent";
 import styles from "./SecondarySidebar.module.css";
 import { RelatedPatterns } from "../DetailPattern/RelatedPatterns";
 
@@ -19,7 +19,7 @@ const examplesTabRoute = /\/examples$/;
 
 function getRelatedComponentLinks(
   relatedComponents: Data["relatedComponents"],
-  relationship: Relationship
+  relationship: Relationship,
 ) {
   return relatedComponents
     .filter((component) => component.relationship === relationship)
@@ -46,7 +46,7 @@ const SecondarySidebar: FC<SecondarySidebarProps> = ({
   const { allExamplesView } = useAllExamplesView();
   const similarToLinks = getRelatedComponentLinks(
     relatedComponents,
-    "similarTo"
+    "similarTo",
   );
   const containsList = getRelatedComponentLinks(relatedComponents, "contains");
 

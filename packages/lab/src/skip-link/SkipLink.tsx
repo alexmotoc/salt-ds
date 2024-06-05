@@ -1,5 +1,5 @@
-import { forwardRef, RefObject } from "react";
-import { Link, LinkProps, makePrefixer } from "@salt-ds/core";
+import { forwardRef, type RefObject } from "react";
+import { Link, type LinkProps, makePrefixer } from "@salt-ds/core";
 import { clsx } from "clsx";
 import { useManageFocusOnTarget } from "./internal/useManageFocusOnTarget";
 import { useWindow } from "@salt-ds/window";
@@ -44,5 +44,5 @@ export const SkipLink = forwardRef<HTMLAnchorElement, SkipLinkProps>(
         />
       </li>
     );
-  }
+  },
 );

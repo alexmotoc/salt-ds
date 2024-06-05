@@ -74,14 +74,14 @@ describe("Given a deck layout", () => {
 
       cy.get(".saltDeckLayout-animate").should(
         "have.class",
-        "saltDeckLayout-slide-vertical"
+        "saltDeckLayout-slide-vertical",
       );
     });
     it("THEN deck should have horizontal animation classes if direction is horizontal", () => {
       cy.mount(<Default animation="slide" />);
       cy.get(".saltDeckLayout-animate").should(
         "have.class",
-        "saltDeckLayout-slide-horizontal"
+        "saltDeckLayout-slide-horizontal",
       );
     });
   });

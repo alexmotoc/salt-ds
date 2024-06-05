@@ -1,20 +1,26 @@
-import { ChangeEvent, ComponentProps, memo, useRef, useState } from "react";
+import {
+  type ChangeEvent,
+  type ComponentProps,
+  memo,
+  useRef,
+  useState,
+} from "react";
 import { Button } from "@salt-ds/core";
 
 import {
   ComboBoxDeprecated,
   FormField,
   escapeRegExp,
-  GetFilterRegex,
-  ListChangeHandlerDeprecated,
-  ListSelectHandlerDeprecated,
+  type GetFilterRegex,
+  type ListChangeHandlerDeprecated,
+  type ListSelectHandlerDeprecated,
   ListItemBaseDeprecated,
-  ListItemProps,
+  type ListItemProps,
   useListItemDeprecated,
 } from "@salt-ds/lab";
-import { StoryFn, Meta } from "@storybook/react";
+import type { StoryFn, Meta } from "@storybook/react";
 import { Highlighter } from "../../src/list-deprecated/internal/Highlighter";
-import { IndexedListItemProps } from "../../src/list-deprecated";
+import type { IndexedListItemProps } from "../../src/list-deprecated";
 import { CloseIcon } from "@salt-ds/icons";
 
 export default {
@@ -178,7 +184,7 @@ const FormFieldComboBoxTemplate: StoryFn<
 };
 
 const ControlledComboBoxTemplate: StoryFn<typeof ComboBoxDeprecated> = (
-  args
+  args,
 ) => {
   const {
     source = statesData,
@@ -192,7 +198,7 @@ const ControlledComboBoxTemplate: StoryFn<typeof ComboBoxDeprecated> = (
 
   const handleInputChange = (
     event: ChangeEvent<HTMLInputElement>,
-    value: string
+    value: string,
   ) => {
     setInputValue(value.trim().toUpperCase());
     onInputChange?.(event, value);
@@ -288,7 +294,7 @@ export const ControlledSelection: StoryFn<typeof ComboBoxDeprecated> = ({
 
   const handleChange: ListChangeHandlerDeprecated<string, "default"> = (
     event,
-    newSelectedItem
+    newSelectedItem,
   ) => {
     setSelectedItem(newSelectedItem as string);
     onChange?.(event, newSelectedItem as any);
@@ -296,7 +302,7 @@ export const ControlledSelection: StoryFn<typeof ComboBoxDeprecated> = ({
 
   const handleMultiChange: ListChangeHandlerDeprecated<string, "multiple"> = (
     event,
-    newSelectedItem
+    newSelectedItem,
   ) => {
     setMultiSelectedItems(newSelectedItem as string[]);
     onChange?.(event, newSelectedItem as string[]);
@@ -304,7 +310,7 @@ export const ControlledSelection: StoryFn<typeof ComboBoxDeprecated> = ({
 
   const shuffleSelection = () => {
     setSelectedItem(
-      shortColorData[Math.floor(Math.random() * shortColorData.length)]
+      shortColorData[Math.floor(Math.random() * shortColorData.length)],
     );
     setMultiSelectedItems([
       shortColorData[Math.floor(Math.random() * shortColorData.length)],
@@ -436,7 +442,7 @@ MultiSelectWithFormField.args = {
 };
 
 export const MultiSelectWithFormFieldLabelLeft = FormFieldComboBoxTemplate.bind(
-  {}
+  {},
 );
 MultiSelectWithFormFieldLabelLeft.args = {
   ...WithFormFieldLabelLeft.args,
@@ -464,13 +470,13 @@ export const Autocomplete: StoryFn<typeof ComboBoxDeprecated> = (args) => {
 
   const filteredData = showList
     ? inputSource.filter((x: string) =>
-        x.match(new RegExp(escapeRegExp(inputValue), "ig"))
+        x.match(new RegExp(escapeRegExp(inputValue), "ig")),
       )
     : [];
 
   const handleInputChange = (
     event: ChangeEvent<HTMLInputElement>,
-    value: string
+    value: string,
   ) => {
     setInputValue(value);
     setShowList(true);

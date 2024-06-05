@@ -1,13 +1,13 @@
 import {
-  ComponentPropsWithRef,
+  type ComponentPropsWithRef,
   forwardRef,
-  MouseEvent,
-  SyntheticEvent,
+  type MouseEvent,
+  type SyntheticEvent,
 } from "react";
 import { clsx } from "clsx";
 import { makePrefixer } from "@salt-ds/core";
-import { DateValue } from "@internationalized/date";
-import { CalendarDay, CalendarDayProps } from "./CalendarDay";
+import type { DateValue } from "@internationalized/date";
+import { CalendarDay, type CalendarDayProps } from "./CalendarDay";
 import { formatDate, generateVisibleDays } from "./utils";
 
 import calendarMonthCss from "./CalendarMonth.css";
@@ -77,5 +77,5 @@ export const CalendarMonth = forwardRef<HTMLDivElement, CalendarMonthProps>(
         </div>
       </div>
     );
-  }
+  },
 );

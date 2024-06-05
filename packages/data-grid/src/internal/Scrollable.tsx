@@ -1,4 +1,4 @@
-import { RefObject, UIEventHandler, useEffect } from "react";
+import { type RefObject, type UIEventHandler, useEffect } from "react";
 import { makePrefixer } from "@salt-ds/core";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";

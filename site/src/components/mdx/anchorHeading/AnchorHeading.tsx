@@ -1,13 +1,14 @@
-import React, {
+import type React from "react";
+import {
   useState,
-  ReactNode,
-  FC,
-  ElementType,
-  PropsWithChildren,
-  HTMLProps,
+  type ReactNode,
+  type FC,
+  type ElementType,
+  type PropsWithChildren,
+  type HTMLProps,
 } from "react";
 import clsx from "clsx";
-import { Link, LinkProps } from "@jpmorganchase/mosaic-components";
+import { Link, type LinkProps } from "@jpmorganchase/mosaic-components";
 import styles from "./AnchorHeading.module.css";
 
 interface TypographyProps {
@@ -75,5 +76,6 @@ type WithAnchorHeadingProps = JSX.IntrinsicAttributes &
 
 export const withAnchorHeading =
   (Component: FC<PropsWithChildren<TypographyProps>>) =>
-  (props: WithAnchorHeadingProps) =>
-    <AnchorHeading {...props} Component={Component} />;
+  (props: WithAnchorHeadingProps) => (
+    <AnchorHeading {...props} Component={Component} />
+  );

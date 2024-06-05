@@ -1,8 +1,8 @@
 import {
-  ElementType,
+  type ElementType,
   forwardRef,
-  HTMLAttributes,
-  ReactElement,
+  type HTMLAttributes,
+  type ReactElement,
   useRef,
 } from "react";
 import { makePrefixer } from "@salt-ds/core";
@@ -22,7 +22,7 @@ const withBaseName = makePrefixer("saltCarouselSlide");
 export const CarouselSlide = forwardRef<HTMLDivElement, CarouselSlideProps>(
   function CarouselSlide(
     { ButtonBar, Media, description, title, contentAlignment },
-    ref
+    ref,
   ) {
     const buttonBarRef = useRef(null);
 
@@ -73,5 +73,5 @@ export const CarouselSlide = forwardRef<HTMLDivElement, CarouselSlideProps>(
         </div>
       </div>
     );
-  }
+  },
 );

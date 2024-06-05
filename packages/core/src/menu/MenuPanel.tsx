@@ -1,4 +1,8 @@
-import { ComponentPropsWithoutRef, forwardRef, ReactNode } from "react";
+import {
+  type ComponentPropsWithoutRef,
+  forwardRef,
+  type ReactNode,
+} from "react";
 import { clsx } from "clsx";
 import { FloatingList } from "@floating-ui/react";
 import { useMenuContext } from "./MenuContext";
@@ -65,5 +69,5 @@ export const MenuPanel = forwardRef<HTMLDivElement, MenuPanelProps>(
         </FloatingList>
       </MenuPanelContext.Provider>
     );
-  }
+  },
 );

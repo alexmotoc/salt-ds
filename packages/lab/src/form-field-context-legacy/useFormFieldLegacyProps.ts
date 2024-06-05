@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useIsomorphicLayoutEffect } from "@salt-ds/core";
 import {
   FormFieldLegacyContext,
-  FormFieldLegacyContextValue,
+  type FormFieldLegacyContextValue,
 } from "./FormFieldLegacyContext";
 
 interface useFormFieldLegacyPropsProps {

@@ -1,4 +1,8 @@
-import { ComponentPropsWithoutRef, CSSProperties, forwardRef } from "react";
+import {
+  type ComponentPropsWithoutRef,
+  type CSSProperties,
+  forwardRef,
+} from "react";
 import { clsx } from "clsx";
 import { makePrefixer } from "../../utils";
 import { Text } from "../../text";
@@ -53,7 +57,7 @@ export const CircularProgress = forwardRef<
     bufferValue = 0,
     ...rest
   },
-  ref
+  ref,
 ) {
   const targetWindow = useWindow();
   useComponentCssInjection({
@@ -127,7 +131,7 @@ export const CircularProgress = forwardRef<
             <div
               className={clsx(
                 withBaseName("bufferSubOverlay"),
-                withBaseName("bufferSubOverlayLeft")
+                withBaseName("bufferSubOverlayLeft"),
               )}
               style={bufferSubOverlayLeftStyle}
             >

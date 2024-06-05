@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import clsx from "clsx";
 import { Breadcrumbs } from "@jpmorganchase/mosaic-site-components";
 import { Footer, AppHeader } from "../../components";

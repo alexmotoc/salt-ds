@@ -1,9 +1,9 @@
 import { clsx } from "clsx";
 import {
-  ComponentPropsWithoutRef,
-  ForwardedRef,
+  type ComponentPropsWithoutRef,
+  type ForwardedRef,
   forwardRef,
-  ReactNode,
+  type ReactNode,
 } from "react";
 import { useWindow } from "@salt-ds/window";
 import { useComponentCssInjection } from "@salt-ds/styles";
@@ -22,7 +22,7 @@ export interface ToastContentProps extends ComponentPropsWithoutRef<"div"> {
 
 export const ToastContent = forwardRef(function ToastContent(
   { children, className, ...restProps }: ToastContentProps,
-  ref: ForwardedRef<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>,
 ) {
   const targetWindow = useWindow();
   useComponentCssInjection({

@@ -1,4 +1,8 @@
-import { ComponentPropsWithoutRef, CSSProperties, forwardRef } from "react";
+import {
+  type ComponentPropsWithoutRef,
+  type CSSProperties,
+  forwardRef,
+} from "react";
 import { clsx } from "clsx";
 import { makePrefixer } from "../../utils";
 import { Text } from "../../text";
@@ -47,7 +51,7 @@ export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(
       bufferValue = 0,
       ...rest
     },
-    ref
+    ref,
   ) {
     const targetWindow = useWindow();
     useComponentCssInjection({
@@ -88,5 +92,5 @@ export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>(
         )}
       </div>
     );
-  }
+  },
 );

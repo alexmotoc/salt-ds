@@ -44,7 +44,7 @@ describe("GIVEN a Stack", () => {
 
       cy.get(".saltFlexLayout").should(
         "have.class",
-        "saltStackLayout-separator"
+        "saltStackLayout-separator",
       );
     });
   });

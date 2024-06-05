@@ -1,4 +1,9 @@
-import { ChangeEvent, ReactElement, SyntheticEvent, useState } from "react";
+import {
+  type ChangeEvent,
+  type ReactElement,
+  type SyntheticEvent,
+  useState,
+} from "react";
 import {
   Button,
   Checkbox,
@@ -41,7 +46,7 @@ export const MandatoryAction = (): ReactElement => {
 
   const handleSelectionChange = (
     event: SyntheticEvent,
-    newSelected: string[]
+    newSelected: string[],
   ) => {
     setValue(newSelected.length === 1 ? newSelected[0] : "");
   };

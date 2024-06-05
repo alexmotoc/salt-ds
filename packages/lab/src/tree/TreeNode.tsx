@@ -1,4 +1,4 @@
-import { HTMLAttributes, MouseEventHandler, ReactNode } from "react";
+import type { HTMLAttributes, MouseEventHandler, ReactNode } from "react";
 import { clsx } from "clsx";
 import { TriangleRightIcon } from "@salt-ds/icons";
 
