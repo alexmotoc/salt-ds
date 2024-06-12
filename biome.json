@@ -21,5 +21,15 @@
     "rules": {
       "recommended": true
     }
+  },
+  "css": {
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "lineWidth": 320
+    },
+    "linter": {
+      "enabled": true
+    }
   }
 }

@@ -45,6 +45,7 @@
     "chromatic": "chromatic"
   },
   "dependencies": {
+    "@biomejs/biome": "1.8.1",
     "@changesets/cli": "^2.25.2",
     "@cypress/code-coverage": "^3.12.35",
     "@faker-js/faker": "^8.0.0",
@@ -132,8 +133,5 @@
   "packageManager": "yarn@4.2.2",
   "msw": {
     "workerDirectory": "docs/public"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.8.0"
   }
 }
