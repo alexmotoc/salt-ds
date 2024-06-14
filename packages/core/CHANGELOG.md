@@ -1,5 +1,131 @@
 # @salt-ds/core
 
+## 1.29.0
+
+### Minor Changes
+
+- d0b6912: Added `Display4` text.
+
+  ```
+  <Display4>text</Display>
+  <Text styleAs="display4">text</Text>
+  ```
+
+  It will be using different size when used in `SaltProvider` and `UNSTABLE_SaltProviderNext`.
+
+- c36e8a4: Added `icon` prop to Toast to allow for a custom icon
+
+  ```tsx
+  <Toast icon={<InfoIcon />} status={"info"}>
+    <ToastContent>
+      <Text>
+        <strong>Info with Custom Icon</strong>
+      </Text>
+      <div>Filters have been cleared</div>
+    </ToastContent>
+  </Toast>
+  ```
+
+- a0fff18: - Updated Input readonly state so that status adornment will be shown when `validationStatus` is set.
+
+  - Added `bordered` prop for Input. When set, a full border will be applied.
+
+  ```tsx
+  <Input bordered />
+  ```
+
+  - Updated MultilineInput readonly state so that status adornment will be shown and background color to match status color when `validationStatus` is set.
+  - Added rounded corner support for MultilineInput, when used in theme next.
+
+### Patch Changes
+
+- 72debf5: Fixed empty Switch label span being rendered. Closes #3505.
+- 3b854ed: Fixed SegmentedButtonGroup incorrectly rounding when theme next is used and `corner="rounded"`.
+
+## 1.28.1
+
+### Patch Changes
+
+- f8de151c: Fixed the chevron alignment for multi-line accordions.
+- a5556028: Fixed Text components not applying `className` correctly, including `Code`, `Display1`, `Display2`, `Display3`, `TextAction`, `TextNotation`.
+
+## 1.28.0
+
+### Minor Changes
+
+- 25e38e48: Added status color support to Text.
+
+  ```tsx
+      <Text color="info">This is error color of Text</Text>
+      <Text color="error">This is error color of Text</Text>
+      <Text color="warning">This is warning color of Text</Text>
+      <Text color="success">This is success color of Text</Text>
+  ```
+
+  - Checkbox will now have the correct border color on focus when it is in an error or warning state.
+  - Checkbox now uses `--salt-status-error-foreground-decorative` and `--salt-status-warning-foreground-decorative` instead of `--salt-status-error-foreground` and `--salt-status-warning-foreground`.
+  - RadioButton will now have the correct border color on focus when it is in an error or warning state.
+  - RadioButton now uses `--salt-status-error-foreground-decorative` and `--salt-status-warning-foreground-decorative` instead of `--salt-status-error-foreground` and `--salt-status-warning-foreground`.
+  - StatusAdornment now uses `--salt-status-error-foreground-decorative`, `--salt-status-warning-foreground-decorative` and `--salt-status-success-foreground-decorative` instead of `--salt-status-error-foreground`, `--salt-status-warning-foreground` and `--salt-status-success-foreground`.
+  - StatusIndicator now uses `--salt-status-info-foreground-decorative`, `--salt-status-error-foreground-decorative`, `--salt-status-warning-foreground-decorative` and `--salt-status-success-foreground-decorative` instead of `--salt-status-info-foreground`, `--salt-status-error-foreground`, `--salt-status-warning-foreground`, `--salt-status-success-foreground`.
+
+- 5ef28178: Added a new `accent` prop to `UNSTABLE_SaltProviderNext` with `"blue"` or `"teal"` option. To try it out, use
+
+  ```
+  <UNSTABLE_SaltProviderNext accent="teal">
+  ```
+
+  Refer to [documentation](https://storybook.saltdesignsystem.com/?path=/docs/experimental-theme-next--docs) for more information.
+
+- e1d4aab8: Added a new `headingFont` prop to `UNSTABLE_SaltProviderNext` with `"Open Sans"` or `"Amplitude"` option. To try it out, use
+
+  ```
+  <UNSTABLE_SaltProviderNext headingFont="Amplitude">
+  ```
+
+  Refer to [documentation](https://storybook.saltdesignsystem.com/?path=/docs/experimental-theme-next--docs) for more information.
+
+### Patch Changes
+
+- 33ffe0ef: Remove padding bottom and padding right from `DialogContent`
+- 88711e3b: Fixed `onBlur` and `onFocus` not working with FormField.
+- 1cfefb63: Added flex 1 to `DialogContent` so the dialog actions stick to the bottom
+- d5b968fd: Fixed dialog border styling was not set correctly
+- b266a075: Made `status` prop optional in Toast, allowing for Toast to have no status.
+  The default for the `status` prop changed from `"info"` to `undefined`. Toasts intended to have "info" status must refactor as beflow.
+
+  **Note:** This change is a bug fix but a breaking change for Toasts that were intended to have "info" status, but did not explicitly set the `status` prop.
+
+  Before:
+
+  ```tsx
+  <Toast>
+    <ToastContent>
+      A new version of this file is available with 37 updates.
+    </ToastContent>
+  </Toast>
+  ```
+
+  After:
+
+  ```tsx
+  <Toast status="info">
+    <ToastContent>
+      A new version of this file is available with 37 updates.
+    </ToastContent>
+  </Toast>
+  ```
+
+## 1.27.1
+
+### Patch Changes
+
+- 067bc00f: Make `SegmentedButtonGroup` CSS selectors apply divider styles only to `.saltButton`, preventing dividers appearing when using floating-ui components like `Menu`.
+- 5ff98b54: Fixed ComboBox logging event errors in React 16.
+- 88961433: Changed RadioButton's display to `inline-flex` so the hit area only covers the label.
+- d972d206: Fixed `Tooltip` not displaying when the `content` prop value is falsy e.g. 0
+- 88961433: Changed Checkbox's display to `inline-flex` so the hit area only covers the label.
+
 ## 1.27.0
 
 ### Minor Changes

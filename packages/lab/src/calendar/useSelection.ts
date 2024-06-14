@@ -20,9 +20,9 @@ interface BaseUseSelectionCalendarProps<SelectionVariantType> {
   ) => void;
 }
 
-type SingleSelectionValueType = DateValue;
+export type SingleSelectionValueType = DateValue;
 type MultiSelectionValueType = DateValue[];
-type RangeSelectionValueType = {
+export type RangeSelectionValueType = {
   startDate?: DateValue;
   endDate?: DateValue;
 };
@@ -88,6 +88,15 @@ export function isRangeOrOffsetSelectionValue(
   selectionValue?: AllSelectionValueType
 ): selectionValue is RangeSelectionValueType | OffsetSelectionValueType {
   return selectionValue != null && isPlainObject(selectionValue);
+}
+
+export function isRangeOrOffsetSelectionWithStartDate(
+  selectionValue?: AllSelectionValueType
+): selectionValue is RangeSelectionValueType | OffsetSelectionValueType {
+  return (
+    isRangeOrOffsetSelectionValue(selectionValue) &&
+    selectionValue?.hasOwnProperty("startDate")
+  );
 }
 
 const withBaseName = makePrefixer("saltCalendarDay");

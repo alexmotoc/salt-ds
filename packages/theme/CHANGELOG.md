@@ -1,5 +1,267 @@
 # @salt-ds/theme
 
+## 1.18.0
+
+### Minor Changes
+
+- d0b6912: Added display 4 text tokens, which have the same value as display 3.
+
+  In theme next, display sizes are remapped to reflect larger size than h1.
+
+- 87791a1: Updated H1 font weight
+
+  | H1      | Before     | New       |
+  | ------- | ---------- | --------- |
+  | Default | Bold       | Semi bold |
+  | Small   | Medium     | Regular   |
+  | Strong  | Extra bold | Bold      |
+
+  Added font weight in palette layer for display, heading, body and notation.
+
+  ```diff
+  + --salt-palette-text-display-fontWeight: var(--salt-typography-fontWeight-semiBold);
+  + --salt-palette-text-display-fontWeight-small: var(--salt-typography-fontWeight-regular);
+  + --salt-palette-text-display-fontWeight-strong: var(--salt-typography-fontWeight-bold);
+  + --salt-palette-text-heading-fontWeight: var(--salt-typography-fontWeight-semiBold);
+  + --salt-palette-text-heading-fontWeight-small: var(--salt-typography-fontWeight-regular);
+  + --salt-palette-text-heading-fontWeight-strong: var(--salt-typography-fontWeight-bold);
+  + --salt-palette-text-body-fontWeight: var(--salt-typography-fontWeight-regular);
+  + --salt-palette-text-body-fontWeight-small: var(--salt-typography-fontWeight-light);
+  + --salt-palette-text-body-fontWeight-strong: var(--salt-typography-fontWeight-semiBold);
+  + --salt-palette-text-notation-fontWeight: var(--salt-typography-fontWeight-semiBold);
+  + --salt-palette-text-notation-fontWeight-small: var(--salt-typography-fontWeight-regular);
+  + --salt-palette-text-notation-fontWeight-strong: var(--salt-typography-fontWeight-bold);
+  ```
+
+  Wired text characteristics font weight to newly added palette tokens.
+
+  In theme next, when Amplitude is used for heading, font weight will be adjusted accordingly.
+
+- 400c730: - Added `--salt-opacity-45: 0.45`.
+  - Updated `--salt-palette-opacity-primary-border` from `var(--salt-opacity-40)` to `var(--salt-opacity-45)`.
+- 416b7dd: Updated foundation color palette used in theme next due to color contrast concerns, below colors are impacted.
+
+  ```
+  --salt-color-blue-200
+  --salt-color-blue-300
+  --salt-color-blue-400
+  --salt-color-blue-600
+  --salt-color-blue-700
+  --salt-color-blue-800
+  --salt-color-blue-900
+  --salt-color-green-200
+  --salt-color-green-300
+  --salt-color-green-400
+  --salt-color-green-600
+  --salt-color-green-700
+  --salt-color-green-800
+  --salt-color-green-900
+  --salt-color-teal-200
+  --salt-color-teal-300
+  --salt-color-teal-400
+  --salt-color-teal-600
+  --salt-color-teal-700
+  --salt-color-teal-800
+  --salt-color-teal-900
+  --salt-color-orange-200
+  --salt-color-orange-300
+  --salt-color-orange-400
+  --salt-color-orange-500
+  --salt-color-orange-600
+  --salt-color-orange-700
+  --salt-color-orange-800
+  --salt-color-red-300
+  --salt-color-red-400
+  --salt-color-red-600
+  --salt-color-red-700
+  --salt-color-red-800
+  --salt-color-red-900
+  --salt-color-purple-200
+  --salt-color-purple-300
+  --salt-color-purple-400
+  --salt-color-purple-600
+  --salt-color-purple-700
+  --salt-color-purple-800
+  --salt-color-purple-900
+  ```
+
+- 081c82b: Added 20 groups of categorical palette and category characteristics tokens, e.g., cat 1 tokens
+
+  Characteristics
+
+  - `--salt-category-1-subtle-foreground`
+  - `--salt-category-1-subtle-background`
+  - `--salt-category-1-subtle-borderColor`
+  - `--salt-category-1-bold-background`
+  - `--salt-category-1-bold-foreground`
+
+  Palette
+
+  - `--salt-palette-categorical-1`
+  - `--salt-palette-categorical-1-strong`
+  - `--salt-palette-categorical-1-weakest`
+
+## 1.17.0
+
+### Minor Changes
+
+- 2199704e: Added categorical colors. Refer to [color page](https://www.saltdesignsystem.com/salt/foundations/color) for more detail. Closes #2523.
+
+### Patch Changes
+
+- 353e9171: Updated status tokens for theme next to match latest design
+
+## 1.16.0
+
+### Minor Changes
+
+- 25e38e48: ## Characteristics
+
+  Added decorative and informative status foreground tokens. This ensures contrast requirements are met for both text and non-text elements.
+
+  ```diff
+  +  --salt-status-info-foreground-decorative: var(--salt-palette-info-foreground-decorative);
+  +  --salt-status-error-foreground-decorative: var(--salt-palette-error-foreground-decorative);
+  +  --salt-status-warning-foreground-decorative: var(--salt-palette-warning-foreground-decorative);
+  +  --salt-status-success-foreground-decorative: var(--salt-palette-success-foreground-decorative);
+  +
+  +  --salt-status-info-foreground-informative: var(--salt-palette-info-foreground-informative);
+  +  --salt-status-error-foreground-informative: var(--salt-palette-error-foreground-informative);
+  +  --salt-status-warning-foreground-informative: var(--salt-palette-warning-foreground-informative);
+  +  --salt-status-success-foreground-informative: var(--salt-palette-success-foreground-informative);
+  ```
+
+  Deprecated status foreground tokens.
+
+  | Name                             | Replacement                                 |
+  | -------------------------------- | ------------------------------------------- |
+  | --salt-status-info-foreground    | --salt-status-info-foreground-decorative    |
+  | --salt-status-error-foreground   | --salt-status-error-foreground-decorative   |
+  | --salt-status-warning-foreground | --salt-status-warning-foreground-decorative |
+  | --salt-status-success-foreground | --salt-status-success-foreground-decorative |
+
+  ## Palette
+
+  Added decorative and informative info, error, warning and success foreground tokens.
+
+  ### Light
+
+  ```diff
+  +  --salt-palette-info-foreground-decorative: var(--salt-color-blue-500);
+  +  --salt-palette-info-foreground-informative: var(--salt-color-blue-600);
+  +  --salt-palette-error-foreground-decorative: var(--salt-color-red-500);
+  +  --salt-palette-error-foreground-informative: var(--salt-color-red-600);
+  +  --salt-palette-warning-foreground-decorative: var(--salt-color-orange-700);
+  +  --salt-palette-warning-foreground-informative: var(--salt-color-orange-850);
+  +  --salt-palette-success-foreground-decorative: var(--salt-color-green-500);
+  +  --salt-palette-success-foreground-informative: var(--salt-color-green-600);
+  ```
+
+  ### Dark
+
+  ```diff
+  +  --salt-palette-info-foreground-decorative: var(--salt-color-blue-100);
+  +  --salt-palette-info-foreground-informative: var(--salt-color-blue-200);
+  +  --salt-palette-error-foreground-decorative: var(--salt-color-red-400);
+  +  --salt-palette-error-foreground-informative: var(--salt-color-red-200);
+  +  --salt-palette-warning-foreground-decorative: var(--salt-color-orange-500);
+  +  --salt-palette-warning-foreground-informative: var(--salt-color-orange-400);
+  +  --salt-palette-success-foreground-decorative: var(--salt-color-green-400);
+  +  --salt-palette-success-foreground-informative: var(--salt-color-green-200);
+  ```
+
+  Updated info and error border tokens.
+
+  ```diff
+  -  --salt-palette-info-border: var(--salt-color-blue-500);
+  +  --salt-palette-info-border: var(--salt-color-blue-400);
+  -  --salt-palette-error-border: var(--salt-color-red-500);
+  +  --salt-palette-error-border: var(--salt-color-red-400);
+  ```
+
+  Deprecated status foreground tokens.
+
+  | Name                              | Replacement                                  |
+  | --------------------------------- | -------------------------------------------- |
+  | --salt-palette-info-foreground    | --salt-palette-info-foreground-decorative    |
+  | --salt-palette-error-foreground   | --salt-palette-error-foreground-decorative   |
+  | --salt-palette-warning-foreground | --salt-palette-warning-foreground-decorative |
+  | --salt-palette-success-foreground | --salt-palette-success-foreground-decorative |
+
+  ## Foundations
+
+  Added `--salt-color-orange-850`:
+
+  ```diff
+  +  --salt-color-orange-850: rgb(194, 52, 7);
+  ```
+
+- eaab9d89: Switched to use new color palette in theme next when using `UNSTABLE_SaltProviderNext`.
+
+  Refer to [documentation](https://storybook.saltdesignsystem.com/?path=/docs/experimental-theme-next--docs) for more information.
+
+  Closes #3394
+
+- 5ed8ed88: Added new `--salt-overlayable-rangeSelection` token, which points to new `--salt-palette-neutral-selection` and resolves to black@15% in light mode and white@15% in dark mode.
+- e1d4aab8: Supports heading font switch when using `UNSTABLE_SaltProviderNext`.
+
+  Refer to [documentation](https://storybook.saltdesignsystem.com/?path=/docs/experimental-theme-next--docs) for more information.
+
+## 1.15.0
+
+### Minor Changes
+
+- 3fa8b97c: Added new tokens
+
+  | Tier       | Token                                    | Value                                   |
+  | ---------- | ---------------------------------------- | --------------------------------------- |
+  | Foundation | `--salt-typography-fontFamily-openSans`  | "Open Sans"                             |
+  | Foundation | `--salt-typography-fontFamily-ptMono`    | "PT Mono"                               |
+  | Palette    | `--salt-palette-text-fontFamily`         | `--salt-typography-fontFamily-openSans` |
+  | Palette    | `--salt-palette-text-fontFamily-heading` | `--salt-typography-fontFamily-openSans` |
+  | Palette    | `--salt-palette-text-fontFamily-code`    | `--salt-typography-fontFamily-ptMono`   |
+
+  Updated existing token value mapping to use new tokens
+
+  ```diff
+  - --salt-text-fontFamily: var(--salt-typography-fontFamily);
+  + --salt-text-fontFamily: var(--salt-palette-text-fontFamily);
+  - --salt-text-notation-fontFamily: var(--salt-typography-fontFamily);
+  + --salt-text-notation-fontFamily: var(--salt-palette-text-fontFamily);
+  - --salt-text-h1-fontFamily: var(--salt-typography-fontFamily);
+  + --salt-text-h1-fontFamily: var(--salt-palette-text-fontFamily-heading);
+  - --salt-text-h2-fontFamily: var(--salt-typography-fontFamily);
+  + --salt-text-h2-fontFamily: var(--salt-palette-text-fontFamily-heading);
+  - --salt-text-h3-fontFamily: var(--salt-typography-fontFamily);
+  + --salt-text-h3-fontFamily: var(--salt-palette-text-fontFamily-heading);
+  - --salt-text-h4-fontFamily: var(--salt-typography-fontFamily);
+  + --salt-text-h4-fontFamily: var(--salt-palette-text-fontFamily-heading);
+  - --salt-text-label-fontFamily: var(--salt-typography-fontFamily);
+  + --salt-text-label-fontFamily: var(--salt-palette-text-fontFamily);
+  - --salt-text-display1-fontFamily: var(--salt-typography-fontFamily);
+  + --salt-text-display1-fontFamily: var(--salt-palette-text-fontFamily-heading);
+  - --salt-text-display2-fontFamily: var(--salt-typography-fontFamily);
+  + --salt-text-display2-fontFamily: var(--salt-palette-text-fontFamily-heading);
+  - --salt-text-display3-fontFamily: var(--salt-typography-fontFamily);
+  + --salt-text-display3-fontFamily: var(--salt-palette-text-fontFamily-heading);
+  - --salt-text-code-fontFamily: var(--salt-typography-fontFamily-code);
+  + --salt-text-code-fontFamily: var(--salt-palette-text-fontFamily-code);
+  ```
+
+  Deprecated below tokens, use replacement token instead
+
+  ```
+    --salt-typography-fontFamily: var(--salt-typography-fontFamily-openSans);
+    --salt-typography-fontFamily-code: var(--salt-typography-fontFamily-ptMono);
+  ```
+
+- 3fa8b97c: Updated global theme css font family pointing to text chractertics instead of foundation value
+
+  ```diff
+  - font-family: var(--salt-typography-fontFamily);
+  + font-family: var(--salt-text-fontFamily);
+  ```
+
 ## 1.14.0
 
 ### Minor Changes

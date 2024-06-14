@@ -7,12 +7,17 @@ import {
   FormFieldHelperText,
   FormFieldLabel,
   StackLayout,
+  Text,
 } from "@salt-ds/core";
 
 import { Meta, StoryFn } from "@storybook/react";
-import { GB, US } from "@salt-ds/countries";
 import { SyntheticEvent, useState } from "react";
-import { LocationIcon } from "@salt-ds/icons";
+import {
+  LocationIcon,
+  UserAdminIcon,
+  GuideClosedIcon,
+  EditIcon,
+} from "@salt-ds/icons";
 
 export default {
   title: "Core/Dropdown",
@@ -145,8 +150,8 @@ export const Variants: StoryFn<typeof Dropdown> = () => {
   );
 };
 
-export const MultiSelect = Template.bind({});
-MultiSelect.args = {
+export const Multiselect = Template.bind({});
+Multiselect.args = {
   multiselect: true,
 };
 
@@ -181,14 +186,24 @@ export const Grouped: StoryFn<typeof Dropdown> = (args) => {
   );
 };
 
-const countries: Record<string, { icon: JSX.Element; name: string }> = {
-  GB: {
-    icon: <GB aria-hidden size={0.75} />,
-    name: "United Kingdom of Great Britain and Northern Ireland",
+const permissions: Record<
+  string,
+  { icon: JSX.Element; name: string; description: string }
+> = {
+  read: {
+    icon: <GuideClosedIcon aria-hidden />,
+    name: "Read",
+    description: "Read only",
   },
-  US: {
-    icon: <US aria-hidden size={0.75} />,
-    name: "United States of America",
+  write: {
+    icon: <EditIcon aria-hidden />,
+    name: "Write",
+    description: "Read and write only",
+  },
+  admin: {
+    icon: <UserAdminIcon aria-hidden />,
+    name: "Admin",
+    description: "Full access",
   },
 };
 
@@ -203,7 +218,7 @@ export const ComplexOption: StoryFn<DropdownProps> = (args) => {
     args.onSelectionChange?.(event, newSelected);
   };
 
-  const adornment = countries[selected[0] ?? ""]?.icon || null;
+  const adornment = permissions[selected[0] ?? ""]?.icon || null;
 
   return (
     <Dropdown
@@ -211,15 +226,21 @@ export const ComplexOption: StoryFn<DropdownProps> = (args) => {
       selected={selected}
       startAdornment={adornment}
       onSelectionChange={handleSelectionChange}
-      valueToString={(item) => countries[item].name}
+      valueToString={(item) => permissions[item].name}
     >
-      <Option value="GB">
-        <GB size={0.75} aria-hidden /> United Kingdom of Great Britain and
-        Northern Ireland
-      </Option>
-      <Option value="US">
-        <US size={0.75} aria-hidden /> United States of America
-      </Option>
+      {Object.values(permissions).map(({ name, icon, description }) => (
+        <Option value={name.toLowerCase()} key={name.toLowerCase()}>
+          <StackLayout direction="row" gap={1}>
+            {icon}
+            <StackLayout gap={0.5} align="start">
+              <Text>{name}</Text>
+              <Text styleAs="label" color="secondary">
+                {description}
+              </Text>
+            </StackLayout>
+          </StackLayout>
+        </Option>
+      ))}
     </Dropdown>
   );
 };
@@ -291,7 +312,7 @@ const people: Person[] = [
   { id: 4, firstName: "Jane", lastName: "Smith", displayName: "Jane Smith" },
 ];
 
-export const ObjectValue: StoryFn<DropdownProps<Person>> = (args) => {
+export const ObjectValue: StoryFn<DropdownProps<Person>> = () => {
   const [selected, setSelected] = useState<Person[]>([]);
   const handleSelectionChange = (
     event: SyntheticEvent,
@@ -309,6 +330,80 @@ export const ObjectValue: StoryFn<DropdownProps<Person>> = (args) => {
     >
       {people.map((person) => (
         <Option value={person} key={person.id} />
+      ))}
+    </Dropdown>
+  );
+};
+export const SelectAll: StoryFn<DropdownProps> = (args) => {
+  const [selected, setSelected] = useState<string[]>([]);
+  const allSelectedOptionValue = "all";
+
+  const handleSelectionChange: DropdownProps["onSelectionChange"] = (
+    event,
+    newSelected
+  ) => {
+    let newOptionsSelected = [...newSelected];
+    const allWasPreviousSelected = selected.includes(allSelectedOptionValue);
+    const allIsCurrentlySelected = newOptionsSelected.includes(
+      allSelectedOptionValue
+    );
+
+    // If all was unselected
+    if (allWasPreviousSelected && !allIsCurrentlySelected) {
+      newOptionsSelected = [];
+      // If an option was unselected (-1 to not include "all")
+    } else if (
+      allWasPreviousSelected &&
+      newOptionsSelected.length - 1 !== usStates.length
+    ) {
+      newOptionsSelected = newOptionsSelected.filter(
+        (el) => el !== allSelectedOptionValue
+      );
+      // If all was selected or all options are now selected
+    } else if (
+      allIsCurrentlySelected ||
+      (!allIsCurrentlySelected && newOptionsSelected.length === usStates.length)
+    ) {
+      newOptionsSelected = [allSelectedOptionValue, ...usStates];
+    }
+
+    setSelected(newOptionsSelected);
+    args.onSelectionChange?.(event, newOptionsSelected);
+  };
+
+  return (
+    <Dropdown
+      {...args}
+      style={{ width: "266px" }}
+      selected={selected}
+      value={
+        selected.length < 2
+          ? selected[0]
+          : selected.includes("all")
+          ? "All Selected"
+          : `${selected.length} items selected`
+      }
+      onSelectionChange={handleSelectionChange}
+      multiselect
+    >
+      <div>
+        <Option
+          style={{
+            borderBottom: "var(--salt-separable-borderStyle)",
+            borderWidth: "var(--salt-size-border)",
+            borderColor:
+              selected.includes(usStates[0]) ||
+              selected.includes(allSelectedOptionValue)
+                ? "transparent"
+                : "var(--salt-separable-tertiary-borderColor)",
+          }}
+          value={allSelectedOptionValue}
+        >
+          Select All
+        </Option>
+      </div>
+      {usStates.map((state) => (
+        <Option value={state} key={state} />
       ))}
     </Dropdown>
   );

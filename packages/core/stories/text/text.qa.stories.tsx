@@ -2,6 +2,7 @@ import {
   Display1,
   Display2,
   Display3,
+  Display4,
   H1,
   H2,
   H3,
@@ -39,6 +40,21 @@ export const AllVariantsGrid: StoryFn<QAContainerProps> = (props) => (
     <Text color="secondary" disabled>
       Secondary disabled <strong>strong</strong> and <small>small</small> text
     </Text>
+    <Text color="info">
+      Info <strong>strong</strong> and <small>small</small> text
+    </Text>
+    <Text color="error">
+      Error <strong>strong</strong> and <small>small</small> text
+    </Text>
+    <Text color="warning">
+      Warning <strong>strong</strong> and <small>small</small> text
+    </Text>
+    <Text color="success">
+      Success <strong>strong</strong> and <small>small</small> text
+    </Text>
+    <Text color="inherit">
+      Inherit <strong>strong</strong> and <small>small</small> text
+    </Text>
     <Display1>
       Display 1 <strong>strong</strong> and <small>small</small> text
     </Display1>
@@ -48,6 +64,9 @@ export const AllVariantsGrid: StoryFn<QAContainerProps> = (props) => (
     <Display3>
       Display 3 <strong>strong</strong> and <small>small</small> text
     </Display3>
+    <Display4>
+      Display 4 <strong>strong</strong> and <small>small</small> text
+    </Display4>
     <H1>
       H1 <strong>strong</strong> and <small>small</small> text
     </H1>
@@ -76,7 +95,20 @@ export const AllVariantsGrid: StoryFn<QAContainerProps> = (props) => (
 );
 
 AllVariantsGrid.parameters = {
-  chromatic: { disableSnapshot: false },
+  chromatic: {
+    disableSnapshot: false,
+    modes: {
+      theme: {
+        themeNext: "disabled",
+      },
+      themeNext: {
+        themeNext: "enable",
+        corner: "rounded",
+        accent: "teal",
+        // Ignore headingFont given font is not loaded
+      },
+    },
+  },
 };
 
 export const NoStyleInjectionGrid: StoryFn<QAContainerNoStyleInjectionProps> = (
@@ -89,11 +121,23 @@ export const NoStyleInjectionGrid: StoryFn<QAContainerNoStyleInjectionProps> = (
     <Text disabled>
       Primary disabled <strong>strong</strong> and <small>small</small> text
     </Text>
-    <Text variant="secondary">
+    <Text color="secondary">
       Secondary <strong>strong</strong> and <small>small</small> text
     </Text>
-    <Text variant="secondary" disabled>
+    <Text color="secondary" disabled>
       Secondary disabled <strong>strong</strong> and <small>small</small> text
+    </Text>
+    <Text color="info">
+      Info <strong>strong</strong> and <small>small</small> text
+    </Text>
+    <Text color="error">
+      Error <strong>strong</strong> and <small>small</small> text
+    </Text>
+    <Text color="warning">
+      Warning <strong>strong</strong> and <small>small</small> text
+    </Text>
+    <Text color="success">
+      Success <strong>strong</strong> and <small>small</small> text
     </Text>
     <Display1>
       Display 1 <strong>strong</strong> and <small>small</small> text

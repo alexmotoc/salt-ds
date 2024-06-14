@@ -18,6 +18,7 @@
 /* Intermediate palette (refined colors) */
 @import url(palette/accent.css);
 @import url(palette/error.css);
+@import url(palette/categorical.css);
 @import url(palette/info.css);
 @import url(palette/interact.css);
 @import url(palette/navigate.css);
@@ -26,11 +27,13 @@
 @import url(palette/opacity.css);
 @import url(palette/positive.css);
 @import url(palette/success.css);
+@import url(palette/text.css);
 @import url(palette/warning.css);
 
 /* Each characteristic file references values from above foundations */
 @import url(characteristics/accent.css);
 @import url(characteristics/actionable.css);
+@import url(characteristics/category.css);
 @import url(characteristics/container.css);
 @import url(characteristics/draggable.css);
 @import url(characteristics/target.css);

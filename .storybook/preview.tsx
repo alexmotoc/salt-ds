@@ -20,7 +20,6 @@ import { ComponentProps } from "react";
 import { withTheme } from "docs/decorators/withTheme";
 import { withResponsiveWrapper } from "docs/decorators/withResponsiveWrapper";
 import { WithTextSpacingWrapper } from "docs/decorators/withTextSpacingWrapper";
-import { withStrictMode } from "docs/decorators/withStrictMode";
 import { withScaffold } from "docs/decorators/withScaffold";
 import { withDateMock } from "docs/decorators/withDateMock";
 import { SaltProvider } from "@salt-ds/core";
@@ -90,15 +89,6 @@ export const globalTypes: GlobalTypes = {
       items: ["disable", "enable"],
     },
   },
-  strictMode: {
-    name: "Strict Mode",
-    description: "Enables React's Strict Mode",
-    defaultValue: "enable",
-    toolbar: {
-      items: ["disable", "enable"],
-      title: "Strict Mode",
-    },
-  },
   scaffold: {
     name: "Scaffold",
     description: "Enables the testing scaffold",
@@ -136,6 +126,26 @@ export const globalTypes: GlobalTypes = {
       icon: "beaker",
       items: ["sharp", "rounded"],
       title: "Corner",
+    },
+  },
+  headingFont: {
+    name: "Experimental heading font",
+    description: "Switch heading font to open sans / amplitude",
+    defaultValue: "Open Sans",
+    toolbar: {
+      icon: "beaker",
+      items: ["Open Sans", "Amplitude"],
+      title: "Heading font",
+    },
+  },
+  accent: {
+    name: "Experimental accent",
+    description: "Switch accent to blue / teal",
+    defaultValue: "blue",
+    toolbar: {
+      icon: "beaker",
+      items: ["blue", "teal"],
+      title: "Accent",
     },
   },
 };
@@ -201,7 +211,6 @@ export const decorators = [
   withResponsiveWrapper,
   withTheme,
   WithTextSpacingWrapper,
-  withStrictMode,
   withDateMock,
 ];
 
