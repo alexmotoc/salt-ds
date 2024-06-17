@@ -22,12 +22,7 @@ export default {
 } as Meta<typeof ListBox>;
 
 const Template: StoryFn<typeof ListBox> = (args) => (
-  <ListBox
-    {...args}
-    style={{
-      maxHeight: "",
-    }}
-  >
+  <ListBox {...args}>
     {shortStatesData.map((state) => (
       <Option key={state} value={state} />
     ))}
@@ -75,7 +70,7 @@ export const DisabledOption: StoryFn<typeof ListBox> = (args) => (
 
 export const Borderless = Template.bind({});
 Borderless.args = {
-  borderless: true,
+  bordered: false,
 };
 
 export const Scrolling: StoryFn<typeof ListBox> = (args) => (

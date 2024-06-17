@@ -20,6 +20,8 @@ import {
   CloseIcon,
   DoubleChevronLeftIcon,
   DoubleChevronRightIcon,
+  DoubleChevronDownIcon,
+  DoubleChevronUpIcon,
   FilterIcon,
   IconProps,
   SortableAlphaIcon,
@@ -27,6 +29,7 @@ import {
   SortAlphaDescendIcon,
 } from "@salt-ds/icons";
 import { usStateExampleData } from "../../assets/exampleData";
+import "./list-box.stories.css";
 
 export default {
   title: "Patterns/List builder",
@@ -65,7 +68,6 @@ function SortIcon({ sort, ...rest }: SortIconProps) {
 }
 
 function sortData(data: string[], sort: SortType): string[] {
-  console.log(data, sort);
   if (!sort) return data;
   // @ts-ignore
   return data.toSorted((a, b) =>
@@ -86,6 +88,67 @@ function EmptyMessage({ emptyMessage }: { emptyMessage?: string }) {
             "Please select at least one of the available options."}
         </Text>
       </StackLayout>
+    </StackLayout>
+  );
+}
+
+interface ListControlsProps {
+  onAddAll: () => void;
+  onAdd: () => void;
+  onRemove: () => void;
+  onRemoveAll: () => void;
+  orientation: ListBuilderProps["orientation"];
+  addDisabled?: boolean;
+  removeDisabled?: boolean;
+}
+
+function ListControls({
+  onAddAll,
+  onRemoveAll,
+  onAdd,
+  onRemove,
+  addDisabled,
+  removeDisabled,
+  orientation,
+}: ListControlsProps) {
+  return (
+    <StackLayout
+      style={{ justifyContent: "center" }}
+      direction={orientation === "row" ? "column" : "row"}
+      gap={1}
+    >
+      <Button aria-label="Add all to list" onClick={onAddAll}>
+        {orientation === "row" ? (
+          <DoubleChevronRightIcon aria-hidden />
+        ) : (
+          <DoubleChevronDownIcon aria-hidden />
+        )}
+      </Button>
+      <Button aria-label="Add to list" onClick={onAdd} disabled={addDisabled}>
+        {orientation === "row" ? (
+          <ChevronRightIcon aria-hidden />
+        ) : (
+          <ChevronDownIcon aria-hidden />
+        )}
+      </Button>
+      <Button
+        aria-label="Remove from list"
+        onClick={onRemove}
+        disabled={removeDisabled}
+      >
+        {orientation === "row" ? (
+          <ChevronLeftIcon aria-hidden />
+        ) : (
+          <ChevronUpIcon aria-hidden />
+        )}
+      </Button>
+      <Button aria-label="Remove all from list" onClick={onRemoveAll}>
+        {orientation === "row" ? (
+          <DoubleChevronLeftIcon aria-hidden />
+        ) : (
+          <DoubleChevronUpIcon aria-hidden />
+        )}
+      </Button>
     </StackLayout>
   );
 }
@@ -118,7 +181,8 @@ function List({
   return (
     <StackLayout
       as={Card}
-      style={{ "--saltCard-padding": "0", width: 228 } as CSSProperties}
+      className="listBuilderList"
+      style={{ "--saltCard-padding": "0", flex: 1 } as CSSProperties}
       gap={0}
     >
       <StackLayout style={{ padding: "var(--salt-spacing-100)" }} gap={1}>
@@ -210,7 +274,7 @@ function List({
       </StackLayout>
       {sortedOptions.length > 0 ? (
         <ListBox
-          borderless
+          bordered={false}
           multiselect={multiselect}
           onSelectionChange={(_, newSelected) => {
             onSelection?.(newSelected);
@@ -230,9 +294,13 @@ function List({
 
 interface ListBuilderProps {
   multiselect?: boolean;
+  orientation?: "row" | "column";
 }
 
-const ListBuilder: StoryFn<ListBuilderProps> = ({ multiselect }) => {
+const ListBuilder: StoryFn<ListBuilderProps> = ({
+  multiselect,
+  orientation = "row",
+}) => {
   const [picked, setPicked] = useState<string[]>([]);
   const availableOptions = usStateExampleData.filter(
     (state) => !picked.includes(state)
@@ -286,7 +354,7 @@ const ListBuilder: StoryFn<ListBuilderProps> = ({ multiselect }) => {
   };
 
   return (
-    <StackLayout direction="row" gap={1} style={{ height: 266 }}>
+    <StackLayout direction={orientation} gap={1} style={{ maxWidth: "30em" }}>
       <List
         title="Available"
         options={filteredAvailableOptions}
@@ -299,54 +367,31 @@ const ListBuilder: StoryFn<ListBuilderProps> = ({ multiselect }) => {
         emptyMessage="There are no options left to display"
         multiselect={multiselect}
       />
-      <StackLayout
-        style={{ justifyContent: "center" }}
-        direction="column"
-        gap={1}
-      >
-        <Button
-          aria-label="Add all to list"
-          onClick={() => {
-            setPicked((old) => old.concat(filteredAvailableOptions));
-            setOptionsToAdd([]);
-            setOptionsToRemove([]);
-          }}
-        >
-          <DoubleChevronRightIcon aria-hidden />
-        </Button>
-        <Button
-          aria-label="Add to list"
-          onClick={() => {
-            setPicked((old) => old.concat(optionsToAdd));
-            setOptionsToAdd([]);
-          }}
-          disabled={optionsToAdd.length === 0}
-        >
-          <ChevronRightIcon aria-hidden />
-        </Button>
-        <Button
-          aria-label="Remove from list"
-          onClick={() => {
-            setPicked((old) =>
-              old.filter((item) => !optionsToRemove.includes(item))
-            );
-            setOptionsToRemove([]);
-          }}
-          disabled={optionsToRemove.length === 0}
-        >
-          <ChevronLeftIcon aria-hidden />
-        </Button>
-        <Button
-          aria-label="Remove all from list"
-          onClick={() => {
-            setPicked([]);
-            setOptionsToAdd([]);
-            setOptionsToRemove([]);
-          }}
-        >
-          <DoubleChevronLeftIcon aria-hidden />
-        </Button>
-      </StackLayout>
+      <ListControls
+        orientation={orientation}
+        onAddAll={() => {
+          setPicked((old) => old.concat(filteredAvailableOptions));
+          setOptionsToAdd([]);
+          setOptionsToRemove([]);
+        }}
+        onAdd={() => {
+          setPicked((old) => old.concat(optionsToAdd));
+          setOptionsToAdd([]);
+        }}
+        addDisabled={optionsToAdd.length === 0}
+        onRemove={() => {
+          setPicked((old) =>
+            old.filter((item) => !optionsToRemove.includes(item))
+          );
+          setOptionsToRemove([]);
+        }}
+        removeDisabled={optionsToRemove.length === 0}
+        onRemoveAll={() => {
+          setPicked([]);
+          setOptionsToAdd([]);
+          setOptionsToRemove([]);
+        }}
+      />
       <List
         title="Visible"
         options={filteredPickedOptions}
@@ -368,3 +413,9 @@ const ListBuilder: StoryFn<ListBuilderProps> = ({ multiselect }) => {
 export const SingleSelect = ListBuilder.bind({});
 export const Multiselect = ListBuilder.bind({});
 Multiselect.args = { multiselect: true };
+
+export const Vertical = ListBuilder.bind({});
+Vertical.args = { orientation: "column" };
+Vertical.parameters = {
+  layout: "padded",
+};

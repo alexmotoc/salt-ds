@@ -98,7 +98,7 @@ const ExamplesListView: FC<ExamplesListViewProps> = ({ examples }) => {
       <ListBox
         className={styles.exampleList}
         aria-label="Examples list"
-        borderless
+        bordered={false}
         onSelectionChange={handleSelectionChange}
         selected={selectedItem}
       >
