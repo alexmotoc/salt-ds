@@ -7,14 +7,7 @@ export const ComplexOptions = (): ReactElement => {
     <ListBox style={{ width: "30%" }}>
       {shortColorWithHex.slice(0, 5).map(({ color, hex }) => (
         <Option value={color} key={color}>
-          <StackLayout
-            gap={0.5}
-            align="start"
-            style={{
-              paddingBlock:
-                "calc(var(--salt-spacing-100) + var(--salt-spacing-25))",
-            }}
-          >
+          <StackLayout gap={0.5} align="start">
             <Text>
               <strong>{color}</strong>
             </Text>

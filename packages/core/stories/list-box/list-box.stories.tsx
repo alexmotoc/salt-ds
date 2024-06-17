@@ -1,7 +1,8 @@
 import type { Meta, StoryFn } from "@storybook/react";
-import { ListBox, Option, OptionGroup } from "@salt-ds/core";
-import { usStateExampleData } from "../assets/exampleData";
+import { ListBox, Option, OptionGroup, StackLayout, Text } from "@salt-ds/core";
+import { usStateExampleData, shortColorWithHex } from "../assets/exampleData";
 import "./list-box.stories.css";
+import { ReactElement } from "react";
 
 const shortStatesData = usStateExampleData.slice(0, 4);
 
@@ -105,3 +106,22 @@ DefaultSelectedMultiselect.args = {
 
 export const Disabled = Template.bind({});
 Disabled.args = { disabled: true };
+
+export const ComplexOptions = (): ReactElement => {
+  return (
+    <ListBox>
+      {shortColorWithHex.slice(0, 5).map(({ color, hex }) => (
+        <Option value={color} key={color}>
+          <StackLayout gap={0.5} align="start">
+            <Text>
+              <strong>{color}</strong>
+            </Text>
+            <Text styleAs="label" color="secondary">
+              {hex}
+            </Text>
+          </StackLayout>
+        </Option>
+      ))}
+    </ListBox>
+  );
+};
