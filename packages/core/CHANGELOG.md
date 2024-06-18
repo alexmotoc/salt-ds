@@ -1,5 +1,30 @@
 # @salt-ds/core
 
+## 1.30.0
+
+### Minor Changes
+
+- f89189d: Added a new `actionFont` prop to `UNSTABLE_SaltProviderNext` with `"Open Sans"` or `"Amplitude"` option. To try it out, use
+
+  ```
+  <UNSTABLE_SaltProviderNext actionFont="Amplitude">
+  ```
+
+  Refer to [documentation](https://storybook.saltdesignsystem.com/?path=/docs/experimental-theme-next--docs) for more information.
+
+- 6cde7ea: Added `Divider`.
+
+  ```tsx
+  <Divider />
+  <Divider variant={variant} orientation={orientation} />
+  ```
+
+### Patch Changes
+
+- 4697c25: Fixed content alignment of Option, OptionGoup, MenuItem and MenuGroup.
+- 0486cbc: Added line-height, letter-spacing and font-family to Dropdown, MenuItem, Option and OptionGroup.
+- f125982: Fixed Combo Box not picking `defaultValue` when `defaultSelected` is not set. Closes #3579.
+
 ## 1.29.0
 
 ### Minor Changes
