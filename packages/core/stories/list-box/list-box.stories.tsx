@@ -69,9 +69,9 @@ export const DisabledOption: StoryFn<typeof ListBox> = (args) => (
   </ListBox>
 );
 
-export const Borderless = Template.bind({});
-Borderless.args = {
-  bordered: false,
+export const Bordered = Template.bind({});
+Bordered.args = {
+  bordered: true,
 };
 
 export const Scrolling: StoryFn<typeof ListBox> = (args) => (

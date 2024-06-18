@@ -48,7 +48,7 @@ export const ListBox = forwardRef(function ListBox<Item>(
   ref: ForwardedRef<HTMLDivElement>
 ) {
   const {
-    bordered = true,
+    bordered,
     className,
     children,
     defaultSelected,

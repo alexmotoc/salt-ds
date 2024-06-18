@@ -274,15 +274,14 @@ function List({
       </StackLayout>
       {sortedOptions.length > 0 ? (
         <ListBox
-          bordered={false}
           multiselect={multiselect}
           onSelectionChange={(_, newSelected) => {
             onSelection?.(newSelected);
           }}
           selected={selected}
         >
-          {sortedOptions.map((option) => (
-            <Option key={option} value={option} />
+          {sortedOptions.map((option, index) => (
+            <Option key={index} value={option} />
           ))}
         </ListBox>
       ) : (
