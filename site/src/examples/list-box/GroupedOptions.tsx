@@ -1,5 +1,6 @@
 import { Option, OptionGroup, ListBox } from "@salt-ds/core";
 import { ReactElement } from "react";
+// refer to https://github.com/jpmorganchase/salt-ds/tree/main/site/src/examples/list-box/exampleData.ts
 import { shortColorData } from "./exampleData";
 
 function groupByFirstLetter(data: string[]) {

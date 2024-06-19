@@ -46,7 +46,7 @@ Use the `disabled` prop on the `Option` component to disable an option. Disabled
 
 ## Bordered
 
-Use the `borderless` prop to add a border to the list box.
+Use the `bordered` prop to add a border to the list box.
 
 </LivePreview>
 
@@ -62,7 +62,12 @@ The list box will scroll when the number of options exceeds the height of the li
 
 ## Complex options
 
-The list box will scroll when the number of options exceeds the height of the list box.
+You can supply static content as children to the `Option` component. This can be used to visually assist users, for example rendering a description for the option as seen in this example.
+
+### Best practices
+
+- Users can benefit from seeing a particular visual with list items. Customize the display as you see fit. For example, if displaying a list of contacts, it may help to provide headshots alongside the option text.
+- Place any visual support such as icons, country symbols or avatars to the left of the option text.
 
 </LivePreview>
 </LivePreviewControls>

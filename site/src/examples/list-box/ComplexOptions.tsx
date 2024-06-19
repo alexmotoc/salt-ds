@@ -1,5 +1,6 @@
 import { Option, ListBox, Text, StackLayout } from "@salt-ds/core";
 import { ReactElement } from "react";
+// refer to https://github.com/jpmorganchase/salt-ds/tree/main/site/src/examples/list-box/exampleData.ts
 import { shortColorWithHex } from "./exampleData";
 
 export const ComplexOptions = (): ReactElement => {
